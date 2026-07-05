@@ -95,141 +95,145 @@ export default function Hero() {
         </div>
 
         {/* ── Right Column: Interactive Circular Orbital Diagram ─ */}
-        <div className="w-full lg:w-[54%] flex items-center justify-center relative min-h-[460px] md:min-h-[520px] max-w-[650px] mx-auto lg:mx-0">
-          
-          {/* Orbit line background — fully visible for stronger connection */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[460px] h-[460px] rounded-full border-2 border-dashed border-navy/60 animate-[spin_100s_linear_infinite]" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] h-[320px] rounded-full border-2 border-dashed border-navy/40 animate-[spin_80s_linear_infinite_reverse]" />
+        {/* ── Right Column: Interactive Circular Orbital Diagram ─ */}
+        <div className="w-full lg:w-[54%] flex items-center justify-center relative min-h-[360px] sm:min-h-[460px] md:min-h-[520px] max-w-[650px] mx-auto lg:mx-0 overflow-hidden">
+          {/* Responsive Scaling Container to prevent horizontal layout clipping on mobile */}
+          <div className="relative w-[460px] h-[460px] flex items-center justify-center scale-[0.68] sm:scale-[0.85] md:scale-[0.95] lg:scale-100 transition-transform duration-300">
+            
+            {/* Orbit line background — fully visible for stronger connection */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[460px] h-[460px] rounded-full border-2 border-dashed border-navy/60 animate-[spin_100s_linear_infinite]" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] h-[320px] rounded-full border-2 border-dashed border-navy/40 animate-[spin_80s_linear_infinite_reverse]" />
 
-          {/* Center Skyline Circle - Large, covers height */}
-          <div className="relative w-64 h-64 md:w-[19rem] md:h-[19rem] rounded-full border border-border shadow-2xl overflow-hidden bg-white z-10">
-            <img
-              src="/images/world_map_countries.png"
-              alt="Handshake over global city skyline representing cross-border partnerships"
-              className="object-cover w-full h-full"
-            />
-          </div>
+            {/* Center Skyline Circle - Large, covers height */}
+            <div className="relative w-64 h-64 md:w-[19rem] md:h-[19rem] rounded-full border border-border shadow-2xl overflow-hidden bg-white z-10">
+              <img
+                src="/images/world_map_countries.png"
+                alt="Handshake over global city skyline representing cross-border partnerships"
+                className="object-cover w-full h-full"
+              />
+            </div>
 
-          {/* Orbiting Badge 1: Accounting & Bookkeeping (Top Right) */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20" style={{ transform: "rotate(315deg) translate(230px) rotate(-315deg)" }}>
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-              <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white border border-border flex items-center justify-center shadow-md text-accent shrink-0">
-                <svg className="w-6 h-6 md:w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                </svg>
+            {/* Orbiting Badge 1: Accounting & Bookkeeping (Top Right) */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20" style={{ transform: "rotate(315deg) translate(230px) rotate(-315deg)" }}>
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white border border-border flex items-center justify-center shadow-md text-accent shrink-0">
+                  <svg className="w-6 h-6 md:w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                  </svg>
+                </div>
+              </div>
+              <div className="absolute top-1/2 left-[54px] -translate-y-1/2 text-left font-sans hidden md:block">
+                <span className="block text-[11px] md:text-xs font-bold text-navy whitespace-nowrap leading-tight">Accounting &</span>
+                <span className="block text-[10px] md:text-[11px] text-muted font-bold leading-tight mt-0.5">Bookkeeping</span>
               </div>
             </div>
-            <div className="absolute top-1/2 left-[54px] -translate-y-1/2 text-left font-sans hidden md:block">
-              <span className="block text-[11px] md:text-xs font-bold text-navy whitespace-nowrap leading-tight">Accounting &</span>
-              <span className="block text-[10px] md:text-[11px] text-muted font-bold leading-tight mt-0.5">Bookkeeping</span>
-            </div>
-          </div>
 
-          {/* Orbiting Badge 2: Taxation & Compliance (Middle Right) */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20" style={{ transform: "rotate(0deg) translate(230px) rotate(0deg)" }}>
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-              <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white border border-border flex items-center justify-center shadow-md text-accent shrink-0">
-                <svg className="w-6 h-6 md:w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
+            {/* Orbiting Badge 2: Taxation & Compliance (Middle Right) */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20" style={{ transform: "rotate(0deg) translate(230px) rotate(0deg)" }}>
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white border border-border flex items-center justify-center shadow-md text-accent shrink-0">
+                  <svg className="w-6 h-6 md:w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                </div>
+              </div>
+              <div className="absolute top-[46%] left-[54px] -translate-y-1/2 text-left font-sans hidden md:block">
+                <span className="block text-[11px] md:text-xs font-bold text-navy whitespace-nowrap leading-tight">Taxation &</span>
+                <span className="block text-[10px] md:text-[11px] text-muted font-bold leading-tight mt-0.5">Compliance</span>
               </div>
             </div>
-            <div className="absolute top-[46%] left-[54px] -translate-y-1/2 text-left font-sans hidden md:block">
-              <span className="block text-[11px] md:text-xs font-bold text-navy whitespace-nowrap leading-tight">Taxation &</span>
-              <span className="block text-[10px] md:text-[11px] text-muted font-bold leading-tight mt-0.5">Compliance</span>
-            </div>
-          </div>
 
-          {/* Orbiting Badge 3: Business Incorporation (Lower Right) */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20" style={{ transform: "rotate(45deg) translate(230px) rotate(-45deg)" }}>
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-              <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white border border-border flex items-center justify-center shadow-md text-accent shrink-0">
-                <svg className="w-6 h-6 md:w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                </svg>
+            {/* Orbiting Badge 3: Business Incorporation (Lower Right) */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20" style={{ transform: "rotate(45deg) translate(230px) rotate(-45deg)" }}>
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white border border-border flex items-center justify-center shadow-md text-accent shrink-0">
+                  <svg className="w-6 h-6 md:w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
+                </div>
+              </div>
+              <div className="absolute top-1/2 left-[54px] -translate-y-1/2 text-left font-sans hidden md:block">
+                <span className="block text-[11px] md:text-xs font-bold text-navy whitespace-nowrap leading-tight">Business</span>
+                <span className="block text-[10px] md:text-[11px] text-muted font-bold leading-tight mt-0.5">Incorporation</span>
               </div>
             </div>
-            <div className="absolute top-1/2 left-[54px] -translate-y-1/2 text-left font-sans hidden md:block">
-              <span className="block text-[11px] md:text-xs font-bold text-navy whitespace-nowrap leading-tight">Business</span>
-              <span className="block text-[10px] md:text-[11px] text-muted font-bold leading-tight mt-0.5">Incorporation</span>
-            </div>
-          </div>
 
-          {/* Orbiting Badge 4: Payroll Management (Bottom Center) */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20" style={{ transform: "rotate(90deg) translate(230px) rotate(-90deg)" }}>
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-              <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white border border-border flex items-center justify-center shadow-md text-accent shrink-0">
-                <svg className="w-6 h-6 md:w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2" />
-                </svg>
+            {/* Orbiting Badge 4: Payroll Management (Bottom Center) */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20" style={{ transform: "rotate(90deg) translate(230px) rotate(-90deg)" }}>
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white border border-border flex items-center justify-center shadow-md text-accent shrink-0">
+                  <svg className="w-6 h-6 md:w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2" />
+                  </svg>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="absolute left-1/2 -translate-x-1/2 text-center font-sans hidden md:block" style={{ top: "calc(50% + 260px)" }}>
-            <span className="block text-[11px] md:text-xs font-bold text-navy whitespace-nowrap leading-tight">Payroll</span>
-            <span className="block text-[10px] md:text-[11px] text-muted font-bold leading-tight mt-0.5">Management</span>
-          </div>
+            <div className="absolute left-1/2 -translate-x-1/2 text-center font-sans hidden md:block" style={{ top: "calc(50% + 260px)" }}>
+              <span className="block text-[11px] md:text-xs font-bold text-navy whitespace-nowrap leading-tight">Payroll</span>
+              <span className="block text-[10px] md:text-[11px] text-muted font-bold leading-tight mt-0.5">Management</span>
+            </div>
 
-          {/* Orbiting Badge 5: Virtual CFO Services (Bottom Left) */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20" style={{ transform: "rotate(135deg) translate(230px) rotate(-135deg)" }}>
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-              <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white border border-border flex items-center justify-center shadow-md text-accent shrink-0">
-                <svg className="w-6 h-6 md:w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                </svg>
+            {/* Orbiting Badge 5: Virtual CFO Services (Bottom Left) */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20" style={{ transform: "rotate(135deg) translate(230px) rotate(-135deg)" }}>
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white border border-border flex items-center justify-center shadow-md text-accent shrink-0">
+                  <svg className="w-6 h-6 md:w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                  </svg>
+                </div>
+              </div>
+              <div className="absolute top-1/2 right-[54px] -translate-y-1/2 text-right font-sans hidden md:block">
+                <span className="block text-[11px] md:text-xs font-bold text-navy whitespace-nowrap leading-tight">Virtual CFO</span>
+                <span className="block text-[10px] md:text-[11px] text-muted font-bold leading-tight mt-0.5">Services</span>
               </div>
             </div>
-            <div className="absolute top-1/2 right-[54px] -translate-y-1/2 text-right font-sans hidden md:block">
-              <span className="block text-[11px] md:text-xs font-bold text-navy whitespace-nowrap leading-tight">Virtual CFO</span>
-              <span className="block text-[10px] md:text-[11px] text-muted font-bold leading-tight mt-0.5">Services</span>
-            </div>
-          </div>
 
-          {/* Orbiting Badge 6: Financial Reporting (Lower Left) */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20" style={{ transform: "rotate(180deg) translate(230px) rotate(-180deg)" }}>
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-              <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white border border-border flex items-center justify-center shadow-md text-accent shrink-0">
-                <svg className="w-6 h-6 md:w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 17v-2m3 2v-4m3 2v-6m-9-3h18a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2z" />
-                </svg>
+            {/* Orbiting Badge 6: Financial Reporting (Lower Left) */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20" style={{ transform: "rotate(180deg) translate(230px) rotate(-180deg)" }}>
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white border border-border flex items-center justify-center shadow-md text-accent shrink-0">
+                  <svg className="w-6 h-6 md:w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 17v-2m3 2v-4m3 2v-6m-9-3h18a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2z" />
+                  </svg>
+                </div>
+              </div>
+              <div className="absolute top-1/2 right-[54px] -translate-y-1/2 text-right font-sans hidden md:block">
+                <span className="block text-[11px] md:text-xs font-bold text-navy whitespace-nowrap leading-tight">Financial</span>
+                <span className="block text-[10px] md:text-[11px] text-muted font-bold leading-tight mt-0.5">Reporting</span>
               </div>
             </div>
-            <div className="absolute top-1/2 right-[54px] -translate-y-1/2 text-right font-sans hidden md:block">
-              <span className="block text-[11px] md:text-xs font-bold text-navy whitespace-nowrap leading-tight">Financial</span>
-              <span className="block text-[10px] md:text-[11px] text-muted font-bold leading-tight mt-0.5">Reporting</span>
-            </div>
-          </div>
 
-          {/* Orbiting Badge 7: Advisory & Consulting (Middle Left) */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20" style={{ transform: "rotate(225deg) translate(230px) rotate(-225deg)" }}>
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-              <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white border border-border flex items-center justify-center shadow-md text-accent shrink-0">
-                <svg className="w-6 h-6 md:w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
+            {/* Orbiting Badge 7: Advisory & Consulting (Middle Left) */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20" style={{ transform: "rotate(225deg) translate(230px) rotate(-225deg)" }}>
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white border border-border flex items-center justify-center shadow-md text-accent shrink-0">
+                  <svg className="w-6 h-6 md:w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+              </div>
+              <div className="absolute top-1/2 right-[54px] -translate-y-1/2 text-right font-sans hidden md:block">
+                <span className="block text-[11px] md:text-xs font-bold text-navy whitespace-nowrap leading-tight">Advisory &</span>
+                <span className="block text-[10px] md:text-[11px] text-muted font-bold leading-tight mt-0.5">Consulting</span>
               </div>
             </div>
-            <div className="absolute top-1/2 right-[54px] -translate-y-1/2 text-right font-sans hidden md:block">
-              <span className="block text-[11px] md:text-xs font-bold text-navy whitespace-nowrap leading-tight">Advisory &</span>
-              <span className="block text-[10px] md:text-[11px] text-muted font-bold leading-tight mt-0.5">Consulting</span>
-            </div>
-          </div>
 
-          {/* Orbiting Badge 8: Global Support (Top Left) */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20" style={{ transform: "rotate(270deg) translate(230px) rotate(-270deg)" }}>
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-              <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white border border-border flex items-center justify-center shadow-md text-accent shrink-0">
-                <svg className="w-6 h-6 md:w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-                </svg>
+            {/* Orbiting Badge 8: Global Support (Top Left) */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20" style={{ transform: "rotate(270deg) translate(230px) rotate(-270deg)" }}>
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white border border-border flex items-center justify-center shadow-md text-accent shrink-0">
+                  <svg className="w-6 h-6 md:w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                  </svg>
+                </div>
+              </div>
+              <div className="absolute top-[-64px] left-1/2 -translate-x-1/2 text-center font-sans hidden md:block">
+                <span className="block text-[11px] md:text-xs font-bold text-navy whitespace-nowrap leading-tight">Global</span>
+                <span className="block text-[10px] md:text-[11px] text-muted font-bold leading-tight mt-0.5">Support</span>
               </div>
             </div>
-            <div className="absolute top-[-64px] left-1/2 -translate-x-1/2 text-center font-sans hidden md:block">
-              <span className="block text-[11px] md:text-xs font-bold text-navy whitespace-nowrap leading-tight">Global</span>
-              <span className="block text-[10px] md:text-[11px] text-muted font-bold leading-tight mt-0.5">Support</span>
-            </div>
-          </div>
 
+          </div>
         </div>
       </div>
 

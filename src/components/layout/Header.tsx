@@ -217,6 +217,14 @@ export default function Header() {
           </div>
         </div>
 
+        {/* Backdrop for mobile menu */}
+        {mobileMenuOpen && (
+          <div
+            className="fixed inset-0 bg-navy/20 backdrop-blur-xs z-30 md:hidden"
+            onClick={() => setMobileMenuOpen(false)}
+          />
+        )}
+
         {/* Mobile Navigation Panel */}
         <div
           className={cn(
@@ -226,7 +234,7 @@ export default function Header() {
         >
           <div className="flex justify-between items-center pb-6 border-b border-border">
             <div className="flex flex-col">
-              <Logo className="text-lg md:text-xl" />
+              <Logo heightClassName="h-8" />
             </div>
             <button
               onClick={() => setMobileMenuOpen(false)}
