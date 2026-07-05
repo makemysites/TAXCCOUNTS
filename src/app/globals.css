@@ -1,26 +1,174 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/* ─── Design Tokens (Tailwind v4 @theme) ──────────────────────────────────── */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Brand Colors */
+  --color-navy: #062F52;
+  --color-navy-dark: #031A30;
+  --color-navy-light: #0B5BA0;
+  --color-accent: #0B5BA0;
+  --color-accent-hover: #062F52;
+  --color-gold: #C5A55A;
+  --color-gold-light: #E8D5A0;
+
+  /* Neutrals */
+  --color-cream: #FDFBF7;
+  --color-cream-dark: #F7F5F0;
+  --color-charcoal: #1F2937;
+  --color-muted: #4B5563;
+  --color-surface: #FFFFFF;
+  --color-border: #E5E5E0;
+
+  /* Font families — values injected by next/font CSS variables */
+  --font-sans: var(--font-plus-jakarta), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-serif: var(--font-playfair), ui-serif, Georgia, Cambria, serif;
+
+  /* Animation durations */
+  --animate-fade-in: fade-in 0.6s ease-out both;
+  --animate-slide-up: slide-up 0.6s ease-out both;
+  --animate-slide-in: slide-in 0.5s ease-out both;
+  --animate-marquee: marquee 25s linear infinite;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ─── Animation Keyframes ─────────────────────────────────────────────────── */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ─── Base Styles ─────────────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-plus-jakarta), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  background-color: var(--color-cream);
+  color: var(--color-navy);
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── Accessibility: Focus-Visible ────────────────────────────────────────── */
+*:focus-visible {
+  outline: 2px solid #C5A55A;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Remove default focus outline for mouse users */
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Skip-to-content link (used in Header) */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  z-index: 100;
+  padding: 8px 16px;
+  background-color: #1B2B4B;
+  color: #FFFFFF;
+  font-weight: 600;
+  border-radius: 0 0 4px 4px;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* ─── Custom Scrollbar ────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAFAF7;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #1B2B4B;
+  border-radius: 4px;
+  border: 2px solid #FAFAF7;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #2A3F6B;
+}
+
+/* Firefox scrollbar */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #1B2B4B #FAFAF7;
+}
+
+/* ─── Photo Placeholder ──────────────────────────────────────────────────── */
+.photo-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  background-color: #F3F4F6;
+  border: 2px dashed #D1D5DB;
+  border-radius: 8px;
+  color: #6B7280;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.photo-placeholder::after {
+  content: "[REAL PHOTO REQUIRED]";
+}
+
+/* ─── Selection ───────────────────────────────────────────────────────────── */
+::selection {
+  background-color: #E8D5A0;
+  color: #0F1A2E;
+}
+
+/* ─── Infinite Marquee Hover Pause ────────────────────────────────────────── */
+.animate-marquee:hover {
+  animation-play-state: paused;
 }
