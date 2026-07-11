@@ -1,11 +1,10 @@
 import React from "react";
 import type { Metadata } from "next";
 import { FOUNDER, CREDENTIALS, FIRM, BOOKING } from "@/lib/firm-content";
-import PhotoPlaceholder from "@/components/shared/PhotoPlaceholder";
 
 export const metadata: Metadata = {
   title: "About Our Firm & Values",
-  description: `Learn about the professional credentials, core values, and team behind Anand & Associates, led by CA ${FOUNDER.name}.`,
+  description: `Learn about the professional credentials, core values, and team behind ${FIRM.name}, led by CA ${FOUNDER.name}.`,
 };
 
 export default function AboutPage() {
@@ -19,7 +18,7 @@ export default function AboutPage() {
             Who Are We
           </span>
           <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-semibold text-navy leading-tight">
-            About Anand & Associates
+            About {FIRM.name}
           </h1>
           <p className="text-sm md:text-base text-navy/80 leading-relaxed max-w-xl mx-auto">
             A specialized cross-border tax practice built to help international families and businesses manage their Indian compliance without friction.
@@ -30,11 +29,10 @@ export default function AboutPage() {
         <div className="bg-white rounded-2xl border border-border p-8 md:p-12 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-16">
           <div className="lg:col-span-5 flex justify-center lg:sticky lg:top-28">
             <div className="relative p-2 bg-cream rounded-xl border border-border w-full max-w-md">
-              <PhotoPlaceholder
-                width="100%"
-                height="450px"
-                label="[REAL PHOTO REQUIRED] — CA Priya Anand"
-                className="rounded-lg overflow-hidden"
+              <img
+                src="/images/about_company.png"
+                alt="CA Priya Anand, founder of TAXCCOUNTS, in a professional modern office setting"
+                className="rounded-lg overflow-hidden object-cover w-full h-[450px]"
               />
             </div>
           </div>
@@ -121,22 +119,29 @@ export default function AboutPage() {
               {
                 name: "CA Priya Anand",
                 role: "Founder & Principal",
-                desc: "12+ years of experience in cross-border tax planning, FEMA compliance, and offshore business bookkeeping systems."
+                desc: "12+ years of experience in cross-border tax planning, FEMA compliance, and offshore business bookkeeping systems.",
+                image: "/images/team_priya.png"
               },
               {
                 name: "Darlene Tria",
                 role: "Lead Reconciliations Manager",
-                desc: "Ensures monthly bank data feeds, ledgers, and offshore bookkeeping reconciliations are completed accurately and on schedule."
+                desc: "Ensures monthly bank data feeds, ledgers, and offshore bookkeeping reconciliations are completed accurately and on schedule.",
+                image: "/images/team_darlene.png"
               },
               {
                 name: "Joegee Carlos, CPA",
                 role: "US Liaison Consultant",
-                desc: "Coordinates tax credit optimization (Form 1116) and US filings (Form 1040) directly with clients' US domestic CPAs."
+                desc: "Coordinates tax credit optimization (Form 1116) and US filings (Form 1040) directly with clients' US domestic CPAs.",
+                image: "/images/team_joegee.png"
               }
             ].map((team, idx) => (
               <div key={idx} className="bg-white rounded-xl border border-border p-6 text-center space-y-3 shadow-sm flex flex-col items-center">
-                <div className="w-20 h-20 rounded-full border border-border overflow-hidden bg-cream mb-2 flex items-center justify-center font-serif text-navy text-xl font-bold">
-                  {team.name.split(" ").slice(-1)[0][0]}
+                <div className="w-20 h-20 rounded-full border border-border overflow-hidden bg-cream mb-2 flex items-center justify-center">
+                  <img
+                    src={team.image}
+                    alt={team.name}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <h3 className="font-serif text-base font-bold text-navy">{team.name}</h3>
                 <span className="text-[10px] text-accent font-bold uppercase tracking-widest font-sans block">{team.role}</span>

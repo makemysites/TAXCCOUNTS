@@ -1,7 +1,16 @@
 import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { FIRM, BOOKING } from "@/lib/firm-content";
+import { FIRM, SERVICES, BOOKING } from "@/lib/firm-content";
+import { FileText, Globe, BookOpen, TrendingUp, Building2, ArrowRight } from "lucide-react";
+
+const iconMap: Record<string, React.ComponentType<any>> = {
+  FileText: FileText,
+  Globe: Globe,
+  BookOpen: BookOpen,
+  TrendingUp: TrendingUp,
+  Building2: Building2,
+};
 
 export const metadata: Metadata = {
   title: "Services & How We Work",
@@ -26,81 +35,61 @@ export default function ServicesPage() {
           </p>
         </div>
 
-        {/* Detailed Modules walkthrough */}
-        <div className="space-y-16 max-w-4xl mx-auto">
-          {[
-            {
-              title: "Bookkeeping & Financial Reporting",
-              desc: "Accurate financial records are the foundation of our entire system. We categorize transactions across your domestic and international accounts, reconcile bank statement feeds, and ensure your ledger matches local and global compliance standards.",
-              features: [
-                "Monthly bank and credit card reconciliations",
-                "Cross-border transaction mapping & exchange rate tracking",
-                "Monthly P&L, balance sheets, and cash flow reports",
-                "Client trust account audits (specific for law practices)"
-              ]
-            },
-            {
-              title: "Tax Strategy & Returns",
-              desc: "We plan and optimize taxes throughout the year instead of scrambling in April. We coordinate entity-level tax positions in India and the US, evaluate capital gains exposure on global assets, and optimize double-tax (DTAA) treaty credits.",
-              features: [
-                "Proactive US-India DTAA double-tax mapping",
-                "Indian ITR filing for NRIs (salary, rental, gains, inheritance)",
-                "Corporate tax returns (Form 1120 / Partnership Form 1065 / Indian ITR-5 & 6)",
-                "Compliant global asset reporting (FBAR & FATCA)"
-              ]
-            },
-            {
-              title: "Payroll Management",
-              desc: "Processing payroll correctly is crucial when working across timezones. We handle payroll calculations, record maintenance, and associated compliance filings so you can pay founders and offshore teams on time, every time.",
-              features: [
-                "End-to-end payroll processing and direct deposits",
-                "Compliance calculations and tax withholding filings",
-                "Contractor payout management across borders",
-                "Integration with QuickBooks and Gusto payroll structures"
-              ]
-            },
-            {
-              title: "Advisory & Business Guidance",
-              desc: "All client engagements include year-round advisory support. We help you make sense of the financial reports, review compensation models, and navigate regulatory compliance (FEMA, RBI, local disclosures) without charging hourly fees.",
-              features: [
-                "Ongoing virtual CFO planning calls",
-                "FEMA compliance, RBI approvals, and Form 15CA/CB support",
-                "Transfer pricing reviews for US-India subsidiaries",
-                "Direct contact lines (Zoom, WhatsApp) included"
-              ]
-            }
-          ].map((module, idx) => (
-            <div
-              key={idx}
-              className="bg-white rounded-2xl p-8 md:p-10 border border-border shadow-sm flex flex-col md:flex-row gap-8 items-start hover:shadow-md transition-all duration-300"
-            >
-              {/* Step indicator */}
-              <div className="w-10 h-10 rounded-full bg-cream border border-border flex items-center justify-center font-serif text-base font-bold text-accent shadow-sm shrink-0">
-                0{idx + 1}
-              </div>
-              <div className="space-y-6 flex-1">
-                <div>
-                  <h2 className="font-serif text-xl sm:text-2xl font-bold text-navy">
-                    {module.title}
-                  </h2>
-                  <p className="text-xs md:text-sm text-navy/80 mt-3 leading-relaxed">
-                    {module.desc}
+        {/* Detailed Service Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {SERVICES.map((service, idx) => {
+            const IconComponent = iconMap[service.icon] || Globe;
+            return (
+              <div
+                key={service.slug}
+                className="bg-white rounded-2xl p-6 sm:p-8 border border-border shadow-sm flex flex-col justify-between hover:shadow-md hover:border-accent/30 hover:scale-[1.02] transition-all duration-300 group"
+              >
+                <div className="space-y-6">
+                  {/* Top Header Row */}
+                  <div className="flex justify-between items-center">
+                    <span className="w-12 h-12 bg-accent/5 text-accent rounded-xl border border-accent/15 flex items-center justify-center shadow-xs shrink-0 group-hover:bg-accent group-hover:text-white transition-colors duration-300">
+                      <IconComponent className="w-6 h-6" />
+                    </span>
+                    <span className="font-serif text-3xl font-bold text-accent/15 select-none">
+                      0{idx + 1}
+                    </span>
+                  </div>
+
+                  {/* Title & Price */}
+                  <div className="space-y-2">
+                    <h2 className="font-serif text-lg sm:text-xl font-bold text-navy group-hover:text-accent transition-colors duration-300 leading-tight">
+                      {service.title}
+                    </h2>
+                    {service.startingPrice ? (
+                      <span className="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-bold bg-cream-dark text-accent border border-border">
+                        Starts at {service.startingPrice}
+                      </span>
+                    ) : (
+                      <span className="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-bold bg-cream-dark text-muted border border-border">
+                        Custom Quote
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-xs sm:text-sm text-navy/80 leading-relaxed font-sans line-clamp-4">
+                    {service.description}
                   </p>
                 </div>
-                <div className="space-y-2.5 pt-4 border-t border-border/60">
-                  <h3 className="text-xs font-bold text-navy uppercase tracking-wider font-sans">Core Capabilities:</h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    {module.features.map((feat, fIdx) => (
-                      <div key={fIdx} className="flex items-center gap-2 text-xs text-navy/80 font-sans">
-                        <span className="text-accent">&#8226;</span>
-                        <span>{feat}</span>
-                      </div>
-                    ))}
-                  </div>
+
+                {/* Footer Link */}
+                <div className="pt-6 mt-6 border-t border-border/60">
+                  <Link
+                    href={`/services/${service.slug}`}
+                    className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-accent group-hover:text-accent-hover transition-colors"
+                  >
+                    <span>View Service Details</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                  </Link>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Pricing link CTA block */}

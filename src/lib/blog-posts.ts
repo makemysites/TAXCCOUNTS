@@ -17,12 +17,12 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
-    slug: "latest-gst-updates-india-2024",
+    slug: "latest-gst-updates-india",
     title: "Latest GST Updates and Compliance Changes in India",
-    metaTitle: "Latest GST Updates & Compliance Changes in India | 2024",
+    metaTitle: "Latest GST Updates & Compliance Changes in India | FY 2026-27",
     metaDescription: "Stay updated with the latest GST rate changes, compliance requirements, GSTR filing updates, and input tax credit rules in India.",
     excerpt: "Understand the newest GST notifications, rate adjustments, and compliance changes in India for businesses and service providers.",
-    date: "2024-05-15",
+    date: "2026-06-18",
     author: "CA Priya Anand",
     category: "GST",
     readTime: "5 min read",
@@ -50,7 +50,7 @@ export const BLOG_POSTS: BlogPost[] = [
     metaTitle: "Income Tax Slab Changes & Budget Updates | TAXCCOUNTS",
     metaDescription: "Get a clear guide to the latest Indian income tax slabs, comparing the New Tax Regime vs Old Tax Regime and outlining rebates.",
     excerpt: "A detailed breakdown of the new tax regime versus the old tax regime, income tax slab updates, and rebate eligibility rules.",
-    date: "2024-05-10",
+    date: "2026-06-05",
     author: "CA Priya Anand",
     category: "Income Tax",
     readTime: "6 min read",
@@ -58,19 +58,20 @@ export const BLOG_POSTS: BlogPost[] = [
 <h2>New Tax Regime vs. Old Tax Regime</h2>
 <p>Choosing between the Old and New tax regimes remains a critical decision for every taxpayer in India. The government has restructured the New Tax Regime to make it the default option, providing lower tax rates but removing most exemptions like HRA, LTA, and Section 80C deductions.</p>
 
-<h2>Slab Structure Under the New Tax Regime</h2>
+<h2>Slab Structure Under the New Tax Regime (AY 2026-27)</h2>
 <p>The revised slabs under the New Tax Regime are:</p>
 <ul>
-<li><strong>Up to ₹3,00,000:</strong> Nil</li>
-<li><strong>₹3,00,001 to ₹6,00,000:</strong> 5%</li>
-<li><strong>₹6,00,001 to ₹9,00,000:</strong> 10%</li>
-<li><strong>₹9,00,001 to ₹12,00,000:</strong> 15%</li>
-<li><strong>₹12,00,001 to ₹15,00,000:</strong> 20%</li>
-<li><strong>Above ₹15,00,000:</strong> 30%</li>
+<li><strong>Up to ₹4,00,000:</strong> Nil</li>
+<li><strong>₹4,00,001 to ₹8,00,000:</strong> 5%</li>
+<li><strong>₹8,00,001 to ₹12,00,000:</strong> 10%</li>
+<li><strong>₹12,00,001 to ₹16,00,000:</strong> 15%</li>
+<li><strong>₹16,00,001 to ₹20,00,000:</strong> 20%</li>
+<li><strong>₹20,00,001 to ₹24,00,000:</strong> 25%</li>
+<li><strong>Above ₹24,00,000:</strong> 30%</li>
 </ul>
 
 <h2>Standard Deduction and Rebate</h2>
-<p>Under the New Tax Regime, a standard deduction of ₹50,000 is allowed for salaried individuals. Furthermore, the tax rebate under Section 87A has been increased, meaning individuals with a taxable income of up to ₹7,000,000 pay zero income tax under the New Regime.</p>
+<p>Under the New Tax Regime, a standard deduction of ₹75,000 is allowed for salaried individuals. Furthermore, the tax rebate under Section 87A has been increased, meaning individuals with a taxable income of up to ₹12,00,000 (₹12,75,000 for salaried taxpayers after the standard deduction) pay zero income tax under the New Regime.</p>
 
 <h2>Which Regime Should You Choose?</h2>
 <p>For individuals with substantial investments in tax-saving instruments (PPF, ELSS, Insurance, Home Loan Interest under Section 24), the Old Tax Regime may still be beneficial. However, for those looking for simpler compliance without locking up capital in long-term investments, the New Tax Regime is highly attractive. Speak to us for a custom comparative report based on your numbers.</p>
@@ -82,7 +83,7 @@ export const BLOG_POSTS: BlogPost[] = [
     metaTitle: "US LLC Tax Guide for Non-US Residents | Form 5472 & 1120",
     metaDescription: "Essential tax guide for non-US residents owning US LLCs. Learn about Form 5472, Form 1120, and how to stay compliant with the IRS.",
     excerpt: "Essential tax filing requirements for non-US residents owning US LLCs or C-Corps. Learn about Form 5472, Form 1120, and withholding rules.",
-    date: "2024-05-05",
+    date: "2026-05-22",
     author: "CA Priya Anand",
     category: "USA Tax",
     readTime: "7 min read",
@@ -108,7 +109,7 @@ export const BLOG_POSTS: BlogPost[] = [
     metaTitle: "Register a Private Limited Company in India | Step-by-Step Guide",
     metaDescription: "A comprehensive guide to incorporating a Private Limited Company in India, covering DSC, DIN, SPICe+ form, and post-incorporation rules.",
     excerpt: "A complete walkthrough of registering a Private Limited Company in India. Covers DSC, DIN, SPICe+ form, and post-incorporation compliance.",
-    date: "2024-04-26",
+    date: "2026-04-30",
     author: "CA Priya Anand",
     category: "Business",
     readTime: "8 min read",
@@ -136,12 +137,12 @@ export const BLOG_POSTS: BlogPost[] = [
     `,
   },
   {
-    slug: "financial-planning-tips-startups-2024",
-    title: "Financial Planning Tips for Startups in 2024",
-    metaTitle: "Startup Financial Planning & runway Management Tips | 2024",
+    slug: "financial-planning-tips-startups",
+    title: "Financial Planning Tips for Startups in 2026",
+    metaTitle: "Startup Financial Planning & Runway Management Tips | 2026",
     metaDescription: "Learn key financial planning tips for early-stage startups, including runway management, unit economics, and tax incentives.",
     excerpt: "Key financial strategies for early-stage startups. How to manage runway, plan cash flows, handle tax compliance, and structure investments.",
-    date: "2024-04-20",
+    date: "2026-05-12",
     author: "CA Priya Anand",
     category: "Startup",
     readTime: "6 min read",
@@ -161,13 +162,13 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: "nri-itr-filing-guide",
-    title: "The NRI's Complete Guide to Filing ITR in India (2025)",
-    metaTitle: "NRI ITR Filing Guide 2025 | Step-by-Step for NRIs in the US & UK",
+    title: "The NRI's Complete Guide to Filing ITR in India (AY 2026-27)",
+    metaTitle: "NRI ITR Filing Guide AY 2026-27 | Step-by-Step for NRIs in the US & UK",
     metaDescription:
       "Step-by-step guide to filing your Indian income tax return as an NRI. Covers residential status, taxable income, DTAA credits, and common mistakes to avoid.",
     excerpt:
       "If you're an NRI with income in India — rental, interest, capital gains, or salary arrears — you probably need to file an ITR. Here's exactly how it works, what you need, and the mistakes that cost most NRIs money.",
-    date: "2025-03-15",
+    date: "2026-06-25",
     author: "CA Priya Anand",
     category: "NRI Taxation",
     readTime: "8 min read",
@@ -223,7 +224,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "Plain-English explanation of how the India–US Double Tax Avoidance Agreement works, what income types it covers, and how NRIs can use it to avoid paying tax twice.",
     excerpt:
       "The India–US Double Tax Avoidance Agreement means you shouldn't pay tax on the same income in both countries. But 'shouldn't' and 'don't' are two different things. Here's how to make sure it actually works in your favor.",
-    date: "2025-02-20",
+    date: "2026-04-15",
     author: "CA Priya Anand",
     category: "Cross-Border Tax",
     readTime: "6 min read",
@@ -271,7 +272,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "Complete checklist of documents NRIs need to file their Indian income tax return. Passport, Form 16, AIS, property documents, bank statements, and more.",
     excerpt:
       "Every year, NRI clients ask us the same question: 'What documents do I need to send?' Here's the complete checklist — save it, and you'll never scramble at filing time again.",
-    date: "2025-01-10",
+    date: "2026-05-02",
     author: "CA Priya Anand",
     category: "NRI Taxation",
     readTime: "4 min read",
@@ -338,4 +339,13 @@ export function getBlogPost(slug: string): BlogPost | undefined {
 
 export function getAllBlogSlugs(): string[] {
   return BLOG_POSTS.map((post) => post.slug);
+}
+
+export function getRelatedPosts(slug: string, count = 3): BlogPost[] {
+  const current = getBlogPost(slug);
+  if (!current) return [];
+  const others = BLOG_POSTS.filter((p) => p.slug !== slug);
+  const sameCategory = others.filter((p) => p.category === current.category);
+  const rest = others.filter((p) => p.category !== current.category);
+  return [...sameCategory, ...rest].slice(0, count);
 }

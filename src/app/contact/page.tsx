@@ -7,6 +7,7 @@ export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
     country: "USA",
     service: "nri-taxation",
     message: "",
@@ -50,6 +51,7 @@ export default function ContactPage() {
         setFormData({
           name: "",
           email: "",
+          phone: "",
           country: "USA",
           service: "nri-taxation",
           message: "",
@@ -131,14 +133,29 @@ export default function ContactPage() {
                     onChange={handleChange}
                     className="w-full px-4 py-3 bg-cream border border-border rounded-lg text-navy font-sans text-sm focus:outline-none focus:border-accent transition-colors"
                   >
-                    <option value="India">🇮🇳 India</option>
-                    <option value="USA">🇺🇸 USA</option>
-                    <option value="UK">🇬🇧 UK</option>
-                    <option value="Canada">🇨🇦 Canada</option>
-                    <option value="UAE">🇦🇪 UAE</option>
-                    <option value="Other">🌍 Other</option>
+                    <option value="India">India</option>
+                    <option value="USA">USA</option>
+                    <option value="UK">UK</option>
+                    <option value="Canada">Canada</option>
+                    <option value="UAE">UAE</option>
+                    <option value="Other">Other</option>
                   </select>
                 </div>
+              </div>
+
+              <div>
+                <label htmlFor="phone" className="block text-[10px] font-bold uppercase tracking-widest text-navy mb-2 font-sans">
+                  Phone / WhatsApp <span className="text-muted normal-case tracking-normal font-medium">(with country code)</span>
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  placeholder="e.g. +1 408 555 0123"
+                  className="w-full px-4 py-3 bg-cream border border-border rounded-lg text-navy font-sans text-sm focus:outline-none focus:border-accent transition-colors"
+                />
               </div>
 
               <div>

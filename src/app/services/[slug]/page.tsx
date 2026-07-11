@@ -1,8 +1,10 @@
 import React from "react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getServicePage, getAllServiceSlugs } from "@/lib/services-data";
-import { BOOKING } from "@/lib/firm-content";
+import Link from "next/link";
+import { getServicePage, getAllServiceSlugs, SERVICE_RELATED } from "@/lib/services-data";
+import { BOOKING, SERVICES } from "@/lib/firm-content";
+import { getBlogPost } from "@/lib/blog-posts";
 import { BookConsultationButton, SectionHeading } from "@/components/shared";
 import ProcessTimeline from "@/components/services/ProcessTimeline";
 import ServiceFAQ from "@/components/services/ServiceFAQ";
@@ -121,6 +123,68 @@ export default async function ServiceNichePage({ params }: PageProps) {
           />
           <ServiceFAQ items={service.faq} />
         </div>
+
+        {/* Related Services & Guides */}
+        {(() => {
+          const related = SERVICE_RELATED[service.slug];
+          if (!related) return null;
+
+          const relatedServices = related.services
+            .map((s) => SERVICES.find((svc) => svc.slug === s))
+            .filter((s) => s !== undefined);
+          const relatedPosts = related.posts
+            .map((p) => getBlogPost(p))
+            .filter((p) => p !== undefined);
+
+          if (relatedServices.length === 0 && relatedPosts.length === 0) return null;
+
+          return (
+            <div className="max-w-4xl mx-auto mt-20 pt-16 border-t border-border">
+              <SectionHeading
+                title="Explore Related Services & Guides"
+                subtitle="Cross-border situations rarely fit in one box — these may also apply to you."
+                centered={true}
+                className="mb-12"
+              />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {relatedServices.map((svc) => (
+                  <Link
+                    key={svc.slug}
+                    href={`/services/${svc.slug}`}
+                    className="group bg-white rounded-xl border border-border shadow-sm p-6 hover:border-accent transition-colors block"
+                  >
+                    <span className="text-[10px] font-bold text-accent uppercase tracking-widest block mb-2">
+                      Service
+                    </span>
+                    <h3 className="font-serif font-bold text-navy group-hover:text-accent transition-colors mb-2">
+                      {svc.title}
+                    </h3>
+                    <p className="text-xs text-muted leading-relaxed line-clamp-3">
+                      {svc.description}
+                    </p>
+                  </Link>
+                ))}
+                {relatedPosts.map((post) => (
+                  <Link
+                    key={post.slug}
+                    href={`/resources/${post.slug}`}
+                    className="group bg-white rounded-xl border border-border shadow-sm p-6 hover:border-accent transition-colors block"
+                  >
+                    <span className="text-[10px] font-bold text-accent uppercase tracking-widest block mb-2">
+                      Guide &middot; {post.readTime}
+                    </span>
+                    <h3 className="font-serif font-bold text-navy group-hover:text-accent transition-colors mb-2">
+                      {post.title}
+                    </h3>
+                    <p className="text-xs text-muted leading-relaxed line-clamp-3">
+                      {post.excerpt}
+                    </p>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          );
+        })()}
       </div>
     </div>
   );

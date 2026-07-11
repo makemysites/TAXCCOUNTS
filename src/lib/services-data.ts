@@ -420,3 +420,27 @@ export function getServicePage(slug: string): ServicePageData | undefined {
 export function getAllServiceSlugs(): string[] {
   return Object.keys(SERVICE_PAGES);
 }
+
+// Related services and blog guides shown at the bottom of each service page.
+export const SERVICE_RELATED: Record<string, { services: string[]; posts: string[] }> = {
+  "nri-taxation": {
+    services: ["cross-border-tax", "fdi-advisory"],
+    posts: ["nri-itr-filing-guide", "documents-checklist-nri"],
+  },
+  "cross-border-tax": {
+    services: ["nri-taxation", "virtual-cfo"],
+    posts: ["dtaa-benefits-explained", "us-tax-filing-guide-non-resident-business"],
+  },
+  bookkeeping: {
+    services: ["virtual-cfo", "cross-border-tax"],
+    posts: ["financial-planning-tips-startups", "us-tax-filing-guide-non-resident-business"],
+  },
+  "virtual-cfo": {
+    services: ["bookkeeping", "fdi-advisory"],
+    posts: ["financial-planning-tips-startups", "step-by-step-register-private-limited-company"],
+  },
+  "fdi-advisory": {
+    services: ["cross-border-tax", "bookkeeping"],
+    posts: ["step-by-step-register-private-limited-company", "us-tax-filing-guide-non-resident-business"],
+  },
+};

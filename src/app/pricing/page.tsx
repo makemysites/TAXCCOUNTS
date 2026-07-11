@@ -151,6 +151,172 @@ export default function PricingPage() {
           </div>
         </div>
 
+        {/* Plan Comparison Table */}
+        <div className="max-w-5xl mx-auto mb-20">
+          <h3 className="font-serif text-2xl font-semibold text-navy mb-4 text-center">
+            Compare the Two Plans
+          </h3>
+          <p className="text-xs sm:text-sm text-muted text-center max-w-xl mx-auto mb-10 font-sans leading-relaxed">
+            Both plans include the full bookkeeping foundation. The CFO Advisory Package adds forward-looking strategy on top of it.
+          </p>
+          <div className="bg-white rounded-2xl border border-border shadow-sm overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="w-full min-w-[560px] text-left border-collapse font-sans text-xs sm:text-sm">
+                <thead>
+                  <tr className="bg-navy text-white">
+                    <th className="px-6 py-4 font-bold uppercase tracking-wider text-xs w-1/2">
+                      What You Get
+                    </th>
+                    <th className="px-6 py-4 text-center">
+                      <div className="font-serif font-bold text-base normal-case tracking-normal">Core Accounting</div>
+                      <div className="text-[10px] font-semibold uppercase tracking-wider text-white/70">$300 / month</div>
+                    </th>
+                    <th className="px-6 py-4 text-center bg-navy-dark">
+                      <div className="font-serif font-bold text-base normal-case tracking-normal">CFO Advisory</div>
+                      <div className="text-[10px] font-semibold uppercase tracking-wider text-accent">$800 / month</div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-border text-navy/85">
+                  {[
+                    { feature: "Monthly bookkeeping & bank reconciliations", core: true, cfo: true },
+                    { feature: "Monthly financial reports (P&L, Balance Sheet)", core: true, cfo: true },
+                    { feature: "Cross-border tax planning (DTAA credit mapping)", core: true, cfo: true },
+                    { feature: "Indian corporate tax filing / US IRS return coordination", core: true, cfo: true },
+                    { feature: "Secure portal document exchange (TaxDome)", core: true, cfo: true },
+                    { feature: "Direct email and phone support", core: true, cfo: true },
+                    { feature: "Cash flow forecasting & scenario planning", core: false, cfo: true },
+                    { feature: "Performance dashboards & monthly strategy calls", core: false, cfo: true },
+                    { feature: "Entity structuring & transfer pricing advice", core: false, cfo: true },
+                    { feature: "Board-ready reports & fundraising prep", core: false, cfo: true },
+                    { feature: "Priority WhatsApp line with CA Priya Anand", core: false, cfo: true },
+                  ].map((row) => (
+                    <tr key={row.feature} className="hover:bg-cream/30 transition-colors">
+                      <td className="px-6 py-3.5 font-medium">{row.feature}</td>
+                      <td className="px-6 py-3.5 text-center">
+                        {row.core ? (
+                          <span className="text-emerald-500 font-bold">&#10003;</span>
+                        ) : (
+                          <span className="text-muted/50">&mdash;</span>
+                        )}
+                      </td>
+                      <td className="px-6 py-3.5 text-center bg-cream/40">
+                        {row.cfo ? (
+                          <span className="text-emerald-500 font-bold">&#10003;</span>
+                        ) : (
+                          <span className="text-muted/50">&mdash;</span>
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                  <tr className="bg-cream/60">
+                    <td className="px-6 py-4 font-bold text-navy">Best for</td>
+                    <td className="px-6 py-4 text-center text-xs leading-relaxed">
+                      Solo professionals & micro-businesses (1&ndash;5 people) needing clean books and on-time filings
+                    </td>
+                    <td className="px-6 py-4 text-center text-xs leading-relaxed bg-cream/40">
+                      Growing businesses that need strategic financial oversight, forecasting, and investor-ready reporting
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        {/* Specialized One-Time Services Section */}
+        <div className="mb-20 pt-12 border-t border-border">
+          <h3 className="font-serif text-2xl font-semibold text-navy mb-4 text-center">
+            Specialized One-Time Compliance Services
+          </h3>
+          <p className="text-xs sm:text-sm text-muted text-center max-w-xl mx-auto mb-12 font-sans leading-relaxed">
+            Need support with specific cross-border tasks rather than monthly books? We offer fixed-price filings and custom consulting engagements.
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {/* Card A: NRI ITR */}
+            <div className="bg-white rounded-xl border border-border p-6 flex flex-col justify-between shadow-xs">
+              <div className="space-y-4">
+                <span className="text-[9px] text-accent font-bold uppercase tracking-widest font-sans">NRI Compliance</span>
+                <h4 className="font-serif text-base font-bold text-navy">Indian NRI ITR Filing</h4>
+                <div className="text-xl font-bold font-serif text-accent pt-1 pb-3 border-b border-border/60">
+                  Starts at ₹15,000 <span className="text-[10px] text-muted font-sans font-medium">/ return</span>
+                </div>
+                <p className="text-xs text-navy/80 font-sans leading-relaxed">
+                  Filing individual tax returns in India for non-residents. Covers rental income, capital gains on Indian mutual funds/shares, NRO interest, and salary.
+                </p>
+                <ul className="space-y-1.5 text-xs text-navy/70 font-sans">
+                  <li>&#8226; US-India DTAA double-tax mapping</li>
+                  <li>&#8226; Foreign asset disclosure support</li>
+                  <li>&#8226; 15CA/15CB remittance planning</li>
+                </ul>
+              </div>
+              <a
+                href={BOOKING.calComUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-center py-2.5 mt-6 bg-cream hover:bg-cream-dark text-navy font-bold text-xs uppercase tracking-wider rounded-lg border border-border transition-all"
+              >
+                Inquire &rarr;
+              </a>
+            </div>
+
+            {/* Card B: DTAA planning */}
+            <div className="bg-white rounded-xl border border-border p-6 flex flex-col justify-between shadow-xs">
+              <div className="space-y-4">
+                <span className="text-[9px] text-accent font-bold uppercase tracking-widest font-sans">Tax Strategy</span>
+                <h4 className="font-serif text-base font-bold text-navy">Cross-Border Tax Planning</h4>
+                <div className="text-xl font-bold font-serif text-accent pt-1 pb-3 border-b border-border/60">
+                  Custom Quote <span className="text-[10px] text-muted font-sans font-medium">(Starts at $1,000)</span>
+                </div>
+                <p className="text-xs text-navy/80 font-sans leading-relaxed">
+                  Advanced tax structure advisory for dual-taxpayers. Ideal for structuring inheritance, gift tax, or cross-border stock option assets.
+                </p>
+                <ul className="space-y-1.5 text-xs text-navy/70 font-sans">
+                  <li>&#8226; Retirement account planning (401k/NRE)</li>
+                  <li>&#8226; FATCA & FBAR filing reviews</li>
+                  <li>&#8226; Subsidiary transfer pricing setup</li>
+                </ul>
+              </div>
+              <a
+                href={BOOKING.calComUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-center py-2.5 mt-6 bg-cream hover:bg-cream-dark text-navy font-bold text-xs uppercase tracking-wider rounded-lg border border-border transition-all"
+              >
+                Schedule Assessment
+              </a>
+            </div>
+
+            {/* Card C: FDI incorporation */}
+            <div className="bg-white rounded-xl border border-border p-6 flex flex-col justify-between shadow-xs">
+              <div className="space-y-4">
+                <span className="text-[9px] text-accent font-bold uppercase tracking-widest font-sans">Entity Setup</span>
+                <h4 className="font-serif text-base font-bold text-navy">FDI & Indian Incorporation</h4>
+                <div className="text-xl font-bold font-serif text-accent pt-1 pb-3 border-b border-border/60">
+                  Custom Quote <span className="text-[10px] text-muted font-sans font-medium">/ project</span>
+                </div>
+                <p className="text-xs text-navy/80 font-sans leading-relaxed">
+                  Incorporating a subsidiary or private limited company in India. End-to-end management of FEMA compliance and RBI reporting.
+                </p>
+                <ul className="space-y-1.5 text-xs text-navy/70 font-sans">
+                  <li>&#8226; Subsidiary entity incorporation</li>
+                  <li>&#8226; Share capital inflow reporting (FDI)</li>
+                  <li>&#8226; PAN/TAN & GST registration setup</li>
+                </ul>
+              </div>
+              <a
+                href={BOOKING.calComUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-center py-2.5 mt-6 bg-cream hover:bg-cream-dark text-navy font-bold text-xs uppercase tracking-wider rounded-lg border border-border transition-all"
+              >
+                Inquire &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
+
         {/* Add-ons & Notes Section */}
         <div className="max-w-4xl mx-auto pt-12 border-t border-border space-y-12">
           

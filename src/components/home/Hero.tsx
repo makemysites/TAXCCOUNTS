@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { BOOKING } from "@/lib/firm-content";
+import { BOOKING, COUNTRIES_SERVED_TEXT } from "@/lib/firm-content";
 
 export default function Hero() {
   const [visible, setVisible] = useState(false);
@@ -50,16 +50,16 @@ export default function Hero() {
                 Accounting. Taxation. Compliance. Advisory. Delivered with Precision.
               </p>
               <p className="max-w-[560px] text-sm md:text-base leading-relaxed text-navy/70 font-sans mx-auto lg:mx-0">
-                Supporting businesses across India, USA, UK, Canada, Australia, UAE, Singapore, and New Zealand with trusted financial and business solutions.
+                Supporting businesses across {COUNTRIES_SERVED_TEXT} with trusted financial and business solutions.
               </p>
             </div>
           </div>
 
           {/* Dual CTAs */}
-          <div className="flex flex-col gap-5 sm:flex-row  sm:justify-center lg:justify-start pt-3">
+          <div className="flex flex-col gap-5 sm:flex-row sm:justify-center lg:justify-start pt-3">
             <Link
               href="/services"
-              className="inline-flex items-center justify-center rounded-lg bg-navy px-12 py-4 text-sm uppercase tracking-wider font-bold text-white shadow hover:bg-navy/90 transition-colors"
+              className="inline-flex items-center justify-center rounded-lg bg-navy px-12 py-4 text-sm uppercase tracking-wider font-bold text-white shadow hover:bg-navy/90 hover:scale-[1.01] active:scale-[0.99] transition-all"
             >
               Our Services
             </Link>
@@ -68,7 +68,7 @@ export default function Hero() {
               href={BOOKING.calComUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-lg border border-navy/30 bg-white px-12 py-4 text-sm uppercase tracking-wider font-bold text-navy shadow-sm hover:bg-cream-dark transition-colors"
+              className="inline-flex items-center justify-center rounded-lg border border-navy/30 bg-transparent px-12 py-4 text-sm uppercase tracking-wider font-bold text-navy shadow-sm hover:bg-navy/5 hover:scale-[1.01] active:scale-[0.99] transition-all"
             >
               Talk to an Expert &rarr;
             </a>
@@ -79,10 +79,10 @@ export default function Hero() {
             {[
               { value: "12+", label: "Years of Experience" },
               { value: "2,500+", label: "Happy Clients" },
-              { value: "20+", label: "Countries Served" },
-              { value: "50+", label: "Finance Experts" }
+              { value: "8", label: "Countries Served" },
+              { value: "3", label: "Core Specialists" }
             ].map((stat, idx) => (
-              <div key={idx} className="space-y-1 text-center lg:text-left border-r last:border-r-0 border-border/60">
+              <div key={idx} className="space-y-1 text-center lg:text-left border-border/60 md:border-r md:last:border-r-0">
                 <span className="block text-3xl font-bold font-serif text-navy">
                   {stat.value}
                 </span>
@@ -96,7 +96,7 @@ export default function Hero() {
 
         {/* ── Right Column: Interactive Circular Orbital Diagram ─ */}
         {/* ── Right Column: Interactive Circular Orbital Diagram ─ */}
-        <div className="w-full lg:w-[54%] flex items-center justify-center relative min-h-[360px] sm:min-h-[460px] md:min-h-[520px] max-w-[650px] mx-auto lg:mx-0 overflow-hidden">
+        <div className="w-full lg:w-[54%] flex items-center justify-center relative min-h-[360px] sm:min-h-[460px] md:min-h-[520px] max-w-[650px] mx-auto lg:mx-0 overflow-visible">
           {/* Responsive Scaling Container to prevent horizontal layout clipping on mobile */}
           <div className="relative w-[460px] h-[460px] flex items-center justify-center scale-[0.68] sm:scale-[0.85] md:scale-[0.95] lg:scale-100 transition-transform duration-300">
             

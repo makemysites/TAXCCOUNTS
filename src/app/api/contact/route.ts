@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, email, country, service, message } = body;
+    const { name, email, phone, country, service, message } = body;
 
     // Validation
     if (!name || !email || !message) {
@@ -38,6 +38,7 @@ export async function POST(request: Request) {
     console.log("Contact form submission logged:", {
       name,
       email,
+      phone,
       country,
       service,
       message,

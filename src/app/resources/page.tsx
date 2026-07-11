@@ -1,10 +1,10 @@
 import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BLOG_POSTS } from "@/lib/blog-posts";
 import { FIRM } from "@/lib/firm-content";
 import { SectionHeading } from "@/components/shared";
 import ChecklistCapture from "@/components/resources/ChecklistCapture";
+import BlogGrid from "@/components/resources/BlogGrid";
 
 export const metadata: Metadata = {
   title: `Resources & Tax Guides | ${FIRM.name}`,
@@ -89,48 +89,7 @@ export default function ResourcesPage() {
             className="mb-12"
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {BLOG_POSTS.map((post) => (
-              <article
-                key={post.slug}
-                className="bg-white rounded-xl overflow-hidden border border-border shadow-sm flex flex-col hover:shadow-md transition-shadow"
-              >
-                <div className="p-6 flex-1 flex flex-col justify-between">
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-2 text-xs">
-                      <span className="px-2.5 py-1 bg-accent/5 text-navy font-bold uppercase tracking-wider rounded">
-                        {post.category}
-                      </span>
-                      <span className="text-muted font-medium">{post.readTime}</span>
-                    </div>
-                    <h3 className="text-lg font-bold font-serif text-navy line-clamp-2 hover:text-accent transition-colors">
-                      <Link href={`/resources/${post.slug}`}>{post.title}</Link>
-                    </h3>
-                    <p className="text-sm text-muted line-clamp-3 leading-relaxed">
-                      {post.excerpt}
-                    </p>
-                  </div>
-
-                  <div className="pt-6 border-t border-border flex items-center justify-between mt-6">
-                    <span className="text-xs text-muted">
-                      {new Date(post.date).toLocaleDateString("en-IN", {
-                        day: "numeric",
-                        month: "short",
-                        year: "numeric",
-                      })}
-                    </span>
-                    <Link
-                      href={`/resources/${post.slug}`}
-                      className="text-xs font-bold text-accent hover:underline inline-flex items-center gap-1"
-                    >
-                      <span>Read Article</span>
-                      <span>&rarr;</span>
-                    </Link>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
+          <BlogGrid />
         </div>
 
         {/* Email Gated Checklist Download - Delegated component */}

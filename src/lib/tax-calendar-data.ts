@@ -189,7 +189,7 @@ export const TAX_DEADLINES: TaxDeadline[] = [
 
 export const TAX_CALENDAR_META = {
   title: "Tax Deadline Calendar — India & US Filing Dates",
-  metaTitle: "India & US Tax Deadline Calendar | NRI Filing Dates 2024–2025",
+  metaTitle: "India & US Tax Deadline Calendar | NRI Filing Dates 2026–27",
   metaDescription:
     "Complete tax deadline calendar for NRIs — Indian ITR, GST, TDS filing dates alongside US IRS deadlines, FBAR, and estimated tax due dates. Never miss a deadline.",
   disclaimer:

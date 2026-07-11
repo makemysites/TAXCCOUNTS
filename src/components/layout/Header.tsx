@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FIRM, NAV_ITEMS, PORTAL, CONTACT, BOOKING } from "@/lib/firm-content";
+import { NAV_ITEMS, CONTACT, BOOKING } from "@/lib/firm-content";
 import { cn } from "@/lib/utils";
 import Logo from "@/components/shared/Logo";
 
@@ -193,12 +193,10 @@ export default function Header() {
             {/* Mobile Menu Button */}
             <div className="flex items-center space-x-3 md:hidden">
               <a
-                href={PORTAL.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-2.5 py-1.5 bg-cream hover:bg-accent hover:text-white text-navy font-bold text-xs rounded border border-border"
+                href={BOOKING.calComUrl}
+                className="px-3 py-1.5 bg-gold hover:bg-gold-light text-navy font-bold text-xs rounded-full shadow-sm"
               >
-                Portal
+                Book
               </a>
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

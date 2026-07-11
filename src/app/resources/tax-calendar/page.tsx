@@ -1,23 +1,60 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { TAX_DEADLINES, TAX_CALENDAR_META } from "@/lib/tax-calendar-data";
 import { BOOKING } from "@/lib/firm-content";
 import { SectionHeading } from "@/components/shared";
 
+const MONTH_INDEX: Record<string, number> = {
+  January: 0, February: 1, March: 2, April: 3, May: 4, June: 5,
+  July: 6, August: 7, September: 8, October: 9, November: 10, December: 11,
+};
+
+function nextOccurrence(dateStr: string, today: Date): Date {
+  const [monthName, dayStr] = dateStr.split(" ");
+  const month = MONTH_INDEX[monthName];
+  const day = parseInt(dayStr, 10);
+  const startOfToday = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+  const candidate = new Date(today.getFullYear(), month, day);
+  return candidate >= startOfToday
+    ? candidate
+    : new Date(today.getFullYear() + 1, month, day);
+}
+
 export default function TaxCalendarPage() {
   const [countryFilter, setCountryFilter] = useState<"All" | "India" | "USA">("All");
   const [categoryFilter, setCategoryFilter] = useState<string>("All");
+  // Set after mount to avoid a hydration mismatch between build-time and client dates
+  const [today, setToday] = useState<Date | null>(null);
+
+  useEffect(() => {
+    setToday(new Date());
+  }, []);
 
   // Extract unique categories for filtering
   const categories = ["All", ...Array.from(new Set(TAX_DEADLINES.map((d) => d.category)))];
 
   // Filter deadlines based on selections
-  const filteredDeadlines = TAX_DEADLINES.filter((d) => {
+  const filtered = TAX_DEADLINES.filter((d) => {
     const countryMatch = countryFilter === "All" || d.country === countryFilter;
     const categoryMatch = categoryFilter === "All" || d.category === categoryFilter;
     return countryMatch && categoryMatch;
   });
+
+  const filteredDeadlines = today
+    ? filtered
+        .map((d) => {
+          const due = nextOccurrence(d.date, today);
+          return {
+            ...d,
+            displayDate: `${d.date}, ${due.getFullYear()}`,
+            dueTime: due.getTime(),
+          };
+        })
+        .sort((a, b) => a.dueTime - b.dueTime)
+    : filtered.map((d) => ({ ...d, displayDate: d.date, dueTime: 0 }));
+
+  const nextDueTime = today && filteredDeadlines.length > 0 ? filteredDeadlines[0].dueTime : null;
 
   return (
     <div className="bg-cream py-16 sm:py-24 font-sans animate-fade-in">
@@ -55,11 +92,7 @@ export default function TaxCalendarPage() {
                         : "text-muted hover:text-navy"
                     }`}
                   >
-                    {tab === "All"
-                      ? "All Dates"
-                      : tab === "India"
-                      ? "🇮🇳 India"
-                      : "🇺🇸 USA"}
+                    {tab === "All" ? "All Dates" : tab}
                   </button>
                 ))}
               </div>
@@ -89,8 +122,8 @@ export default function TaxCalendarPage() {
           </div>
         </div>
 
-        {/* Deadlines Table / List */}
-        <div className="bg-white rounded-2xl border border-border shadow-sm overflow-hidden">
+        {/* Deadlines Table (desktop / tablet) */}
+        <div className="hidden sm:block bg-white rounded-2xl border border-border shadow-sm overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse font-sans">
               <thead>
@@ -103,48 +136,57 @@ export default function TaxCalendarPage() {
               </thead>
               <tbody className="divide-y divide-border text-sm">
                 {filteredDeadlines.length > 0 ? (
-                  filteredDeadlines.map((item, idx) => (
-                    <tr
-                      key={idx}
-                      className="hover:bg-cream/30 transition-colors"
-                    >
-                      {/* Date */}
-                      <td className="px-6 py-4 font-serif font-bold text-navy whitespace-nowrap">
-                        {item.date}
-                      </td>
+                  filteredDeadlines.map((item, idx) => {
+                    const isNext = nextDueTime !== null && item.dueTime === nextDueTime;
+                    return (
+                      <tr
+                        key={idx}
+                        className={`transition-colors ${
+                          isNext ? "bg-accent/5" : "hover:bg-cream/30"
+                        }`}
+                      >
+                        {/* Date */}
+                        <td className="px-6 py-4 font-serif font-bold text-navy whitespace-nowrap">
+                          <div>{item.displayDate}</div>
+                          {isNext && (
+                            <span className="inline-block mt-1 px-2 py-0.5 bg-accent text-white text-[10px] font-sans font-bold uppercase tracking-wider rounded">
+                              Up Next
+                            </span>
+                          )}
+                        </td>
 
-                      {/* Country Flag Badge */}
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <span
-                          className={`inline-flex items-center gap-1 px-2.5 py-1 text-xs font-bold uppercase tracking-wider rounded border ${
-                            item.country === "India"
-                              ? "bg-accent/5 text-navy border-accent/15"
-                              : "bg-accent/5 text-accent border-accent/25"
-                          }`}
-                        >
-                          <span>{item.country === "India" ? "🇮🇳" : "🇺🇸"}</span>
-                          <span>{item.country}</span>
-                        </span>
-                      </td>
+                        {/* Country Badge */}
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <span
+                            className={`inline-flex items-center gap-1 px-2.5 py-1 text-xs font-bold uppercase tracking-wider rounded border ${
+                              item.country === "India"
+                                ? "bg-accent/5 text-navy border-accent/15"
+                                : "bg-accent/5 text-accent border-accent/25"
+                            }`}
+                          >
+                            {item.country}
+                          </span>
+                        </td>
 
-                      {/* Category Badge */}
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <span className="px-2 py-0.5 bg-cream text-muted text-xs rounded border border-border">
-                          {item.category}
-                        </span>
-                      </td>
+                        {/* Category Badge */}
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <span className="px-2 py-0.5 bg-cream text-muted text-xs rounded border border-border">
+                            {item.category}
+                          </span>
+                        </td>
 
-                      {/* Description & Note */}
-                      <td className="px-6 py-4">
-                        <div className="font-bold text-navy">{item.description}</div>
-                        {item.note && (
-                          <div className="text-xs text-muted mt-1 max-w-xl font-normal leading-relaxed">
-                            {item.note}
-                          </div>
-                        )}
-                      </td>
-                    </tr>
-                  ))
+                        {/* Description & Note */}
+                        <td className="px-6 py-4">
+                          <div className="font-bold text-navy">{item.description}</div>
+                          {item.note && (
+                            <div className="text-xs text-muted mt-1 max-w-xl font-normal leading-relaxed">
+                              {item.note}
+                            </div>
+                          )}
+                        </td>
+                      </tr>
+                    );
+                  })
                 ) : (
                   <tr>
                     <td colSpan={4} className="px-6 py-12 text-center text-muted font-sans font-medium">
@@ -155,6 +197,58 @@ export default function TaxCalendarPage() {
               </tbody>
             </table>
           </div>
+        </div>
+
+        {/* Deadline Cards (mobile) */}
+        <div className="sm:hidden space-y-3">
+          {filteredDeadlines.length > 0 ? (
+            filteredDeadlines.map((item, idx) => {
+              const isNext = nextDueTime !== null && item.dueTime === nextDueTime;
+              return (
+                <div
+                  key={idx}
+                  className={`bg-white rounded-xl border shadow-sm p-5 space-y-3 ${
+                    isNext ? "border-accent" : "border-border"
+                  }`}
+                >
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="font-serif font-bold text-navy text-base">
+                      {item.displayDate}
+                    </span>
+                    {isNext && (
+                      <span className="px-2 py-0.5 bg-accent text-white text-[10px] font-bold uppercase tracking-wider rounded">
+                        Up Next
+                      </span>
+                    )}
+                  </div>
+                  <div className="font-bold text-navy text-sm leading-snug">
+                    {item.description}
+                  </div>
+                  {item.note && (
+                    <p className="text-xs text-muted leading-relaxed">{item.note}</p>
+                  )}
+                  <div className="flex flex-wrap items-center gap-2 pt-1">
+                    <span
+                      className={`px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider rounded border ${
+                        item.country === "India"
+                          ? "bg-accent/5 text-navy border-accent/15"
+                          : "bg-accent/5 text-accent border-accent/25"
+                      }`}
+                    >
+                      {item.country}
+                    </span>
+                    <span className="px-2 py-1 bg-cream text-muted text-[10px] rounded border border-border">
+                      {item.category}
+                    </span>
+                  </div>
+                </div>
+              );
+            })
+          ) : (
+            <div className="bg-white rounded-xl border border-border shadow-sm px-6 py-12 text-center text-muted font-medium text-sm">
+              No deadlines match your current filters. Try resetting the country or category toggle.
+            </div>
+          )}
         </div>
 
         {/* Disclaimer Section */}

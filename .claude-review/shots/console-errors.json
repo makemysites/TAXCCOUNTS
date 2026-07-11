@@ -1,0 +1,80 @@
+{
+  "home-desktop": [
+    "HTTP 200"
+  ],
+  "about-desktop": [
+    "HTTP 200"
+  ],
+  "services-desktop": [
+    "HTTP 200"
+  ],
+  "service-nri-taxation-desktop": [
+    "HTTP 200"
+  ],
+  "service-virtual-cfo-desktop": [
+    "HTTP 200"
+  ],
+  "pricing-desktop": [
+    "HTTP 200"
+  ],
+  "resources-desktop": [
+    "HTTP 200"
+  ],
+  "blog-nri-itr-desktop": [
+    "HTTP 200"
+  ],
+  "faq-desktop": [
+    "HTTP 200"
+  ],
+  "tax-calendar-desktop": [
+    "HTTP 200"
+  ],
+  "contact-desktop": [
+    "HTTP 200"
+  ],
+  "privacy-desktop": [
+    "HTTP 200"
+  ],
+  "terms-desktop": [
+    "HTTP 200"
+  ],
+  "home-mobile": [
+    "HTTP 200"
+  ],
+  "about-mobile": [
+    "HTTP 200"
+  ],
+  "services-mobile": [
+    "HTTP 200"
+  ],
+  "service-nri-taxation-mobile": [
+    "HTTP 200"
+  ],
+  "service-virtual-cfo-mobile": [
+    "HTTP 200"
+  ],
+  "pricing-mobile": [
+    "HTTP 200"
+  ],
+  "resources-mobile": [
+    "HTTP 200"
+  ],
+  "blog-nri-itr-mobile": [
+    "HTTP 200"
+  ],
+  "faq-mobile": [
+    "HTTP 200"
+  ],
+  "tax-calendar-mobile": [
+    "HTTP 200"
+  ],
+  "contact-mobile": [
+    "HTTP 200"
+  ],
+  "privacy-mobile": [
+    "HTTP 200"
+  ],
+  "terms-mobile": [
+    "HTTP 200"
+  ]
+}

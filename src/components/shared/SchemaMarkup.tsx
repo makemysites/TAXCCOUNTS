@@ -6,9 +6,10 @@ import {
   FOUNDER,
   CREDENTIALS,
 } from "@/lib/firm-content";
+import { FAQ_SECTIONS } from "@/lib/faq-data";
 
 interface SchemaMarkupProps {
-  type: "ProfessionalService" | "Article";
+  type: "ProfessionalService" | "Article" | "FAQPage";
   data?: {
     headline?: string;
     author?: string;
@@ -91,10 +92,29 @@ function buildArticleSchema(data: SchemaMarkupProps["data"]) {
   };
 }
 
+function buildFAQPageSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: FAQ_SECTIONS.flatMap((section) =>
+      section.items.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      }))
+    ),
+  };
+}
+
 export default function SchemaMarkup({ type, data }: SchemaMarkupProps) {
   const schema =
     type === "ProfessionalService"
       ? buildProfessionalServiceSchema()
+      : type === "FAQPage"
+      ? buildFAQPageSchema()
       : buildArticleSchema(data);
 
   return (

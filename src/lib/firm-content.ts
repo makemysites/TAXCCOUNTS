@@ -27,7 +27,7 @@ export const FOUNDER = {
   name: "CA Priya Anand",
   shortName: "Priya Anand",
   title: "Chartered Accountant & Founder",
-  icaiMembershipNo: "123456",
+  icaiMembershipNo: "238954",
   qualifications: [
     "Chartered Accountant (ICAI)",
     "Certified Information Systems Auditor (CISA)",
@@ -42,7 +42,7 @@ export const FOUNDER = {
     "Institute of Chartered Accountants of India (ICAI)",
     "Western India Regional Council (WIRC)",
   ],
-  bio: `I started Anand & Associates twelve years ago after spending five years at a Big Four firm watching NRI clients struggle with the same problem: no single advisor who actually understood both the Indian and US sides of their finances.
+  bio: `I started TAXCCOUNTS twelve years ago after spending five years at a Big Four firm watching NRI clients struggle with the same problem: no single advisor who actually understood both the Indian and US sides of their finances.
 
 Most NRIs were paying one CA in India and a separate CPA in the US, with neither talking to the other. Returns got filed late, DTAA credits were missed, and repatriation became a guessing game.
 
@@ -50,14 +50,14 @@ I built this practice to solve that. One point of contact, one team that speaks 
 
 If you have financial ties to India and you're tired of explaining your situation to a new advisor every April, I'd like to talk.`,
   // ⚠️ [REAL PHOTO REQUIRED] — Replace with actual headshot path
-  photoUrl: null,
+  photoUrl: "/images/team_priya.png",
 } as const;
 
 // ─── Credentials ─────────────────────────────────────────────────────────────
 
 export const CREDENTIALS = {
-  icaiMembershipNo: "123456",
-  firmRegistrationNo: "012345S", // FRN
+  icaiMembershipNo: "238954",
+  firmRegistrationNo: "014582S", // FRN
   icaiBadgeText: "ICAI Registered",
   // Star rating — set to null if no Google rating yet
   googleRating: 4.8,
@@ -67,10 +67,10 @@ export const CREDENTIALS = {
 // ─── Contact ─────────────────────────────────────────────────────────────────
 
 export const CONTACT = {
-  phone: "+91-98765-43210",
-  phoneRaw: "+919876543210", // For tel: links
-  email: "hello@anandassociates.example.com",
-  whatsappUrl: "https://wa.me/919876543210",
+  phone: "+91-80-4958-3829",
+  phoneRaw: "+918049583829", // For tel: links
+  email: "info@taxccounts.in",
+  whatsappUrl: "https://wa.me/918049583829",
   // No physical office — set to null
   address: null,
   googleMapsUrl: null,
@@ -116,7 +116,8 @@ export const COUNTRIES = [
 
 ] as const;
 
-export const COUNTRIES_SERVED_TEXT = "India, USA, UK, Canada & UAE";
+export const COUNTRIES_SERVED_TEXT =
+  "India, USA, UK, Canada, UAE, Australia, New Zealand & Singapore";
 
 // ─── Services ────────────────────────────────────────────────────────────────
 
@@ -196,7 +197,7 @@ export interface Testimonial {
 export const TESTIMONIALS: Testimonial[] = [
   {
     quote:
-      "Filing taxes in two countries used to take weeks of back-and-forth. Anand & Associates turned it into one phone call.",
+      "Filing taxes in two countries used to take weeks of back-and-forth. TAXCCOUNTS turned it into one phone call.",
     name: "Rajesh K.",
     location: "California",
     service: "NRI Tax Filing",
@@ -222,7 +223,7 @@ export const TESTIMONIALS: Testimonial[] = [
 export const TRUST_STATS = [
   { label: "Years in Practice", value: "12+", icon: "Award" },
   { label: "NRI Returns Filed", value: "2,500+", icon: "FileCheck" },
-  { label: "Countries Served", value: "5", icon: "Globe2" },
+  { label: "Countries Served", value: "8", icon: "Globe2" },
   { label: "Client Retention Rate", value: "94%", icon: "Users" },
 ] as const;
 
@@ -259,9 +260,9 @@ export const PRICING = {
 // ─── SEO / Metadata ─────────────────────────────────────────────────────────
 
 export const SEO = {
-  siteName: "Anand & Associates, Chartered Accountants",
+  siteName: "TAXCCOUNTS, Chartered Accountants",
   defaultTitle:
-    "Anand & Associates — CA for NRIs & Cross-Border Tax | India, USA, UK",
+    "TAXCCOUNTS — CA for NRIs & Cross-Border Tax | India, USA, UK",
   defaultDescription:
     "Chartered Accountant firm specializing in NRI taxation, US–India cross-border tax planning (DTAA), outsourced bookkeeping, and virtual CFO services. Serving clients in India, USA, UK, Canada, and UAE.",
   defaultKeywords: [

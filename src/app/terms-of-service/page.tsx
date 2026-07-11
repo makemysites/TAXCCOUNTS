@@ -4,33 +4,19 @@ import { FIRM, CONTACT } from "@/lib/firm-content";
 
 export const metadata: Metadata = {
   title: `Terms of Service | ${FIRM.name}`,
-  description: `Read the Terms of Service governing the use of the Anand & Associates website and initial cross-border consultation terms.`,
+  description: `Read the Terms of Service governing the use of the ${FIRM.name} website and initial cross-border consultation terms.`,
 };
 
 export default function TermsOfServicePage() {
   return (
     <div className="bg-cream py-16 sm:py-24 font-sans animate-fade-in">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Legal Disclaimer Alert */}
-        <div className="bg-amber-50 border-l-4 border-amber-500 p-4 mb-10 rounded-r-lg text-amber-900 text-sm">
-          <div className="font-bold flex items-center gap-1.5 mb-1 text-base">
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-            </svg>
-            <span>Legal Review Required</span>
-          </div>
-          <p>
-            <strong>⚠️ Developer Notice:</strong> This terms of service document is a draft generated for demonstration and staging purposes only. It must be reviewed and adjusted by a qualified legal professional prior to launching the site to real visitors.
-          </p>
-        </div>
-
         <div className="bg-white rounded-2xl border border-border shadow-sm p-8 sm:p-12 space-y-8">
           <div>
             <h1 className="text-3xl sm:text-4xl font-serif font-bold text-navy mb-2">
               Terms of Service
             </h1>
-            <p className="text-xs text-muted">Last Updated: July 2025</p>
+            <p className="text-xs text-muted">Last Updated: July 2026</p>
           </div>
 
           <div className="prose prose-sm text-navy/90 leading-relaxed space-y-6">
