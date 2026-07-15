@@ -31,7 +31,7 @@ const PROCESS_STEPS = [
   {
     num: "04",
     title: "Execution",
-    desc: "Our chartered accountants prepare and file your tax returns accurately.",
+    desc: "Our tax professionals prepare and file your tax returns accurately.",
     icon: CheckSquare,
   },
   {

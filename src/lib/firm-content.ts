@@ -27,48 +27,118 @@ export const FOUNDER = {
   title: "Founder & Managing Director",
   icaiMembershipNo: null,
   qualifications: [
-    "Semi Qualified Chartered Accountant",
-    "Master's in Finance",
-    "Finance & Taxation Professional",
+    "Associate Certified Practising Accountant (ACPA Australia)",
+    "Associate Certified Management Accountant (ACMA Australia)",
+    "Master of Commerce (M.Com)",
+    "Bachelor of Commerce (B.Com)",
+    "GST Practitioner – Government of India",
   ],
   specializations: [
-    "Direct & Indirect Taxation",
-    "Cross-Border Taxation & NRI Advisory",
-    "Accounting & Bookkeeping Outsourcing",
-    "Business Advisory & Compliance",
-    "Virtual CFO Services",
-    "Startup & SME Advisory",
-    "Corporate Compliance",
+    "International Taxation & Cross-Border Advisory",
+    "Financial Reporting (IFRS, Ind AS & Global Standards)",
+    "Corporate Tax, GST & Regulatory Advisory",
+    "Audit, Assurance & Internal Controls",
+    "Virtual CFO & Strategic Finance",
+    "Financial Planning, Budgeting & FP&A",
+    "Business Structuring & Global Expansion",
+    "Corporate Governance & Regulatory Compliance",
+    "Transfer Pricing & International Transactions",
+    "Mergers, Acquisitions & Financial Due Diligence",
+    "Enterprise Risk Management",
+    "ERP Implementation & Finance Transformation",
+    "Startup, SME & Investor Advisory",
   ],
-  memberships: [],
-  bio: `I founded TAXCCOUNTS PRO with a simple objective—to make professional accounting, taxation and compliance services accessible, responsive and technology-driven for businesses and individuals across the globe.
+  memberships: [
+    "ACPA (Australia)",
+    "ACMA (Australia)",
+  ],
+  bio: `Dinesh Singathi is the Founder and Managing Director of Taxccounts Pro India Private Limited, bringing over 13 years of professional experience in accounting, taxation, audit, corporate finance, financial reporting, regulatory compliance, and strategic business advisory. He founded the firm with a clear objective — to make professional financial services accessible, technology-driven, and responsive for businesses and individuals across the globe.
 
-Over the years, I have worked with businesses ranging from startups to established enterprises, helping them navigate complex tax laws, regulatory compliance, financial reporting and business growth. My practice has supported hundreds of clients across multiple industries while managing substantial financial portfolios and delivering practical, commercially focused advice.
-
-A significant part of our work involves assisting NRIs, international entrepreneurs and global businesses with Indian tax compliance, cross-border reporting, accounting outsourcing and regulatory matters. We focus on simplifying complex compliance requirements while helping clients remain fully compliant and confident in their business decisions.
-
-At TAXCCOUNTS PRO, we operate through a secure, virtual-first model that enables clients to work with us from anywhere in the world. Through secure document sharing, digital approvals, video consultations and proactive communication, we provide the convenience of a modern accounting firm without compromising on professional standards, responsiveness or personal attention.
-
-Our philosophy is simple: build long-term relationships through integrity, technical excellence, timely delivery and practical business advice that creates measurable value for every client.`,
+With internationally recognized qualifications and deep cross-border expertise, Dinesh has advised startups, SMEs, multinational corporations, and high-net-worth individuals across India, the United States, Canada, the United Kingdom, the UAE, Australia, and beyond. His practical, commercially focused approach enables clients to make confident decisions while maintaining the highest standards of compliance and financial integrity.`,
   photoUrl: "/images/team_dinesh.png",
 } as const;
 
 // ─── Directors ───────────────────────────────────────────────────────────────
 
-export const DIRECTORS = [
+export interface Director {
+  name: string;
+  role: string;
+  desc: string;
+  image: string;
+  bio: string[];
+  specializations: string[];
+  qualifications: string[];
+}
+
+export const DIRECTORS: Director[] = [
   {
     name: "Dinesh Singathi",
     role: "Founder & Managing Director",
-    desc: "Founder of TAXCCOUNTS PRO. Specializes in direct and indirect taxation, corporate compliance, cross-border NRI tax advisory, and Virtual CFO services.",
-    image: "/images/team_dinesh.png"
+    desc: "Founder of Taxccounts Pro with 13+ years of experience in international taxation, financial reporting, audit, and Virtual CFO services.",
+    image: "/images/team_dinesh.png",
+    bio: [
+      "Dinesh Singathi is the Founder and Managing Director of Taxccounts Pro India Private Limited, bringing over 13 years of professional experience in accounting, taxation, audit, corporate finance, financial reporting, regulatory compliance, and strategic business advisory. Having studied at the Institute of Chartered Accountants of India (ICAI) and complemented by internationally recognized professional qualifications, he possesses extensive expertise in helping businesses navigate complex financial, regulatory, and cross-border challenges.",
+      "Over the course of his career, Dinesh has advised startups, SMEs, multinational corporations, family-owned businesses, and high-net-worth individuals across India, the United States, Canada, the United Kingdom, the UAE, Australia, and other international markets. His experience spans financial reporting under IFRS and Ind AS, international taxation, corporate structuring, audit and assurance, Virtual CFO services, business valuations, financial planning, governance, enterprise risk management, and strategic finance.",
+      "As a finance leader, he has successfully led multi-entity finance operations, implemented digital finance transformation and ERP solutions, established robust governance and internal control frameworks, and advised organizations on business expansion, regulatory compliance, and long-term value creation. His practical, commercially focused approach enables clients to make confident business decisions while maintaining the highest standards of compliance and financial integrity.",
+      "Under his leadership, Taxccounts Pro has evolved into a modern professional services firm delivering integrated accounting, taxation, advisory, and compliance solutions to businesses operating in an increasingly global economy."
+    ],
+    specializations: [
+      "International Taxation & Cross-Border Advisory",
+      "Financial Reporting (IFRS, Ind AS & Global Accounting Standards)",
+      "Corporate Tax, GST & Regulatory Advisory",
+      "Audit, Assurance & Internal Controls",
+      "Virtual CFO & Strategic Finance",
+      "Financial Planning, Budgeting & FP&A",
+      "Business Structuring & Global Expansion Advisory",
+      "Corporate Governance & Regulatory Compliance",
+      "Transfer Pricing & International Transactions",
+      "Mergers, Acquisitions & Financial Due Diligence",
+      "Enterprise Risk Management",
+      "ERP Implementation & Finance Transformation",
+      "Startup, SME & Investor Advisory"
+    ],
+    qualifications: [
+      "Associate Certified Practising Accountant (ACPA Australia)",
+      "Associate Certified Management Accountant (ACMA Australia)",
+      "Master of Commerce (M.Com)",
+      "Bachelor of Commerce (B.Com)",
+      "GST Practitioner Certificate"
+    ]
   },
   {
     name: "Deepak Singathi",
     role: "Director",
-    desc: "Director at TAXCCOUNTS PRO. Holds a Master's in Finance from Dayton, Ohio. Specializes in corporate finance, investment planning, and business advisory services.",
-    image: "/images/team_deepak.png"
+    desc: "Director at Taxccounts Pro with 5+ years of international experience in FP&A, business intelligence, financial modeling, and digital finance transformation.",
+    image: "/images/team_deepak.png",
+    bio: [
+      "Deepak Singathi is a Director at Taxccounts Pro India Private Limited, bringing over 5 years of international experience in financial analysis, corporate finance, business intelligence, strategic planning, and digital finance transformation. Holding a Master's degree in Finance from the University of Dayton, Ohio, USA, he combines strong analytical expertise with a technology-driven approach to help organizations make informed financial and strategic decisions.",
+      "Before joining Taxccounts Pro, Deepak worked on high-impact financial transformation and analytics engagements for globally recognized financial institutions, including Capital One and American Express, where he specialized in capital markets, wealth management, financial modeling, credit risk, pricing strategies, business intelligence, and regulatory reporting. His experience spans the full spectrum of financial analysis, data-driven decision-making, process optimization, and enterprise reporting.",
+      "At Taxccounts Pro, Deepak plays a key role in advising businesses on financial planning, business performance, investment analysis, budgeting, forecasting, profitability enhancement, and digital finance transformation. He works closely with clients to develop scalable financial strategies, implement modern accounting technologies, strengthen reporting frameworks, and deliver actionable insights that support sustainable business growth.",
+      "With expertise in financial analytics, business intelligence, automation, and strategic finance, Deepak helps organizations leverage data and technology to improve operational efficiency, enhance financial performance, and support informed executive decision-making in today's evolving global business environment."
+    ],
+    specializations: [
+      "Financial Planning & Analysis (FP&A)",
+      "Business Intelligence & Data Analytics",
+      "Financial Modeling & Valuation",
+      "Capital Markets & Investment Analysis",
+      "Wealth Management & Portfolio Analytics",
+      "Business Strategy & Performance Management",
+      "Budgeting, Forecasting & Profitability Analysis",
+      "Virtual CFO Support",
+      "Digital Finance Transformation",
+      "ERP Implementation & Process Automation",
+      "Business Process Optimization",
+      "Dashboard Development (Power BI & Tableau)",
+      "Financial Risk Analysis & Regulatory Reporting",
+      "Management Information Systems (MIS)"
+    ],
+    qualifications: [
+      "Master of Finance (University of Dayton, Ohio, USA)",
+      "Certified Business Analysis Professional (CBAP)",
+      "Bachelor of Business Administration (BBA)"
+    ]
   }
-] as const;
+];
 
 // ─── Credentials ─────────────────────────────────────────────────────────────
 
@@ -232,9 +302,9 @@ export const TESTIMONIALS: Testimonial[] = [
 
 export const TRUST_STATS = [
   { label: "Years in Practice", value: "1+", icon: "Award" },
-  { label: "NRI Returns Filed", value: "2,500+", icon: "FileCheck" },
+  { label: "Returns Filed", value: "500+", icon: "FileCheck" },
   { label: "Countries Served", value: "7", icon: "Globe2" },
-  { label: "Client Retention Rate", value: "94%", icon: "Users" },
+  { label: "Client Satisfaction", value: "99%", icon: "Users" },
 ] as const;
 
 // ─── Pricing (Placeholder Ranges) ───────────────────────────────────────────

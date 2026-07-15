@@ -34,7 +34,7 @@ export default function Testimonials() {
                   </blockquote>
                 </div>
 
-                <figcaption className="pt-6 mt-8 border-t border-border flex items-center justify-between gap-3">
+                <figcaption className="pt-6 mt-8 border-t border-border flex flex-wrap items-center justify-between gap-3">
                   <div className="flex items-center gap-3">
                     {/* Initials avatar */}
                     <span className="w-10 h-10 rounded-full bg-navy text-gold-light flex items-center justify-center font-serif font-semibold text-sm shrink-0">
@@ -57,9 +57,7 @@ export default function Testimonials() {
           ))}
         </div>
 
-        <div className="mt-12 text-center text-[13px] text-muted">
-          Reviews are collected and verified from our Google Business Profile.
-        </div>
+
       </div>
     </section>
   );

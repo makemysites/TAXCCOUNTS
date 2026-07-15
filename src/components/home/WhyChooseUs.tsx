@@ -13,7 +13,7 @@ import Reveal from "@/components/shared/Reveal";
 const WHY_CHOOSE_US_ITEMS = [
   {
     title: "Experienced Professionals",
-    desc: "A team of Chartered Accountants and cross-border experts with years of practical experience.",
+    desc: "A team of tax professionals and cross-border experts with years of practical experience.",
     icon: Users,
   },
   {

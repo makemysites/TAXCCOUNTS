@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const alt =
-  "TAXCCOUNTS — Chartered Accountants for NRIs & Cross-Border Tax";
+  "TAXCCOUNTS — Tax & Accounting Professionals for NRIs & Cross-Border Tax";
 export const size = {
   width: 1200,
   height: 630,
@@ -40,7 +40,7 @@ export default async function Image() {
           }}
         >
           <div style={{ width: 48, height: 2, backgroundColor: "#C5A55A" }} />
-          Chartered Accountants · Cross-Border Tax
+          Tax & Accounting Professionals · Cross-Border
         </div>
 
         <div

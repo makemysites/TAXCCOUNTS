@@ -5,10 +5,10 @@ import Link from "next/link";
 import { BOOKING, COUNTRIES_SERVED_TEXT } from "@/lib/firm-content";
 
 const STATS = [
-  { value: "12+", label: "Years of Experience" },
-  { value: "2,500+", label: "Clients Served" },
-  { value: "8", label: "Countries Covered" },
-  { value: "98%", label: "On-Time Filings" },
+  { value: "12+", label: "Years of Expertise" },
+  { value: "500+", label: "Returns Filed" },
+  { value: "7", label: "Countries Served" },
+  { value: "100%", label: "Secure Filings" },
 ];
 
 /* Orbiting service badges — angle in degrees around the centre circle */
@@ -70,7 +70,7 @@ export default function Hero() {
         {/* ── Left Column: Copy & Stats ──────────────────────── */}
         <div className="w-full lg:w-[52%] text-center lg:text-left">
           <span className="eyebrow eyebrow-light justify-center lg:justify-start">
-            Chartered Accountants · Cross-Border Tax
+            Tax & Accounting Professionals · Cross-Border
           </span>
 
           <h1 className="mt-7 max-w-170 mx-auto lg:mx-0 font-serif text-[2.5rem] sm:text-5xl lg:text-[3.6rem] leading-[1.08] font-semibold tracking-[-0.02em] text-white">
@@ -119,11 +119,14 @@ export default function Hero() {
         </div>
 
         {/* ── Right Column: Orbital Services Diagram ─────────── */}
-        <div className="w-full lg:w-[48%] flex items-center justify-center relative min-h-85 sm:min-h-110 md:min-h-135">
-          <div className="relative w-[460px] h-[460px] flex items-center justify-center scale-[0.62] sm:scale-[0.82] md:scale-95 lg:scale-100">
-            {/* Static orbit rings — thin, elegant */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[460px] h-[460px] rounded-full border-2 border-white/25" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full border-2 border-dashed border-gold/50 motion-safe:animate-[spin_90s_linear_infinite]" />
+        <div className="w-full lg:w-[48%] flex flex-col items-center justify-center relative">
+          {/* Sized stage: height matches the diagram's *visual* (scaled) size so
+              content below never overlaps the orbit */}
+          <div className="relative w-full h-[330px] sm:h-[440px] md:h-[600px] lg:h-[540px]">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[460px] h-[460px] flex items-center justify-center scale-[0.62] sm:scale-[0.82] md:scale-95 lg:scale-100">
+            {/* Orbit rings: solid outer track + rotating dashed gold inner ring */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[460px] h-[460px] rounded-full border border-white/15" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full border-2 border-dashed border-gold/40 motion-safe:animate-[spin_90s_linear_infinite]" />
 
             {/* Centre circle */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 md:w-72 md:h-72 rounded-full shadow-[0_0_80px_rgba(11,91,160,0.45)] ring-1 ring-white/20 overflow-hidden bg-white z-10">
@@ -145,7 +148,7 @@ export default function Hero() {
                 }}
               >
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                  <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white flex items-center justify-center shadow-lg text-navy shrink-0">
+                  <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white flex items-center justify-center text-navy shrink-0 ring-1 ring-gold/40 shadow-[0_8px_20px_rgba(0,0,0,0.35)] transition-all duration-300 hover:scale-110 hover:ring-2 hover:ring-gold/70">
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.75" viewBox="0 0 24 24" aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" d={s.icon} />
                     </svg>
@@ -154,7 +157,7 @@ export default function Hero() {
 
                 {/* Label */}
                 <div
-                  className={`absolute hidden min-[1400px]:block leading-tight whitespace-nowrap ${
+                  className={`absolute hidden md:max-lg:block min-[1400px]:block leading-tight whitespace-nowrap ${
                     s.labelSide === "right"
                       ? "top-1/2 left-11.5 -translate-y-1/2 text-left"
                       : s.labelSide === "left"
@@ -165,9 +168,26 @@ export default function Hero() {
                   }`}
                 >
                   <span className="block text-xs font-bold text-white">{s.label1}</span>
-                  <span className="block text-[11px] text-white/70 font-semibold mt-0.5">{s.label2}</span>
+                  <span className="block text-[11px] text-white/80 font-semibold mt-0.5">{s.label2}</span>
                 </div>
               </div>
+            ))}
+            </div>
+          </div>
+
+          {/* Service legend chips — shown wherever the radial labels don't fit:
+              phones (<768px) and laptop/tablet-landscape widths (1024–1400px) */}
+          <div className="flex md:max-lg:hidden min-[1400px]:hidden mt-6 flex-wrap justify-center gap-2 px-2 relative z-10">
+            {ORBIT_SERVICES.map((s) => (
+              <span
+                key={`chip-${s.label2}`}
+                className="inline-flex items-center gap-1.5 rounded-full bg-white/5 border border-white/15 px-3 py-1.5 text-[11px] font-semibold text-white/85 whitespace-nowrap"
+              >
+                <svg className="w-3.5 h-3.5 text-gold-light shrink-0" fill="none" stroke="currentColor" strokeWidth="1.75" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d={s.icon} />
+                </svg>
+                {s.label1} {s.label2}
+              </span>
             ))}
           </div>
         </div>

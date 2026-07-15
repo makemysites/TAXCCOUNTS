@@ -1,6 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
 import { FOUNDER, CREDENTIALS, FIRM, BOOKING, DIRECTORS } from "@/lib/firm-content";
+import DirectorsSection from "@/components/about/DirectorsSection";
 
 export const metadata: Metadata = {
   title: "About Our Firm & Values",
@@ -30,7 +31,7 @@ export default function AboutPage() {
           <div className="lg:col-span-5 flex justify-center lg:sticky lg:top-28">
             <div className="relative p-2 bg-cream rounded-xl border border-border w-full max-w-md">
               <img
-                src="/images/about_company.png"
+                src={FOUNDER.photoUrl}
                 alt={`${FOUNDER.name}, founder of ${FIRM.name}, in a professional modern office setting`}
                 className="rounded-lg overflow-hidden object-cover w-full h-[450px]"
               />
@@ -112,44 +113,38 @@ export default function AboutPage() {
 
         {/* Our Directors Section */}
         <div className="mb-16 pt-8 border-t border-border">
-          <h2 className="font-serif text-2xl md:text-3xl font-semibold text-navy text-center mb-12">
-            Our Directors
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
-            {DIRECTORS.map((dir, idx) => (
-              <div key={idx} className="bg-white rounded-xl border border-border p-6 text-center space-y-3 shadow-sm flex flex-col items-center">
-                <div className="w-20 h-20 rounded-full border border-border overflow-hidden bg-cream mb-2 flex items-center justify-center">
-                  <img
-                    src={dir.image}
-                    alt={dir.name}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <h3 className="font-serif text-base font-bold text-navy">{dir.name}</h3>
-                <span className="text-[10px] text-accent font-bold uppercase tracking-widest font-sans block">{dir.role}</span>
-                <p className="text-sm text-navy/80 font-sans leading-relaxed">{dir.desc}</p>
-              </div>
-            ))}
+          <div className="text-center mb-12 space-y-3">
+            <h2 className="font-serif text-2xl md:text-3xl font-semibold text-navy">
+              Our Directors
+            </h2>
+            <p className="text-sm text-navy/60 font-sans">Click on a profile to view full biography and qualifications.</p>
           </div>
+          <DirectorsSection directors={DIRECTORS} />
         </div>
 
         {/* Bottom CTA Block */}
-        <div className="mt-12 bg-white p-8 md:p-12 rounded-2xl border border-border shadow-sm text-center max-w-3xl mx-auto space-y-6">
-          <h2 className="text-2xl font-serif font-bold text-navy">
-            Ready to Speak with {FOUNDER.shortName}?
-          </h2>
-          <p className="text-sm md:text-base text-navy/85 max-w-xl mx-auto leading-relaxed">
-            Schedule a brief video consultation to discuss your ties to India, review your current filing setup, and identify double-tax optimization points.
-          </p>
-          <div className="pt-2 flex justify-center">
-            <a
-              href={BOOKING.calComUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-gold"
-            >
-              Book a Strategy Call
-            </a>
+        <div className="mt-12 bg-navy text-white p-8 md:p-12 rounded-2xl relative overflow-hidden shadow-[0_24px_60px_-20px_rgba(6,47,82,0.3)] text-center max-w-3xl mx-auto space-y-6">
+          {/* Atmosphere */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(11,91,160,0.3),transparent_60%)] pointer-events-none" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(197,165,90,0.1),transparent_55%)] pointer-events-none" />
+
+          <div className="relative z-10 space-y-6">
+            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-white">
+              Ready to Speak with {FOUNDER.shortName}?
+            </h2>
+            <p className="text-sm md:text-base text-white/80 max-w-xl mx-auto leading-relaxed">
+              Schedule a brief video consultation to discuss your ties to India, review your current filing setup, and identify double-tax optimization points.
+            </p>
+            <div className="pt-2 flex justify-center">
+              <a
+                href={BOOKING.calComUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-gold"
+              >
+                Book a Strategy Call
+              </a>
+            </div>
           </div>
         </div>
 

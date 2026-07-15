@@ -60,7 +60,7 @@ export default function HomePage() {
                 <div className="absolute -bottom-5 -left-5 w-36 h-36 rounded-2xl bg-gold/10" aria-hidden="true" />
                 <div className="relative rounded-2xl overflow-hidden shadow-[0_24px_60px_-20px_rgba(6,47,82,0.35)]">
                   <img
-                    src="/images/about_company.png"
+                    src={FOUNDER.photoUrl}
                     alt={`${FOUNDER.name}, founder of ${FIRM.name}, in a professional modern office setting`}
                     className="object-cover w-full h-[460px]"
                   />

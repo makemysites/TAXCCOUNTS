@@ -36,13 +36,13 @@ export default function ServicesPage() {
         </div>
 
         {/* Detailed Service Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="flex flex-wrap justify-center gap-8 max-w-6xl mx-auto">
           {SERVICES.map((service, idx) => {
             const IconComponent = iconMap[service.icon] || Globe;
             return (
               <div
                 key={service.slug}
-                className="bg-white rounded-2xl p-6 sm:p-8 border border-border shadow-sm flex flex-col justify-between hover:-translate-y-1.5 hover:shadow-[0_20px_44px_-18px_rgba(6,47,82,0.22)] hover:border-gold/40 transition-all duration-300 group"
+                className="w-full md:max-w-[calc(50%-16px)] lg:max-w-[calc(33.333%-22px)] bg-white rounded-2xl p-6 sm:p-8 border border-border shadow-sm flex flex-col justify-between hover:-translate-y-1.5 hover:shadow-[0_20px_44px_-18px_rgba(6,47,82,0.22)] hover:border-gold/40 transition-all duration-300 group"
               >
                 <div className="space-y-6">
                   {/* Top Header Row */}

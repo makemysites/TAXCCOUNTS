@@ -4,7 +4,7 @@ import { FIRM, CONTACT, PORTAL, ANALYTICS } from "@/lib/firm-content";
 
 export const metadata: Metadata = {
   title: `Privacy Policy | ${FIRM.name}`,
-  description: `Read about how we collect, store, and manage data at ${FIRM.name}, chartered accountants, and our secure file exchange protocols.`,
+  description: `Read about how we collect, store, and manage data at ${FIRM.name}, tax & accounting professionals, and our secure file exchange protocols.`,
 };
 
 export default function PrivacyPolicyPage() {
