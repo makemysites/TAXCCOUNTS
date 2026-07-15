@@ -175,7 +175,7 @@ export default function Hero() {
 
       {/* ── Credentials Strip ─────────────────────────────────── */}
       <div className="relative z-20 border-t border-white/15 bg-navy shadow-[0_-1px_0_rgba(197,165,90,0.25)]">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 py-7">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 py-10">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-4 gap-y-7 lg:gap-y-0 lg:divide-x lg:divide-white/10">
             {CREDENTIALS.map((c) => (
               <div

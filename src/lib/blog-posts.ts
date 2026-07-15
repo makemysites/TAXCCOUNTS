@@ -17,6 +17,175 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: "itr-filing-ay-2026-27-nri-deadlines",
+    title: "ITR Season AY 2026-27: Deadlines and New Rules Every NRI Must Know",
+    metaTitle: "NRI ITR Filing AY 2026-27 | July 31 Deadline, New Rules & Forms",
+    metaDescription:
+      "The July 31, 2026 ITR deadline is close. Key changes for NRIs this season: no 87A rebate, mandatory Aadhaar, expanded capital gains disclosure, and extended revised-return windows.",
+    excerpt:
+      "The July 31 deadline for AY 2026-27 is around the corner — and this is the last filing season under the old 1961 Act. Here's what's different for NRIs this year, and the deadlines you can't afford to miss.",
+    date: "2026-07-12",
+    author: "Dinesh Singathi",
+    category: "NRI Taxation",
+    readTime: "6 min read",
+    content: `
+<h2>The Headline Deadline: July 31, 2026</h2>
+<p>For NRIs with income in India — rent, interest, capital gains — the due date to file your return for AY 2026-27 (income earned in FY 2025-26) is <strong>July 31, 2026</strong>. ITR-2, the form most NRIs use, was released on the e-filing portal on May 27, 2026, so there is no reason to wait.</p>
+<p>If you have business or professional income (ITR-3/ITR-4, non-audit), you now get until <strong>August 31, 2026</strong> — and this extension is a permanent change under the Finance Act, 2026, not a one-off.</p>
+
+<h2>This Is the Last Season Under the 1961 Act</h2>
+<p>The new Income Tax Act, 2025 came into force on April 1, 2026 — but it applies from Tax Year 2026-27 onwards. Your AY 2026-27 return is still governed by the familiar Income-tax Act, 1961. The first filing under the new law happens in 2027.</p>
+
+<h2>What's Changed for NRIs This Year</h2>
+<ul>
+<li><strong>New Tax Regime is the default</strong> — including for NRIs. But note carefully: the enhanced Section 87A rebate (income up to ₹12 lakh effectively tax-free) is available <em>only to resident individuals</em>. NRIs pay tax from the first rupee above the basic exemption limit — ₹4 lakh under the New Regime, ₹2.5 lakh under the Old.</li>
+<li><strong>Aadhaar is now mandatory</strong> — from AY 2026-27 you must quote your 12-digit Aadhaar number; the Aadhaar Enrolment ID is no longer accepted.</li>
+<li><strong>Expanded capital gains disclosure</strong> — the updated ITR forms require more granular capital gains reporting, and the July 23, 2024 before/after split has been removed.</li>
+<li><strong>Don't accept a pre-filled ITR-1</strong> — NRIs cannot file ITR-1 (Sahaj). If the portal defaults you into it, switch to ITR-2/ITR-3, or you'll receive a defective return notice.</li>
+<li><strong>Returning NRIs:</strong> Form 10EE (for the Section 89A foreign retirement account benefit) must be filed by the ITR due date. Miss it, and the benefit is lost for the year entirely.</li>
+</ul>
+
+<h2>If You Miss the Deadline</h2>
+<ul>
+<li><strong>Late fee (Section 234F):</strong> ₹1,000 if total income is up to ₹5 lakh; ₹5,000 otherwise — plus 1% per month interest under Section 234A on unpaid tax.</li>
+<li><strong>Regime lock-in:</strong> A belated return means you cannot switch to the Old Regime for that year.</li>
+<li><strong>Losses lapse:</strong> Capital and business losses generally cannot be carried forward if the original return is late.</li>
+<li><strong>Longer correction windows:</strong> Budget 2026 extended the revised-return deadline to March 31, 2027 (a fee applies after December 31, 2026), and an Updated Return (ITR-U) can now be filed up to 48 months after the assessment year ends.</li>
+</ul>
+
+<h2>Filing From Abroad?</h2>
+<p>We prepare and file NRI returns end-to-end — residential status computation, DTAA credit mapping, and coordination with your US or UK accountant. Book a call before the rush week of July 25–31.</p>
+    `,
+  },
+  {
+    slug: "gst-2-new-rate-slabs-business-checklist",
+    title: "GST 2.0 in FY 2026-27: The New 5%–18%–40% Structure and Your Compliance Checklist",
+    metaTitle: "GST 2.0 Rate Slabs FY 2026-27 | 5%, 18%, 40% Structure Explained",
+    metaDescription:
+      "India's GST 2.0 reform replaced the old five-slab structure with 5%, 18% and 40% rates. What changed, what the 12% slab abolition means for your invoices, and the FY 2026-27 compliance checklist.",
+    excerpt:
+      "The 56th GST Council meeting rewrote India's GST rate structure — most goods now fall under just 5% or 18%, with a new 40% slab for luxury and sin goods. Here's what your business must do differently in FY 2026-27.",
+    date: "2026-07-08",
+    author: "Dinesh Singathi",
+    category: "GST",
+    readTime: "6 min read",
+    content: `
+<h2>The Biggest GST Overhaul Since 2017</h2>
+<p>The 56th GST Council meeting (September 3, 2025) unveiled "GST 2.0" — a simplification of the rate structure that took effect from September 22, 2025 and is now fully operative for FY 2026-27. The old 0%, 5%, 12%, 18% and 28% slabs have been consolidated into primarily <strong>two rates — 5% and 18%</strong> — with a new <strong>40% slab</strong> for select luxury and sin goods. Niche rates (3% and 0.25% for gold, diamonds and precious stones) continue.</p>
+
+<h2>What Got Cheaper</h2>
+<ul>
+<li><strong>Household essentials:</strong> hair oil, shampoo, toothpaste, soap and similar items moved from 18% to 5%; specified Indian breads are now Nil-rated.</li>
+<li><strong>Insurance:</strong> individual health and life insurance premiums now attract <strong>Nil GST</strong>.</li>
+<li><strong>Healthcare:</strong> 33 life-saving medicines moved to Nil; several cancer and rare-disease drugs dropped from 12% to 5%; diagnostic kits, thermometers and glucometers are at 5%.</li>
+<li><strong>Big-ticket goods:</strong> air conditioners, large TVs, dishwashers, small cars and motorcycles are roughly 10 percentage points cheaper.</li>
+<li><strong>Agriculture:</strong> tractors, tractor tyres and parts, drip irrigation and farm machinery moved to 5%.</li>
+</ul>
+
+<h2>The New 40% Slab</h2>
+<p>Tobacco products, pan masala, aerated and caffeinated beverages, large passenger vehicles, motorcycles above 350cc, yachts, personal aircraft, casinos, online money gaming, betting and lotteries now sit at 40%. The old Compensation Cess on vehicles, ACs and tobacco has been folded into this consolidated rate. (Cigarettes, zarda, unmanufactured tobacco and beedi remain under the old cess structure until a later notified date.)</p>
+
+<h2>Your FY 2026-27 Compliance Checklist</h2>
+<ul>
+<li><strong>Kill the 12% rate in your systems.</strong> The 12% slab is abolished for most goods — invoices issued with 12% GST after September 22, 2025 are incorrect and attract penalties under Section 122 of the CGST Act. Audit your billing software, POS systems and rate masters.</li>
+<li><strong>New invoice series:</strong> invoice, debit note and credit note numbering must restart with a fresh series from April 1, 2026.</li>
+<li><strong>Exporters:</strong> file a fresh Letter of Undertaking (LUT) for FY 2026-27.</li>
+<li><strong>ITC discipline unchanged:</strong> input tax credit still depends on your supplier uploading invoices to GSTR-1 and the amounts reflecting in your GSTR-2B. Reconcile monthly.</li>
+<li><strong>Composition scheme:</strong> rates are unchanged — 1% for traders/manufacturers, 5% for restaurants, 6% for specified service providers.</li>
+</ul>
+
+<h2>Need a Rate Review?</h2>
+<p>If your product mix spans the reclassified categories, a one-time rate mapping review protects you from Section 122 penalties and blocked credits. We do this as a fixed-scope engagement — get in touch.</p>
+    `,
+  },
+  {
+    slug: "income-tax-act-2025-in-force",
+    title: "The Income Tax Act 2025 Is Now in Force: What Actually Changes for You",
+    metaTitle: "Income Tax Act 2025 Effective April 2026 | Tax Year, New Forms, Key Changes",
+    metaDescription:
+      "India's Income Tax Act 2025 replaced the 1961 Act from April 1, 2026. Tax Year replaces Assessment Year, Form 16 becomes Form 130, and HRA rules expand — but tax rates stay the same.",
+    excerpt:
+      "After 65 years, the Income-tax Act 1961 is history. The new Act is leaner — 536 sections instead of 819 — and changes the vocabulary of Indian tax. Here's what's genuinely different, and what's just renumbered.",
+    date: "2026-07-02",
+    author: "Dinesh Singathi",
+    category: "Income Tax",
+    readTime: "7 min read",
+    content: `
+<h2>A New Statute After 65 Years</h2>
+<p>On April 1, 2026, the <strong>Income Tax Act, 2025</strong> came into force, fully replacing the Income-tax Act, 1961 — a statute that had been amended 65 times and had swollen to 819 sections across 47 chapters. The new Act is a cleaner 536-section law written for a digital economy, and the old Income Tax Rules, 1962 (500+ rules) have been replaced by the Income Tax Rules, 2026 — just 333 rules, notified on March 20, 2026.</p>
+
+<h2>First, What Does NOT Change</h2>
+<p><strong>Your tax liability.</strong> The new Act imposes no new tax and Budget 2026 made no changes to the slabs for FY 2026-27. The New Regime remains the default, the Section 87A rebate continues to make income up to ₹12 lakh effectively tax-free for residents (₹12.75 lakh for salaried taxpayers with the ₹75,000 standard deduction), and both regimes carry forward.</p>
+<p>Also important: your AY 2026-27 return (for FY 2025-26 income) is still filed under the <em>old</em> 1961 Act. The first filing under the new law happens in 2027.</p>
+
+<h2>The Vocabulary Change: "Tax Year"</h2>
+<p>The confusing "Previous Year" / "Assessment Year" pairing is gone. From April 1, 2026, there is a single term — the <strong>Tax Year</strong>. Income earned during FY 2026-27 is simply Tax Year 2026-27. One term, one period.</p>
+
+<h2>New Form Numbers You'll Start Seeing</h2>
+<ul>
+<li><strong>Form 16 → Form 130</strong> (salary TDS certificate)</li>
+<li><strong>Form 16A → Form 131</strong> (non-salary TDS credit)</li>
+<li><strong>Forms 15G and 15H → merged into a single Form 121</strong> (nil-TDS declarations)</li>
+<li><strong>PAN application forms 49A/49AA → four new category-specific forms</strong></li>
+</ul>
+
+<h2>Substantive Changes Worth Knowing</h2>
+<ul>
+<li><strong>HRA expansion:</strong> the 50% HRA exemption now covers Bengaluru, Pune, Hyderabad and Ahmedabad — eight cities in total. Taxpayers must also disclose their relationship with the landlord.</li>
+<li><strong>Share buybacks:</strong> from April 1, 2026, buyback proceeds are taxed as capital gains in shareholders' hands (previously deemed dividends).</li>
+<li><strong>TDS on interest:</strong> the threshold rises to ₹1 lakh — a meaningful relief for senior citizens and deposit-heavy savers.</li>
+<li><strong>Updated returns:</strong> the window to file an updated return is now four years instead of two.</li>
+<li><strong>STT:</strong> Budget 2026 raised Securities Transaction Tax rates — F&amp;O traders will feel higher transaction costs.</li>
+</ul>
+
+<h2>Transition Is Protected</h2>
+<p>The repeal does not disturb anything relating to earlier tax years — completed assessments stay valid and pending proceedings continue under transitional provisions. The department has also released a section-mapping utility to cross-reference 1961 Act sections against the 2025 Act.</p>
+
+<h2>What Should You Do?</h2>
+<p>For most taxpayers: nothing urgent, but expect new form numbers on every TDS certificate you receive from FY 2026-27. For businesses and NRIs with ongoing assessments or notices, the section renumbering makes professional review worthwhile before responding to any departmental communication that cites the new Act.</p>
+    `,
+  },
+  {
+    slug: "us-remittance-tax-2026-nri-guide",
+    title: "The 1% US Remittance Tax Is Live: What NRIs Sending Money to India Should Do",
+    metaTitle: "US Remittance Tax 2026 | 1% Excise on Cash Transfers — NRI Guide",
+    metaDescription:
+      "The US 1% remittance transfer tax took effect January 1, 2026 under the One Big Beautiful Bill Act. Who actually pays it, why bank-funded transfers are exempt, and what it means for NRIs.",
+    excerpt:
+      "A new 1% federal excise tax now applies to certain money transfers from the US. The good news: most NRIs will never pay it — if they fund transfers the right way. Here's the full picture.",
+    date: "2026-06-30",
+    author: "Dinesh Singathi",
+    category: "USA Tax",
+    readTime: "5 min read",
+    content: `
+<h2>What the Tax Is</h2>
+<p>Effective <strong>January 1, 2026</strong>, the US imposes a 1% federal excise tax on certain remittance transfers sent abroad. It was enacted under Section 70604 of the One Big Beautiful Bill Act (signed July 4, 2025), which added new Section 4475 to the Internal Revenue Code. Early drafts proposed 5%; the final rate is 1% — and it applies to all senders regardless of citizenship or immigration status.</p>
+
+<h2>The Key Detail: It's About How You Fund the Transfer</h2>
+<ul>
+<li><strong>Taxed:</strong> transfers funded with physical cash, a money order, or a cashier's check handed to a remittance provider.</li>
+<li><strong>Exempt:</strong> transfers funded from a US bank account, or with a US-issued debit or credit card. Transfers of $15 or less are also excluded, as are genuine commercial/business remittances.</li>
+</ul>
+<p>Translation: if you send money to India through your bank, a wire, or an app like Wise or Remitly funded from your bank account, <strong>the tax does not apply to you</strong>. It only hits cash-funded transfers at physical counters — for example, $10 extra on a $1,000 cash transfer.</p>
+
+<h2>Who Collects It</h2>
+<p>The remittance provider collects the tax at the point of transfer, deposits it semimonthly, and reports quarterly to the IRS on Form 720. You do not report or pay anything separately on your Form 1040. In April 2026, Treasury and the IRS issued proposed regulations clarifying definitions, and earlier penalty-relief guidance (Notice 2025-55) covers providers during the first quarters of 2026.</p>
+
+<h2>The India Side: No Tax on Receipt</h2>
+<p>Money you send from abroad to your parents', spouse's, or other close relatives' bank account in India is <strong>not taxed as income in their hands</strong> — Indian law does not treat an inward remittance itself as income. The TCS you may have read about (Section 206C(1G)) applies to <em>outward</em> remittances above ₹10 lakh made by Indian residents under the LRS — it has nothing to do with your inward transfers.</p>
+
+<h2>Practical Takeaways for NRIs</h2>
+<ul>
+<li>Fund transfers from your US bank account or card — never cash at a counter — and the 1% tax never touches you.</li>
+<li>Keep gift documentation for large transfers to family; while receipt isn't taxed, gifts to non-relatives above ₹50,000 can be taxable for the recipient.</li>
+<li>Watch for IRS guidance on Section 36C, which may allow a credit for remittance tax paid — not yet issued as of mid-2026.</li>
+</ul>
+
+<h2>Planning a Large Transfer?</h2>
+<p>For property purchases, family support structures, or repatriation planning between the US and India, the remittance tax is the smallest piece of the puzzle — FEMA limits, TCS, and DTAA positions matter far more. Talk to us before you move six figures.</p>
+    `,
+  },
+  {
     slug: "latest-gst-updates-india",
     title: "Latest GST Updates and Compliance Changes in India",
     metaTitle: "Latest GST Updates & Compliance Changes in India | FY 2026-27",

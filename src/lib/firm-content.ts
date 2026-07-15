@@ -53,6 +53,23 @@ Our philosophy is simple: build long-term relationships through integrity, techn
   photoUrl: "/images/team_dinesh.png",
 } as const;
 
+// ─── Directors ───────────────────────────────────────────────────────────────
+
+export const DIRECTORS = [
+  {
+    name: "Dinesh Singathi",
+    role: "Founder & Managing Director",
+    desc: "Founder of TAXCCOUNTS PRO. Specializes in direct and indirect taxation, corporate compliance, cross-border NRI tax advisory, and Virtual CFO services.",
+    image: "/images/team_dinesh.png"
+  },
+  {
+    name: "Deepak Singathi",
+    role: "Director",
+    desc: "Director at TAXCCOUNTS PRO. Holds a Master's in Finance from Dayton, Ohio. Specializes in corporate finance, investment planning, and business advisory services.",
+    image: "/images/team_deepak.png"
+  }
+] as const;
+
 // ─── Credentials ─────────────────────────────────────────────────────────────
 
 export const CREDENTIALS = {

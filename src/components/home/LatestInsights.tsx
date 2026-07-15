@@ -7,22 +7,28 @@ import {
   Globe2,
   Building2,
   Rocket,
+  FileText,
+  Landmark,
   ArrowRight
 } from "lucide-react";
 import Reveal from "@/components/shared/Reveal";
 
-// Visual config for the card headers — kept within the brand palette
-const BLOG_CARD_DECORATIONS = [
-  { icon: Coins, label: "GST" },
-  { icon: Percent, label: "Income Tax" },
-  { icon: Globe2, label: "USA Tax" },
-  { icon: Building2, label: "Business" },
-  { icon: Rocket, label: "Startup" },
-];
+// Category → header icon, kept within the brand palette
+const CATEGORY_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
+  GST: Coins,
+  "Income Tax": Percent,
+  "USA Tax": Globe2,
+  Business: Building2,
+  Startup: Rocket,
+  "NRI Taxation": FileText,
+  "Cross-Border Tax": Landmark,
+};
 
 export default function LatestInsights() {
-  // Feature the three most recent posts
-  const insights = BLOG_POSTS.slice(0, 3);
+  // Feature the three most recent posts by date
+  const insights = [...BLOG_POSTS]
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .slice(0, 3);
 
   return (
     <section className="py-24 lg:py-32 bg-cream">
@@ -51,8 +57,7 @@ export default function LatestInsights() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {insights.map((post, idx) => {
-            const dec = BLOG_CARD_DECORATIONS[idx] || BLOG_CARD_DECORATIONS[0];
-            const IconComponent = dec.icon;
+            const IconComponent = CATEGORY_ICONS[post.category] || FileText;
 
             return (
               <Reveal key={post.slug} delay={idx * 100}>
@@ -73,7 +78,7 @@ export default function LatestInsights() {
                     </div>
 
                     <span className="absolute top-4 left-4 bg-gold text-navy font-bold text-[10px] uppercase tracking-[0.14em] px-3 py-1 rounded-full z-10 select-none">
-                      {dec.label}
+                      {post.category}
                     </span>
 
                     <IconComponent className="w-16 h-16 text-gold-light/30 stroke-[1.25] transition-transform duration-500 group-hover:scale-110" />

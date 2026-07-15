@@ -1,6 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
-import { FOUNDER, CREDENTIALS, FIRM, BOOKING } from "@/lib/firm-content";
+import { FOUNDER, CREDENTIALS, FIRM, BOOKING, DIRECTORS } from "@/lib/firm-content";
 
 export const metadata: Metadata = {
   title: "About Our Firm & Values",
@@ -110,43 +110,24 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Meet the Team Section */}
+        {/* Our Directors Section */}
         <div className="mb-16 pt-8 border-t border-border">
           <h2 className="font-serif text-2xl md:text-3xl font-semibold text-navy text-center mb-12">
-            Meet the Team
+            Our Directors
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            {[
-              {
-                name: FOUNDER.name,
-                role: FOUNDER.title,
-                desc: "Specializes in direct and indirect taxation, corporate compliance, cross-border NRI tax advisory, and Virtual CFO services.",
-                image: FOUNDER.photoUrl
-              },
-              {
-                name: "Darlene Tria",
-                role: "Lead Reconciliations Manager",
-                desc: "Ensures monthly bank data feeds, ledgers, and offshore bookkeeping reconciliations are completed accurately and on schedule.",
-                image: "/images/team_darlene.png"
-              },
-              {
-                name: "Joegee Carlos, CPA",
-                role: "US Liaison Consultant",
-                desc: "Coordinates tax credit optimization (Form 1116) and US filings (Form 1040) directly with clients' US domestic CPAs.",
-                image: "/images/team_joegee.png"
-              }
-            ].map((team, idx) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+            {DIRECTORS.map((dir, idx) => (
               <div key={idx} className="bg-white rounded-xl border border-border p-6 text-center space-y-3 shadow-sm flex flex-col items-center">
                 <div className="w-20 h-20 rounded-full border border-border overflow-hidden bg-cream mb-2 flex items-center justify-center">
                   <img
-                    src={team.image}
-                    alt={team.name}
+                    src={dir.image}
+                    alt={dir.name}
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <h3 className="font-serif text-base font-bold text-navy">{team.name}</h3>
-                <span className="text-[10px] text-accent font-bold uppercase tracking-widest font-sans block">{team.role}</span>
-                <p className="text-sm text-navy/80 font-sans leading-relaxed">{team.desc}</p>
+                <h3 className="font-serif text-base font-bold text-navy">{dir.name}</h3>
+                <span className="text-[10px] text-accent font-bold uppercase tracking-widest font-sans block">{dir.role}</span>
+                <p className="text-sm text-navy/80 font-sans leading-relaxed">{dir.desc}</p>
               </div>
             ))}
           </div>
