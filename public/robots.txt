@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://www.anandassociates.example.com/sitemap.xml
+Sitemap: https://taxccounts.com/sitemap.xml

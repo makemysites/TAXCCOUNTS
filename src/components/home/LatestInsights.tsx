@@ -6,129 +6,104 @@ import {
   Coins,
   Globe2,
   Building2,
-  Rocket
+  Rocket,
+  ArrowRight
 } from "lucide-react";
+import Reveal from "@/components/shared/Reveal";
 
-// Visual config for the card headers
+// Visual config for the card headers — kept within the brand palette
 const BLOG_CARD_DECORATIONS = [
-  {
-    gradient: "from-[#0B5BA0] to-[#031A30]",
-    icon: Coins,
-    label: "GST"
-  },
-  {
-    gradient: "from-[#C5A55A] to-[#8c6d31]",
-    icon: Percent,
-    label: "INCOME TAX"
-  },
-  {
-    gradient: "from-[#0F1A2E] to-[#1e3a8a]",
-    icon: Globe2,
-    label: "USA TAX"
-  },
-  {
-    gradient: "from-[#065f46] to-[#042f2e]",
-    icon: Building2,
-    label: "BUSINESS"
-  },
-  {
-    gradient: "from-[#701a75] to-[#4a044e]",
-    icon: Rocket,
-    label: "STARTUP"
-  }
+  { icon: Coins, label: "GST" },
+  { icon: Percent, label: "Income Tax" },
+  { icon: Globe2, label: "USA Tax" },
+  { icon: Building2, label: "Business" },
+  { icon: Rocket, label: "Startup" },
 ];
 
 export default function LatestInsights() {
-  // Take the first 5 posts as they correspond to the requested 5 topics
-  const insights = BLOG_POSTS.slice(0, 5);
+  // Feature the three most recent posts
+  const insights = BLOG_POSTS.slice(0, 3);
 
   return (
-    <section className="py-20 lg:py-24 bg-cream-dark/15 border-b border-border">
+    <section className="py-24 lg:py-32 bg-cream">
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
-        
-        {/* Section Heading */}
-        <div className="max-w-3xl mb-12 space-y-2">
-          <h2 className="font-serif text-3xl md:text-4xl font-semibold text-navy">
-            Latest Insights
-          </h2>
-          <p className="text-xs md:text-sm text-navy/70 leading-relaxed font-sans">
-            Stay updated with the latest tax and business updates
-          </p>
-        </div>
+        {/* Section Heading with inline CTA */}
+        <Reveal>
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-14">
+            <div>
+              <span className="eyebrow">From the Learning Center</span>
+              <h2 className="mt-5 font-serif text-[2rem] sm:text-4xl lg:text-[2.75rem] font-semibold tracking-tight text-navy leading-tight">
+                Latest Insights
+              </h2>
+              <p className="mt-4 text-base text-muted leading-relaxed max-w-lg">
+                Stay ahead of the latest tax and business updates across your borders.
+              </p>
+            </div>
+            <Link
+              href="/resources"
+              className="btn btn-outline btn-sm self-start sm:self-end shrink-0"
+            >
+              All Insights
+              <span aria-hidden="true">&rarr;</span>
+            </Link>
+          </div>
+        </Reveal>
 
-        {/* 5 Cards Row - Horizontal Scrollable on Mobile, Grid on Desktop */}
-        <div className="flex gap-6 overflow-x-auto pb-6 scrollbar-thin lg:grid lg:grid-cols-5 lg:overflow-x-visible lg:pb-0 snap-x">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {insights.map((post, idx) => {
             const dec = BLOG_CARD_DECORATIONS[idx] || BLOG_CARD_DECORATIONS[0];
             const IconComponent = dec.icon;
-            
-            return (
-              <div
-                key={post.slug}
-                className="bg-white rounded-2xl border border-border shadow-sm flex flex-col justify-between overflow-hidden min-w-[280px] w-[280px] sm:min-w-[300px] sm:w-[300px] lg:w-auto lg:min-w-0 snap-align-start hover:shadow-md transition-shadow group shrink-0"
-              >
-                {/* Visual Header with Yellow Badge */}
-                <div className={`relative h-40 bg-gradient-to-br ${dec.gradient} flex items-center justify-center text-white/20 overflow-hidden`}>
-                  {/* Decorative mesh */}
-                  <div className="absolute inset-0 opacity-[0.05] pointer-events-none select-none">
-                    <svg width="100%" height="100%">
-                      <pattern id={`card-grid-${idx}`} width="20" height="20" patternUnits="userSpaceOnUse">
-                        <path d="M 20 0 L 0 0 0 20" fill="none" stroke="currentColor" strokeWidth="0.5" />
-                      </pattern>
-                      <rect width="100%" height="100%" fill={`url(#card-grid-${idx})`} />
-                    </svg>
-                  </div>
-                  
-                  {/* Refined Champagne Gold Badge */}
-                  <span className="absolute top-4 left-4 bg-gold-light text-navy font-sans font-bold text-[9px] uppercase tracking-wider px-2.5 py-0.5 rounded shadow-sm z-10 select-none">
-                    {dec.label}
-                  </span>
-                  
-                  {/* Centered Large Icon */}
-                  <IconComponent className="w-16 h-16 text-white/30 stroke-[1.25] group-hover:scale-110 transition-transform duration-500" />
-                </div>
 
-                {/* Card Body */}
-                <div className="p-5 flex-1 flex flex-col justify-between">
-                  <div className="space-y-3">
-                    <h3 className="font-serif text-sm font-bold text-navy leading-snug group-hover:text-accent transition-colors line-clamp-3">
-                      <Link href={`/resources/${post.slug}`}>{post.title}</Link>
-                    </h3>
-                  </div>
-                  
-                  {/* Date and Read More */}
-                  <div className="pt-6 mt-6 border-t border-border/60 space-y-3">
-                    <span className="block text-[10px] text-muted font-sans font-medium">
-                      {new Date(post.date).toLocaleDateString("en-US", {
-                        month: "short",
-                        day: "numeric",
-                        year: "numeric",
-                      })}
+            return (
+              <Reveal key={post.slug} delay={idx * 100}>
+                <Link
+                  href={`/resources/${post.slug}`}
+                  className="group flex h-full flex-col rounded-2xl bg-white border border-border overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_44px_-18px_rgba(6,47,82,0.22)]"
+                >
+                  {/* Visual Header */}
+                  <div className="relative h-44 bg-navy flex items-center justify-center overflow-hidden">
+                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(197,165,90,0.18),transparent_60%)]" />
+                    <div className="absolute inset-0 opacity-[0.06] pointer-events-none select-none">
+                      <svg width="100%" height="100%" aria-hidden="true">
+                        <pattern id={`card-grid-${idx}`} width="24" height="24" patternUnits="userSpaceOnUse">
+                          <path d="M 24 0 L 0 0 0 24" fill="none" stroke="white" strokeWidth="0.5" />
+                        </pattern>
+                        <rect width="100%" height="100%" fill={`url(#card-grid-${idx})`} />
+                      </svg>
+                    </div>
+
+                    <span className="absolute top-4 left-4 bg-gold text-navy font-bold text-[10px] uppercase tracking-[0.14em] px-3 py-1 rounded-full z-10 select-none">
+                      {dec.label}
                     </span>
-                    <Link
-                      href={`/resources/${post.slug}`}
-                      className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-accent group-hover:text-accent-hover transition-colors"
-                    >
-                      <span>Read More</span>
-                      <span>&rarr;</span>
-                    </Link>
+
+                    <IconComponent className="w-16 h-16 text-gold-light/30 stroke-[1.25] transition-transform duration-500 group-hover:scale-110" />
                   </div>
-                </div>
-              </div>
+
+                  {/* Card Body */}
+                  <div className="p-7 flex-1 flex flex-col justify-between">
+                    <div>
+                      <span className="block text-xs text-muted font-semibold uppercase tracking-[0.12em]">
+                        {new Date(post.date).toLocaleDateString("en-US", {
+                          month: "short",
+                          day: "numeric",
+                          year: "numeric",
+                        })}
+                      </span>
+                      <h3 className="mt-3 font-serif text-lg font-semibold text-navy leading-snug group-hover:text-accent transition-colors line-clamp-3">
+                        {post.title}
+                      </h3>
+                    </div>
+
+                    <div className="pt-5 mt-6 border-t border-border/70 flex items-center gap-2 text-[13px] font-bold uppercase tracking-[0.1em] text-accent">
+                      <span>Read Article</span>
+                      <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" />
+                    </div>
+                  </div>
+                </Link>
+              </Reveal>
             );
           })}
         </div>
-
-        {/* Explore all Insights CTA at the bottom */}
-        <div className="mt-12 text-center">
-          <Link
-            href="/resources"
-            className="inline-flex items-center justify-center rounded-full bg-navy px-8 py-3 text-xs uppercase tracking-wider font-bold text-white shadow hover:bg-navy-dark transition-colors"
-          >
-            Explore All Insights
-          </Link>
-        </div>
-
       </div>
     </section>
   );

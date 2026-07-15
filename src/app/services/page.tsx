@@ -24,7 +24,7 @@ export default function ServicesPage() {
         
         {/* Header Section */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <span className="font-serif italic text-accent text-base block">
+          <span className="eyebrow eyebrow-center justify-center">
             How We Work
           </span>
           <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-semibold text-navy leading-tight">
@@ -42,7 +42,7 @@ export default function ServicesPage() {
             return (
               <div
                 key={service.slug}
-                className="bg-white rounded-2xl p-6 sm:p-8 border border-border shadow-sm flex flex-col justify-between hover:shadow-md hover:border-accent/30 hover:scale-[1.02] transition-all duration-300 group"
+                className="bg-white rounded-2xl p-6 sm:p-8 border border-border shadow-sm flex flex-col justify-between hover:-translate-y-1.5 hover:shadow-[0_20px_44px_-18px_rgba(6,47,82,0.22)] hover:border-gold/40 transition-all duration-300 group"
               >
                 <div className="space-y-6">
                   {/* Top Header Row */}
@@ -72,7 +72,7 @@ export default function ServicesPage() {
                   </div>
 
                   {/* Description */}
-                  <p className="text-xs sm:text-sm text-navy/80 leading-relaxed font-sans line-clamp-4">
+                  <p className="text-sm md:text-base text-navy/80 leading-relaxed font-sans line-clamp-4">
                     {service.description}
                   </p>
                 </div>
@@ -97,14 +97,11 @@ export default function ServicesPage() {
           <h2 className="text-2xl font-serif font-bold text-navy">
             Transparent Pricing Models
           </h2>
-          <p className="text-xs sm:text-sm text-navy/85 max-w-xl mx-auto leading-relaxed">
+          <p className="text-sm md:text-base text-navy/85 max-w-xl mx-auto leading-relaxed">
             We believe you should know exactly what you'll pay and what you'll get before we begin. Explore our package-based pricing structures for small businesses and NRIs.
           </p>
           <div className="pt-2 flex justify-center">
-            <Link
-              href="/pricing"
-              className="px-8 py-3.5 bg-accent hover:bg-accent-hover text-white font-bold text-xs uppercase tracking-wider rounded-full shadow transition-all"
-            >
+            <Link href="/pricing" className="btn btn-navy">
               View Pricing Packages
             </Link>
           </div>

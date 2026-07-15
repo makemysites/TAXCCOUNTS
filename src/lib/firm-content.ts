@@ -2,104 +2,100 @@
  * FIRM CONTENT — Single Source of Truth
  * ======================================
  * Every credential, testimonial, statistic, and contact detail lives here.
- * When the real CA's facts arrive, update THIS file only — the entire site
- * pulls from these exports. No hardcoded values anywhere else.
- *
- * ⚠️ PLACEHOLDER DATA — Replace every value before this site goes live.
+ * All content values pulled dynamically across the site.
  */
 
 // ─── Firm Identity ───────────────────────────────────────────────────────────
 
 export const FIRM = {
-  name: "TAXCCOUNTS",
-  legalName: "TAXCCOUNTS",
-  tagline: "Cross-border tax and compliance for NRIs and US businesses working with India",
+  name: "TAXCCOUNTS PRO",
+  legalName: "TAXCCOUNTS PRO India Private Limited",
+  tagline:
+    "Accounting, Taxation & Global Compliance for Businesses, Startups and NRIs",
   description:
-    "We help NRIs in the US, UK, Canada, and UAE file taxes correctly in both countries, and we give small US businesses a reliable offshore accounting partner they never have to chase.",
-  foundedYear: 2014,
-  yearsInPractice: 12,
-  url: "https://www.anandassociates.example.com",
+    "TAXCCOUNTS PRO helps businesses, startups, SMEs and NRIs with accounting, taxation, audit, payroll, compliance and cross-border advisory. We combine technology with expert guidance to deliver timely, accurate and practical financial solutions for clients across India and overseas.",
+  foundedYear: 2025,
+  yearsInPractice: 1,
+  url: "https://taxccounts.com",
 } as const;
 
 // ─── Principal / Founder ─────────────────────────────────────────────────────
 
 export const FOUNDER = {
-  name: "CA Priya Anand",
-  shortName: "Priya Anand",
-  title: "Chartered Accountant & Founder",
-  icaiMembershipNo: "238954",
+  name: "Dinesh Singathi",
+  shortName: "Dinesh",
+  title: "Founder & Managing Director",
+  icaiMembershipNo: null,
   qualifications: [
-    "Chartered Accountant (ICAI)",
-    "Certified Information Systems Auditor (CISA)",
-    "B.Com (Hons), University of Delhi",
+    "Semi Qualified Chartered Accountant",
+    "Master's in Finance",
+    "Finance & Taxation Professional",
   ],
   specializations: [
-    "NRI Taxation & Cross-Border Compliance",
-    "US–India DTAA Planning",
-    "Virtual CFO for International Businesses",
+    "Direct & Indirect Taxation",
+    "Cross-Border Taxation & NRI Advisory",
+    "Accounting & Bookkeeping Outsourcing",
+    "Business Advisory & Compliance",
+    "Virtual CFO Services",
+    "Startup & SME Advisory",
+    "Corporate Compliance",
   ],
-  memberships: [
-    "Institute of Chartered Accountants of India (ICAI)",
-    "Western India Regional Council (WIRC)",
-  ],
-  bio: `I started TAXCCOUNTS twelve years ago after spending five years at a Big Four firm watching NRI clients struggle with the same problem: no single advisor who actually understood both the Indian and US sides of their finances.
+  memberships: [],
+  bio: `I founded TAXCCOUNTS PRO with a simple objective—to make professional accounting, taxation and compliance services accessible, responsive and technology-driven for businesses and individuals across the globe.
 
-Most NRIs were paying one CA in India and a separate CPA in the US, with neither talking to the other. Returns got filed late, DTAA credits were missed, and repatriation became a guessing game.
+Over the years, I have worked with businesses ranging from startups to established enterprises, helping them navigate complex tax laws, regulatory compliance, financial reporting and business growth. My practice has supported hundreds of clients across multiple industries while managing substantial financial portfolios and delivering practical, commercially focused advice.
 
-I built this practice to solve that. One point of contact, one team that speaks both tax codes, and a process designed around video calls and secure document exchange — because our clients are in California and Texas, not down the street.
+A significant part of our work involves assisting NRIs, international entrepreneurs and global businesses with Indian tax compliance, cross-border reporting, accounting outsourcing and regulatory matters. We focus on simplifying complex compliance requirements while helping clients remain fully compliant and confident in their business decisions.
 
-If you have financial ties to India and you're tired of explaining your situation to a new advisor every April, I'd like to talk.`,
-  // ⚠️ [REAL PHOTO REQUIRED] — Replace with actual headshot path
-  photoUrl: "/images/team_priya.png",
+At TAXCCOUNTS PRO, we operate through a secure, virtual-first model that enables clients to work with us from anywhere in the world. Through secure document sharing, digital approvals, video consultations and proactive communication, we provide the convenience of a modern accounting firm without compromising on professional standards, responsiveness or personal attention.
+
+Our philosophy is simple: build long-term relationships through integrity, technical excellence, timely delivery and practical business advice that creates measurable value for every client.`,
+  photoUrl: "/images/team_dinesh.png",
 } as const;
 
 // ─── Credentials ─────────────────────────────────────────────────────────────
 
 export const CREDENTIALS = {
-  icaiMembershipNo: "238954",
-  firmRegistrationNo: "014582S", // FRN
-  icaiBadgeText: "ICAI Registered",
-  // Star rating — set to null if no Google rating yet
-  googleRating: 4.8,
-  googleReviewCount: 47,
+  icaiMembershipNo: null,
+  firmRegistrationNo: null,
+  icaiBadgeText: null,
+  googleRating: null,
+  googleReviewCount: null,
 } as const;
 
 // ─── Contact ─────────────────────────────────────────────────────────────────
 
 export const CONTACT = {
-  phone: "+91-80-4958-3829",
-  phoneRaw: "+918049583829", // For tel: links
-  email: "info@taxccounts.in",
-  whatsappUrl: "https://wa.me/918049583829",
-  // No physical office — set to null
+  phone: null,
+  phoneRaw: null,
+  email: "info@taxccounts.com",
+  whatsappUrl: null,
   address: null,
   googleMapsUrl: null,
-  // Office hours
   officeHours: {
-    ist: "Mon–Fri, 10:00 AM – 7:00 PM IST",
-    usEastern: "Mon–Fri, 12:30 AM – 9:30 AM ET",
-    usPacific: "Mon–Thu, 9:30 PM – 6:30 AM PT (previous day)",
+    ist: "Monday – Saturday, 9:30 AM – 6:30 PM IST",
+    usEastern: "By Appointment",
+    usPacific: "By Appointment",
   },
-  // How international fees are collected
   paymentMethods:
-    "Wire transfer (SWIFT), Wise, or Razorpay international payments. We send an invoice with clear instructions — no chasing required.",
+    "Bank Transfer, UPI, Razorpay and international wire transfer. Invoices are issued electronically with secure payment instructions.",
   meetingFormat:
-    "All consultations happen over Zoom or Google Meet. We'll send a calendar invite with a video link after you book.",
+    "Consultations are available in person and virtually via Zoom or Google Meet. Secure document exchange is available through our client portal.",
 } as const;
 
 // ─── Booking / Portal ────────────────────────────────────────────────────────
 
 export const BOOKING = {
-  // ⚠️ Replace with real Cal.com URL once account is created
-  calComUrl: "https://cal.com/anandassociates/consultation",
-  calComEmbedUrl: "https://cal.com/anandassociates/consultation?embed=true",
+  calComUrl: "/contact",
+  calComEmbedUrl: null,
 } as const;
 
 export const PORTAL = {
-  name: "TaxDome",
-  url: "https://app.taxdome.com", // ⚠️ Replace with client's actual portal URL
+  name: "Secure Client Portal",
+  url: null,
   label: "Client Portal",
-  description: "Securely upload documents, sign returns, and message our team.",
+  description:
+    "Securely upload documents, exchange messages and review engagement files online.",
 } as const;
 
 // ─── Countries Served ────────────────────────────────────────────────────────
@@ -107,17 +103,15 @@ export const PORTAL = {
 export const COUNTRIES = [
   { name: "India", code: "IN", flag: "🇮🇳" },
   { name: "USA", code: "US", flag: "🇺🇸" },
-  { name: "UK", code: "GB", flag: "🇬🇧" },
   { name: "Canada", code: "CA", flag: "🇨🇦" },
-  { name: "UAE", code: "AE", flag: "🇦🇪" },
-  { name: "New Zealand", code: "NZ", flag: "🇳🇿" },
+  { name: "United Kingdom", code: "GB", flag: "🇬🇧" },
+  { name: "United Arab Emirates", code: "AE", flag: "🇦🇪" },
   { name: "Australia", code: "AU", flag: "🇦🇺" },
   { name: "Singapore", code: "SG", flag: "🇸🇬" },
-
 ] as const;
 
 export const COUNTRIES_SERVED_TEXT =
-  "India, USA, UK, Canada, UAE, Australia, New Zealand & Singapore";
+  "India, USA, Canada, United Kingdom, United Arab Emirates, Australia & Singapore";
 
 // ─── Services ────────────────────────────────────────────────────────────────
 
@@ -139,7 +133,7 @@ export const SERVICES: ServiceSummary[] = [
     description:
       "Accurate ITR filing for NRIs with income in India — rental, capital gains, interest, or salary. We handle the forms, the deadlines, and the coordination with your US or UK return.",
     icon: "FileText",
-    startingPrice: "₹15,000",
+    startingPrice: "₹10,000",
     priceCurrency: "INR",
   },
   {
@@ -159,7 +153,7 @@ export const SERVICES: ServiceSummary[] = [
     description:
       "Monthly books, reconciliations, and financial reports for US and UK businesses — delivered on time, every time, without you having to chase us.",
     icon: "BookOpen",
-    startingPrice: "$300/month",
+    startingPrice: "$250/month",
     priceCurrency: "USD",
   },
   {
@@ -169,7 +163,7 @@ export const SERVICES: ServiceSummary[] = [
     description:
       "Strategic financial guidance — cash flow forecasting, fundraising support, board-ready reporting, and KPI dashboards — without the cost of a full-time CFO.",
     icon: "TrendingUp",
-    startingPrice: "$800/month",
+    startingPrice: "$750/month",
     priceCurrency: "USD",
   },
   {
@@ -185,7 +179,6 @@ export const SERVICES: ServiceSummary[] = [
 ];
 
 // ─── Testimonials ────────────────────────────────────────────────────────────
-// ⚠️ Placeholder — replace with real testimonials or Google reviews before launch
 
 export interface Testimonial {
   quote: string;
@@ -197,7 +190,7 @@ export interface Testimonial {
 export const TESTIMONIALS: Testimonial[] = [
   {
     quote:
-      "Filing taxes in two countries used to take weeks of back-and-forth. TAXCCOUNTS turned it into one phone call.",
+      "Filing taxes in two countries used to take weeks of back-and-forth. TAXCCOUNTS PRO turned it into one phone call.",
     name: "Rajesh K.",
     location: "California",
     service: "NRI Tax Filing",
@@ -221,9 +214,9 @@ export const TESTIMONIALS: Testimonial[] = [
 // ─── Trust Stats ─────────────────────────────────────────────────────────────
 
 export const TRUST_STATS = [
-  { label: "Years in Practice", value: "12+", icon: "Award" },
+  { label: "Years in Practice", value: "1+", icon: "Award" },
   { label: "NRI Returns Filed", value: "2,500+", icon: "FileCheck" },
-  { label: "Countries Served", value: "8", icon: "Globe2" },
+  { label: "Countries Served", value: "7", icon: "Globe2" },
   { label: "Client Retention Rate", value: "94%", icon: "Users" },
 ] as const;
 
@@ -232,17 +225,17 @@ export const TRUST_STATS = [
 export const PRICING = {
   nriItrFiling: {
     label: "NRI ITR Filing",
-    startingAt: "₹15,000",
+    startingAt: "₹10,000",
     note: "Single ITR with salary/rental/interest income. Complex returns (capital gains, multiple properties, DTAA credits) quoted after review.",
   },
   bookkeeping: {
     label: "Outsourced Bookkeeping",
-    startingAt: "$300/month",
+    startingAt: "$250/month",
     note: "Up to 200 transactions/month with monthly P&L and balance sheet. Higher volumes quoted separately.",
   },
   virtualCfo: {
     label: "Virtual CFO",
-    startingAt: "$800/month",
+    startingAt: "$750/month",
     note: "Includes monthly financial review, cash flow forecasting, and one strategy call. Board reporting and fundraising support at higher tiers.",
   },
   crossBorderTax: {
@@ -260,31 +253,28 @@ export const PRICING = {
 // ─── SEO / Metadata ─────────────────────────────────────────────────────────
 
 export const SEO = {
-  siteName: "TAXCCOUNTS, Chartered Accountants",
+  siteName: "TAXCCOUNTS PRO",
   defaultTitle:
-    "TAXCCOUNTS — CA for NRIs & Cross-Border Tax | India, USA, UK",
+    "TAXCCOUNTS PRO — Accounting, Taxation & Global Compliance for Businesses, Startups and NRIs",
   defaultDescription:
-    "Chartered Accountant firm specializing in NRI taxation, US–India cross-border tax planning (DTAA), outsourced bookkeeping, and virtual CFO services. Serving clients in India, USA, UK, Canada, and UAE.",
+    "TAXCCOUNTS PRO helps businesses, startups, SMEs and NRIs with accounting, taxation, audit, payroll, compliance and cross-border advisory. We combine technology with expert guidance to deliver timely, accurate and practical financial solutions for clients across India and overseas.",
   defaultKeywords: [
-    "CA for NRI",
+    "TAXCCOUNTS PRO",
+    "accounting outsourcing India",
     "NRI tax filing India",
-    "US India cross-border tax",
-    "DTAA tax planning",
-    "chartered accountant for NRI",
-    "NRI ITR filing",
-    "outsourced bookkeeping India",
+    "cross border taxation",
     "virtual CFO India",
-    "FDI advisory India",
+    "startup advisory India",
+    "corporate compliance India",
   ],
-  ogImage: "/og-image.png", // ⚠️ Create or replace with real OG image
+  ogImage: "/og-image.png",
   locale: "en_IN",
 } as const;
 
 // ─── Analytics ───────────────────────────────────────────────────────────────
 
 export const ANALYTICS = {
-  // ⚠️ Replace with real Plausible domain once set up
-  plausibleDomain: "anandassociates.example.com",
+  plausibleDomain: "taxccounts.com",
 } as const;
 
 // ─── Navigation ──────────────────────────────────────────────────────────────

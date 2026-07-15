@@ -29,7 +29,7 @@ export default function BottleneckSection() {
             <h2 className="font-serif text-3xl font-semibold leading-tight text-navy">
               Fragmented financial vendors turn you into the bottleneck.
             </h2>
-            <div className="space-y-4 text-xs md:text-sm text-navy/80 leading-relaxed font-sans">
+            <div className="space-y-4 text-sm md:text-base text-navy/80 leading-relaxed font-sans">
               <p>
                 Most independent professionals and NRIs rely on separate providers—a bookkeeper in one country, a tax CPA in another, and a separate payroll company. Each one handles their piece, but no one is responsible for making everything work together.
               </p>

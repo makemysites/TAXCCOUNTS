@@ -13,15 +13,17 @@ export default function Header() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const pathname = usePathname();
 
+  // Over the dark homepage hero the header is transparent; it turns solid
+  // white as soon as the user scrolls (or on any inner page).
+  const isHome = pathname === "/";
+  const dark = isHome && !scrolled;
+
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 20);
     };
 
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -49,8 +51,10 @@ export default function Header() {
       <header
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b",
-          scrolled
-            ? "bg-white/95 backdrop-blur-md shadow-md border-border/80 py-2"
+          dark
+            ? "bg-transparent border-white/10 py-4"
+            : scrolled
+            ? "bg-white/95 backdrop-blur-md shadow-sm border-border/80 py-2"
             : "bg-white border-border/40 py-4"
         )}
       >
@@ -60,7 +64,7 @@ export default function Header() {
           <div className="flex justify-between items-center h-14">
             {/* Logo */}
             <Link href="/" className="flex flex-col group">
-              <Logo />
+              <Logo light={dark} />
             </Link>
 
             {/* Desktop Navigation */}
@@ -80,7 +84,11 @@ export default function Header() {
                       <button
                         className={cn(
                           "px-3 py-2 text-xs uppercase tracking-wider font-semibold transition-colors duration-200 flex items-center space-x-1 rounded-md",
-                          isActive
+                          dark
+                            ? isActive
+                              ? "text-gold-light bg-white/10"
+                              : "text-white/80 hover:text-white hover:bg-white/10"
+                            : isActive
                             ? "text-accent bg-accent/5"
                             : "text-navy/85 hover:text-navy hover:bg-navy/5"
                         )}
@@ -90,7 +98,8 @@ export default function Header() {
                         <span>{item.label}</span>
                         <svg
                           className={cn(
-                            "w-3.5 h-3.5 transition-transform duration-200 text-navy/60 group-hover:text-navy",
+                            "w-3.5 h-3.5 transition-transform duration-200",
+                            dark ? "text-white/60 group-hover:text-white" : "text-navy/60 group-hover:text-navy",
                             activeDropdown === item.label && "rotate-180"
                           )}
                           fill="none"
@@ -101,63 +110,78 @@ export default function Header() {
                         </svg>
                       </button>
 
-                      {/* Dropdown Menu */}
+                      {/* Dropdown Menu — pt-3 bridges the hover gap so it doesn't flicker shut */}
                       <div
                         className={cn(
-                          "absolute left-1/2 -translate-x-1/2 mt-1 w-screen max-w-sm bg-white rounded-lg shadow-xl border border-border overflow-hidden transition-all duration-200 origin-top transform z-50 p-4 grid gap-2",
+                          "absolute left-1/2 -translate-x-1/2 top-full pt-3 w-screen max-w-sm transition-all duration-200 origin-top transform z-50",
                           activeDropdown === item.label
-                            ? "opacity-100 scale-y-100 pointer-events-auto"
-                            : "opacity-0 scale-y-95 pointer-events-none"
+                            ? "opacity-100 scale-y-100 pointer-events-auto visible"
+                            : "opacity-0 scale-y-95 pointer-events-none invisible"
                         )}
                       >
-                        {item.label === "Services" ? (
+                        <div
+                          className={cn(
+                            "rounded-xl overflow-hidden p-4 grid gap-2",
+                            dark
+                              ? "bg-navy-dark/95 backdrop-blur-md ring-1 ring-white/15 shadow-[0_24px_60px_-16px_rgba(0,0,0,0.6)]"
+                              : "bg-white border border-border shadow-xl"
+                          )}
+                        >
                           <div className="grid grid-cols-1 gap-1">
                             {item.children.map((child) => (
                               <Link
                                 key={child.href}
                                 href={child.href}
-                                className="group/item flex items-start p-2 rounded-md hover:bg-cream-dark transition-colors"
+                                className={cn(
+                                  "group/item flex items-start p-2.5 rounded-lg transition-colors",
+                                  dark ? "hover:bg-white/5" : "hover:bg-cream-dark"
+                                )}
                               >
                                 <div className="flex-1">
-                                  <div className="text-xs font-bold text-navy group-hover/item:text-accent transition-colors">
+                                  <div
+                                    className={cn(
+                                      "text-[13px] font-bold transition-colors",
+                                      dark
+                                        ? "text-white group-hover/item:text-gold-light"
+                                        : "text-navy group-hover/item:text-accent"
+                                    )}
+                                  >
                                     {child.label}
                                   </div>
-                                  <div className="text-[11px] text-muted mt-0.5 font-sans line-clamp-1">
+                                  <div
+                                    className={cn(
+                                      "text-xs mt-0.5 font-sans line-clamp-1",
+                                      dark ? "text-white/50" : "text-muted"
+                                    )}
+                                  >
                                     {child.description}
                                   </div>
                                 </div>
                               </Link>
                             ))}
-                            <div className="mt-2 pt-2 border-t border-border flex justify-between items-center text-[11px]">
-                              <span className="text-muted">Need details?</span>
-                              <Link
-                                href="/services"
-                                className="text-accent font-bold hover:underline"
+                            {item.label === "Services" && (
+                              <div
+                                className={cn(
+                                  "mt-2 pt-3 border-t flex justify-between items-center text-xs",
+                                  dark ? "border-white/10" : "border-border"
+                                )}
                               >
-                                How We Work &rarr;
-                              </Link>
-                            </div>
+                                <span className={dark ? "text-white/50" : "text-muted"}>
+                                  Need details?
+                                </span>
+                                <Link
+                                  href="/services"
+                                  className={cn(
+                                    "font-bold hover:underline",
+                                    dark ? "text-gold-light" : "text-accent"
+                                  )}
+                                >
+                                  How We Work &rarr;
+                                </Link>
+                              </div>
+                            )}
                           </div>
-                        ) : (
-                          <div className="grid grid-cols-1 gap-1">
-                            {item.children.map((child) => (
-                              <Link
-                                key={child.href}
-                                href={child.href}
-                                className="group/item flex items-start p-2 rounded-md hover:bg-cream-dark transition-colors"
-                              >
-                                <div>
-                                  <div className="text-xs font-bold text-navy group-hover/item:text-accent transition-colors">
-                                    {child.label}
-                                  </div>
-                                  <div className="text-[11px] text-muted mt-0.5 font-sans">
-                                    {child.description}
-                                  </div>
-                                </div>
-                              </Link>
-                            ))}
-                          </div>
-                        )}
+                        </div>
                       </div>
                     </div>
                   );
@@ -169,7 +193,11 @@ export default function Header() {
                     href={item.href}
                     className={cn(
                       "px-3 py-2 text-xs uppercase tracking-wider font-semibold transition-colors duration-200 rounded-md",
-                      isActive
+                      dark
+                        ? isActive
+                          ? "text-gold-light bg-white/10"
+                          : "text-white/80 hover:text-white hover:bg-white/10"
+                        : isActive
                         ? "text-accent bg-accent/5"
                         : "text-navy/85 hover:text-navy hover:bg-navy/5"
                     )}
@@ -182,10 +210,7 @@ export default function Header() {
 
             {/* Right CTAs */}
             <div className="hidden md:flex items-center space-x-4">
-              <Link
-                href={BOOKING.calComUrl}
-                className="px-6 py-2.5 bg-gold text-navy font-bold text-xs uppercase tracking-wider rounded-full shadow-md hover:bg-gold-light hover:scale-[1.02] active:scale-[0.98] transition-all"
-              >
+              <Link href={BOOKING.calComUrl} className="btn btn-gold btn-sm">
                 Book a Consultation
               </Link>
             </div>
@@ -194,13 +219,16 @@ export default function Header() {
             <div className="flex items-center space-x-3 md:hidden">
               <a
                 href={BOOKING.calComUrl}
-                className="px-3 py-1.5 bg-gold hover:bg-gold-light text-navy font-bold text-xs rounded-full shadow-sm"
+                className="px-4 py-1.5 bg-gold hover:bg-gold-light text-navy font-bold text-xs uppercase tracking-wider rounded-full shadow-sm transition-colors"
               >
                 Book
               </a>
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="text-navy hover:text-accent p-1 focus:outline-none"
+                className={cn(
+                  "p-1 focus:outline-none transition-colors",
+                  dark ? "text-white hover:text-gold-light" : "text-navy hover:text-accent"
+                )}
                 aria-label="Toggle menu"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -232,7 +260,7 @@ export default function Header() {
         >
           <div className="flex justify-between items-center pb-6 border-b border-border">
             <div className="flex flex-col">
-              <Logo heightClassName="h-8" />
+              <Logo size="sm" />
             </div>
             <button
               onClick={() => setMobileMenuOpen(false)}
@@ -312,15 +340,17 @@ export default function Header() {
             <div className="space-y-4 pt-6 border-t border-border">
               <a
                 href={BOOKING.calComUrl}
-                className="block w-full text-center py-3 bg-accent hover:bg-accent-hover text-white font-bold text-xs uppercase tracking-wider rounded-full shadow transition-all"
+                className="block w-full text-center py-3.5 bg-gold hover:bg-gold-light text-navy font-bold text-xs uppercase tracking-wider rounded-full shadow transition-colors"
               >
                 Book a Consultation
               </a>
-              <div className="text-center text-[10px] text-muted space-y-1">
-                <div>Office hours: IST & US Hours</div>
-                <a href={`tel:${CONTACT.phoneRaw}`} className="block hover:underline text-navy font-semibold">
-                  Call: {CONTACT.phone}
-                </a>
+              <div className="text-center text-[10px] text-muted space-y-1 font-sans">
+                <div>Office hours: {CONTACT.officeHours.ist}</div>
+                {CONTACT.phone && (
+                  <a href={`tel:${CONTACT.phoneRaw}`} className="block hover:underline text-navy font-semibold mt-1">
+                    Call: {CONTACT.phone}
+                  </a>
+                )}
               </div>
             </div>
           </nav>

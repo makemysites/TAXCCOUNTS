@@ -3,6 +3,8 @@
  * All answers sourced from firm-content.ts placeholder data.
  */
 
+import { FOUNDER } from "./firm-content";
+
 export interface FAQItem {
   question: string;
   answer: string;
@@ -79,7 +81,7 @@ export const FAQ_SECTIONS: FAQSection[] = [
       {
         question: "Who will handle my account?",
         answer:
-          "Every client has a dedicated point of contact on our team. For complex engagements (cross-border tax planning, Virtual CFO), CA Priya Anand is personally involved in the strategy and review.",
+          `Every client has a dedicated point of contact on our team. For complex engagements (cross-border tax planning, Virtual CFO), ${FOUNDER.name} is personally involved in the strategy and review.`,
       },
       {
         question: "How do you communicate with clients?",

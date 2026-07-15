@@ -106,20 +106,22 @@ export default function FAQPage() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
             </svg>
           </div>
-          <div className="space-y-2 text-xs sm:text-sm">
+          <div className="space-y-2 text-sm md:text-base">
             <h3 className="font-bold text-navy font-serif">Secure Document Exchange</h3>
             <p className="text-muted leading-relaxed">
               We never collect bank statements, tax history, or PAN cards via email or contact forms due to compliance mandates (such as GLBA). All file handovers occur inside our secure client portal.
             </p>
-            <a
-              href={PORTAL.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 font-bold text-accent hover:underline pt-1 text-xs"
-            >
-              <span>Go to Client Portal</span>
-              <span>&rarr;</span>
-            </a>
+            {PORTAL.url && (
+              <a
+                href={PORTAL.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 font-bold text-accent hover:underline pt-1 text-xs"
+              >
+                <span>Go to Client Portal</span>
+                <span>&rarr;</span>
+              </a>
+            )}
           </div>
         </div>
 

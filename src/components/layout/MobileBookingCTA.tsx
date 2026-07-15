@@ -26,20 +26,22 @@ export default function MobileBookingCTA() {
         visible ? "translate-y-0" : "translate-y-full"
       }`}
     >
-      <a
-        href={`tel:${CONTACT.phoneRaw}`}
-        className="flex items-center justify-center w-12 h-12 bg-cream-dark text-navy rounded-lg border border-border active:scale-95 transition-all"
-        aria-label="Call office"
-      >
-        <svg className="w-5 h-5 text-navy/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-          />
-        </svg>
-      </a>
+      {CONTACT.phoneRaw && (
+        <a
+          href={`tel:${CONTACT.phoneRaw}`}
+          className="flex items-center justify-center w-12 h-12 bg-cream-dark text-navy rounded-lg border border-border active:scale-95 transition-all"
+          aria-label="Call office"
+        >
+          <svg className="w-5 h-5 text-navy/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+            />
+          </svg>
+        </a>
+      )}
       <a
         href={BOOKING.calComUrl}
         className="flex-1 bg-navy text-white font-bold py-3 rounded-lg text-center shadow active:scale-95 transition-all flex items-center justify-center gap-2 text-xs uppercase tracking-wider font-sans hover:bg-navy-dark"

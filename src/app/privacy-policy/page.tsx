@@ -45,7 +45,7 @@ export default function PrivacyPolicyPage() {
             <h2 className="text-lg font-serif font-bold text-navy pt-4 border-t border-border">
               2. Secure Document Exchange (GLBA Mandate)
             </h2>
-            <p className="bg-accent/5 p-4 rounded-lg border border-accent/15 text-xs sm:text-sm">
+            <p className="bg-accent/5 p-4 rounded-lg border border-accent/15 text-sm md:text-base">
               <strong>CRITICAL PROTOCOL:</strong> As a chartered accounting practice handling financial data (such as bank records, PANs, and tax history), we adhere to strict confidentiality principles. We <strong>never accept or solicit financial records over email or contact forms</strong>. All transaction items and tax filings are managed exclusively inside our secure, encrypted client portal (<strong>{PORTAL.name}</strong>). If you send sensitive files via standard mail or chat, they will be deleted.
             </p>
 

@@ -63,7 +63,7 @@ export default function BlogGrid() {
                 </h3>
 
                 {/* Excerpt */}
-                <p className="text-xs sm:text-sm text-navy/80 font-sans leading-relaxed line-clamp-3">
+                <p className="text-sm md:text-base text-navy/80 font-sans leading-relaxed line-clamp-3">
                   {post.excerpt}
                 </p>
               </div>

@@ -1,7 +1,9 @@
 import React from "react";
 import Link from "next/link";
 import { SERVICES } from "@/lib/firm-content";
-import { FileText, Globe, BookOpen, TrendingUp } from "lucide-react";
+import { FileText, Globe, BookOpen, TrendingUp, ArrowRight } from "lucide-react";
+import SectionHeading from "@/components/shared/SectionHeading";
+import Reveal from "@/components/shared/Reveal";
 
 // Map string icon names to Lucide icon components
 const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -12,75 +14,59 @@ const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
 };
 
 export default function ServicesPreview() {
-  // Get the top 4 services as requested
   const topServices = SERVICES.slice(0, 4);
 
   return (
-    <section className="py-20 lg:py-24 bg-white border-b border-border">
+    <section className="py-24 lg:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
-        
-        {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-          <span className="font-serif italic text-accent text-base block">
-            Our Offerings
-          </span>
-          <h2 className="font-serif text-3xl md:text-4xl font-semibold tracking-tight text-navy">
-            Services Provided
-          </h2>
-          <div className="w-16 h-1 bg-gold mx-auto mt-2 rounded-full" />
-        </div>
+        <Reveal>
+          <SectionHeading
+            eyebrow="What We Do"
+            title="Services Built Around Your Borders"
+            subtitle="Four core practice areas, coordinated as one system — so nothing falls between your countries."
+            className="mb-16"
+          />
+        </Reveal>
 
-        {/* Services Grid (4 cols on desktop, 2 on tablet, 1 on mobile) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto mb-16">
-          {topServices.map((service) => {
+        {/* Services Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          {topServices.map((service, idx) => {
             const IconComponent = ICON_MAP[service.icon] || FileText;
             return (
-              <div
-                key={service.slug}
-                className="bg-cream rounded-2xl border border-border p-6 hover:shadow-md transition-shadow flex flex-col justify-between group"
-              >
-                <div className="space-y-5">
-                  {/* Icon Wrapper */}
-                  <div className="w-12 h-12 rounded-xl bg-accent/5 border border-accent/15 flex items-center justify-center text-accent group-hover:scale-105 group-hover:bg-accent group-hover:text-white transition-all">
-                    <IconComponent className="w-5 h-5 stroke-[1.75]" />
-                  </div>
-                  
-                  {/* Title & Desc */}
-                  <div className="space-y-2">
-                    <h3 className="font-serif text-base font-bold text-navy group-hover:text-accent transition-colors leading-snug">
+              <Reveal key={service.slug} delay={idx * 90}>
+                <Link
+                  href={`/services/${service.slug}`}
+                  className="group flex h-full flex-col justify-between rounded-2xl border border-border bg-cream p-8 transition-all duration-300 hover:-translate-y-1.5 hover:border-gold/40 hover:shadow-[0_20px_44px_-18px_rgba(6,47,82,0.22)]"
+                >
+                  <div>
+                    {/* Icon */}
+                    <div className="w-12 h-12 rounded-xl bg-navy text-gold-light inline-flex items-center justify-center transition-colors duration-300 group-hover:bg-gold group-hover:text-navy">
+                      <IconComponent className="w-6 h-6 stroke-[1.5]" />
+                    </div>
+
+                    <h3 className="mt-6 font-serif text-xl font-semibold text-navy leading-snug group-hover:text-accent transition-colors">
                       {service.title}
                     </h3>
-                    <p className="text-xs text-navy/75 leading-relaxed font-sans line-clamp-4">
+                    <p className="mt-3 text-sm text-muted leading-relaxed line-clamp-4">
                       {service.description}
                     </p>
                   </div>
-                </div>
 
-                {/* Details link */}
-                <div className="pt-4 mt-6 border-t border-border/50 flex justify-end">
-                  <Link
-                    href={`/services/${service.slug}`}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-accent group-hover:text-accent-hover transition-colors"
-                  >
+                  <div className="pt-6 mt-6 border-t border-border/70 flex items-center gap-2 text-[13px] font-bold uppercase tracking-[0.1em] text-accent">
                     <span>Learn More</span>
-                    <span>&rarr;</span>
-                  </Link>
-                </div>
-              </div>
+                    <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" />
+                  </div>
+                </Link>
+              </Reveal>
             );
           })}
         </div>
 
-        {/* Explore All CTA Button */}
-        <div className="text-center">
-          <Link
-            href="/services"
-            className="inline-flex items-center justify-center rounded-full bg-accent px-10 py-4 text-xs uppercase tracking-wider font-bold text-white shadow hover:bg-accent-hover transition-colors"
-          >
+        <Reveal className="text-center">
+          <Link href="/services" className="btn btn-outline">
             Explore All Services
           </Link>
-        </div>
-
+        </Reveal>
       </div>
     </section>
   );

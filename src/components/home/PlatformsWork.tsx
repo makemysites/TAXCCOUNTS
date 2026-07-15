@@ -1,78 +1,91 @@
 import React from "react";
 
-// SVG Logo components scaled to match the dark brand theme (larger heights)
-const TallyLogo = () => (
-  <svg viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-9 text-white">
-    <path d="M15 25 C15 20, 18 15, 25 15 C27 15, 29 16, 30 18 C32 15, 36 15, 39 17 C41 15, 45 15, 47 18 C49 22, 47 25, 42 27 C37 29, 23 29, 15 25 Z" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M22 25 C25 21, 35 21, 38 25" stroke="currentColor" strokeWidth="2"/>
-    <text x="56" y="27" fill="currentColor" fontSize="18" fontWeight="700" fontFamily="var(--font-sans)">Tally</text>
-  </svg>
-);
-
-const ZohoLogo = () => (
-  <svg viewBox="0 0 110 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-8">
-    <rect x="2" y="8" width="22" height="24" rx="4" fill="#E2231A"/>
-    <text x="8" y="25" fill="white" fontSize="15" fontWeight="900" fontFamily="var(--font-sans)">Z</text>
-    <rect x="28" y="8" width="22" height="24" rx="4" fill="#F8B019"/>
-    <text x="34" y="25" fill="white" fontSize="15" fontWeight="900" fontFamily="var(--font-sans)">O</text>
-    <rect x="54" y="8" width="22" height="24" rx="4" fill="#00A850"/>
-    <text x="60" y="25" fill="white" fontSize="15" fontWeight="900" fontFamily="var(--font-sans)">H</text>
-    <rect x="80" y="8" width="22" height="24" rx="4" fill="#0080C5"/>
-    <text x="86" y="25" fill="white" fontSize="15" fontWeight="900" fontFamily="var(--font-sans)">O</text>
-  </svg>
-);
-
-const QuickBooksLogo = () => (
-  <svg viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-9">
-    <circle cx="20" cy="20" r="16" fill="#2CA01C"/>
-    <circle cx="15" cy="22" r="5" stroke="white" strokeWidth="2.5"/>
-    <path d="M19 13 V22" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
-    <circle cx="25" cy="18" r="5" stroke="white" strokeWidth="2.5"/>
-    <path d="M21 18 V27" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
-    <text x="44" y="26" fill="white" fontSize="17" fontWeight="700" fontFamily="var(--font-sans)">quickbooks</text>
-  </svg>
-);
-
-const XeroLogo = () => (
-  <svg viewBox="0 0 100 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-9 text-[#00B7E5]">
-    <circle cx="20" cy="20" r="15" stroke="currentColor" strokeWidth="2.5"/>
-    <text x="15" y="26" fill="currentColor" fontSize="18" fontWeight="700" fontFamily="var(--font-sans)">x</text>
-    <text x="42" y="27" fill="white" fontSize="20" fontWeight="700" fontFamily="var(--font-sans)">xero</text>
-  </svg>
-);
-
-const HDFCLogo = () => (
-  <svg viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-9">
-    <rect x="5" y="5" width="30" height="30" fill="#004C8F" rx="4"/>
-    <rect x="10" y="10" width="20" height="20" fill="white"/>
-    <rect x="15" y="15" width="10" height="10" fill="#E20613"/>
-    <text x="44" y="26" fill="white" fontSize="17" fontWeight="800" fontFamily="var(--font-sans)">HDFC BANK</text>
-  </svg>
-);
-
-const KotakLogo = () => (
-  <svg viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-9">
-    <circle cx="20" cy="20" r="15" fill="#EE1C25"/>
-    <path d="M14 11 V29 M14 20 L24 11 M18 21.5 L26 29" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
-    <text x="44" y="26" fill="white" fontSize="18" fontWeight="800" fontFamily="var(--font-sans)">kotak</text>
-  </svg>
-);
-
-const SBILogo = () => (
-  <svg viewBox="0 0 100 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-9">
-    <path fillRule="evenodd" clipRule="evenodd" d="M20 5C11.7157 5 5 11.7157 5 20C5 28.2843 11.7157 35 20 35C28.2843 35 35 28.2843 35 20C35 11.7157 28.2843 5 20 5ZM20 15C17.2386 15 15 17.2386 15 20C15 22.4282 16.7303 24.4516 19 24.9155V35H21V24.9155C23.2697 24.4516 25 22.4282 25 20C25 17.2386 22.7614 15 20 15Z" fill="#00B0EC"/>
-    <text x="44" y="27" fill="white" fontSize="20" fontWeight="700" fontFamily="var(--font-sans)">SBI</text>
-  </svg>
-);
-
 const PLATFORMS = [
-  { name: "Tally", logo: <TallyLogo /> },
-  { name: "Zoho", logo: <ZohoLogo /> },
-  { name: "QuickBooks", logo: <QuickBooksLogo /> },
-  { name: "Xero", logo: <XeroLogo /> },
-  { name: "HDFC Bank", logo: <HDFCLogo /> },
-  { name: "Kotak Bank", logo: <KotakLogo /> },
-  { name: "SBI", logo: <SBILogo /> }
+  {
+    logo: (
+      <div className="flex items-center gap-4">
+        <div className="w-9 h-9 bg-[#004c8f] flex items-center justify-center shrink-0 rounded-[6px] shadow-sm">
+          <div className="w-6.5 h-6.5 border-[2.5px] border-[#ed1c24] bg-white flex items-center justify-center">
+            <div className="w-2 h-2 bg-[#004c8f]" />
+          </div>
+        </div>
+        <span className="font-sans font-extrabold tracking-wider uppercase text-xs sm:text-sm text-white/90">HDFC Bank</span>
+      </div>
+    ),
+  },
+  {
+    logo: (
+      <div className="flex items-center gap-4">
+        <div className="w-9 h-9 bg-[#e01e26] rounded-full flex items-center justify-center shrink-0 shadow-sm">
+          <span className="text-white font-bold text-base font-sans">k</span>
+        </div>
+        <span className="font-sans font-bold lowercase text-base sm:text-lg tracking-tight text-white/90">kotak</span>
+      </div>
+    ),
+  },
+  {
+    logo: (
+      <div className="flex items-center gap-4">
+        <div className="w-9 h-9 bg-[#00b0e9] rounded-full flex items-center justify-center shrink-0 relative shadow-sm">
+          <div className="w-3 h-3 bg-[#071526] rounded-full" />
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0.75 h-4.5 bg-[#071526]" />
+        </div>
+        <span className="font-serif font-bold text-base sm:text-lg tracking-[0.1em] text-white/90">SBI</span>
+      </div>
+    ),
+  },
+  {
+    logo: (
+      <div className="flex items-center gap-4">
+        <svg className="w-7 h-7 text-white shrink-0" fill="none" stroke="currentColor" strokeWidth="2.25" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+        </svg>
+        <span className="font-sans font-bold text-base sm:text-lg text-white/90">Tally</span>
+      </div>
+    ),
+  },
+  {
+    logo: (
+      <div className="flex items-center gap-1.5 shrink-0 select-none">
+        <div className="w-7.5 h-7.5 bg-[#e01e26] rounded flex items-center justify-center font-extrabold text-white text-sm font-sans">Z</div>
+        <div className="w-7.5 h-7.5 bg-[#ffcc00] rounded flex items-center justify-center font-extrabold text-white text-sm font-sans">O</div>
+        <div className="w-7.5 h-7.5 bg-[#00a859] rounded flex items-center justify-center font-extrabold text-white text-sm font-sans">H</div>
+        <div className="w-7.5 h-7.5 bg-[#00b0e9] rounded flex items-center justify-center font-extrabold text-white text-sm font-sans">O</div>
+      </div>
+    ),
+  },
+  {
+    logo: (
+      <div className="flex items-center gap-4">
+        <div className="w-9 h-9 bg-[#00b7e5] rounded-full flex items-center justify-center shrink-0 shadow-sm">
+          <span className="text-white font-extrabold text-base font-sans">x</span>
+        </div>
+        <span className="font-sans font-extrabold text-base sm:text-lg text-white/90 tracking-wider lowercase">xero</span>
+      </div>
+    ),
+  },
+  {
+    logo: (
+      <div className="flex items-center gap-4">
+        <div className="w-9 h-9 bg-[#2ca01c] rounded-full flex items-center justify-center shrink-0 shadow-sm">
+          <span className="text-white font-bold text-base font-sans">qb</span>
+        </div>
+        <span className="font-sans font-bold text-sm sm:text-base text-white/90 lowercase tracking-tight">QuickBooks</span>
+      </div>
+    ),
+  },
+  {
+    logo: (
+      <div className="flex items-center gap-4">
+        <div className="w-9 h-9 bg-[#185adb] rounded-lg flex items-center justify-center shrink-0 shadow-sm">
+          <svg className="w-5.5 h-5.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg>
+        </div>
+        <span className="font-sans font-bold text-base sm:text-lg text-white/90">TaxDome</span>
+      </div>
+    ),
+  },
 ];
 
 export default function PlatformsWork() {

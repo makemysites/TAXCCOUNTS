@@ -14,8 +14,8 @@ export default function AboutPage() {
         
         {/* Header Section */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <span className="font-serif italic text-accent text-base block">
-            Who Are We
+          <span className="eyebrow eyebrow-center justify-center">
+            Who We Are
           </span>
           <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-semibold text-navy leading-tight">
             About {FIRM.name}
@@ -31,7 +31,7 @@ export default function AboutPage() {
             <div className="relative p-2 bg-cream rounded-xl border border-border w-full max-w-md">
               <img
                 src="/images/about_company.png"
-                alt="CA Priya Anand, founder of TAXCCOUNTS, in a professional modern office setting"
+                alt={`${FOUNDER.name}, founder of ${FIRM.name}, in a professional modern office setting`}
                 className="rounded-lg overflow-hidden object-cover w-full h-[450px]"
               />
             </div>
@@ -43,14 +43,15 @@ export default function AboutPage() {
                 Founder Message
               </span>
               <h2 className="font-serif text-2xl md:text-3xl font-semibold text-navy">
-                A Note from Priya
+                A Note from {FOUNDER.shortName}
               </h2>
               <p className="text-xs text-muted font-bold font-sans">
-                {FOUNDER.title} | Membership No: {CREDENTIALS.icaiMembershipNo}
+                {FOUNDER.title}
+                {CREDENTIALS.icaiMembershipNo && ` | Membership No: ${CREDENTIALS.icaiMembershipNo}`}
               </p>
             </div>
 
-            <div className="text-xs md:text-sm text-navy/85 leading-relaxed space-y-4 font-sans">
+            <div className="text-sm md:text-base text-navy/85 leading-relaxed space-y-4 font-sans">
               {FOUNDER.bio.split("\n\n").map((para, idx) => (
                 <p key={idx}>{para}</p>
               ))}
@@ -103,7 +104,7 @@ export default function AboutPage() {
             ].map((val, idx) => (
               <div key={idx} className="bg-white rounded-xl border border-border p-6 space-y-3 shadow-sm">
                 <h3 className="font-serif text-base font-bold text-navy">{val.title}</h3>
-                <p className="text-xs md:text-sm text-navy/80 leading-relaxed font-sans">{val.desc}</p>
+                <p className="text-sm md:text-base text-navy/80 leading-relaxed font-sans">{val.desc}</p>
               </div>
             ))}
           </div>
@@ -117,10 +118,10 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {[
               {
-                name: "CA Priya Anand",
-                role: "Founder & Principal",
-                desc: "12+ years of experience in cross-border tax planning, FEMA compliance, and offshore business bookkeeping systems.",
-                image: "/images/team_priya.png"
+                name: FOUNDER.name,
+                role: FOUNDER.title,
+                desc: "Specializes in direct and indirect taxation, corporate compliance, cross-border NRI tax advisory, and Virtual CFO services.",
+                image: FOUNDER.photoUrl
               },
               {
                 name: "Darlene Tria",
@@ -145,7 +146,7 @@ export default function AboutPage() {
                 </div>
                 <h3 className="font-serif text-base font-bold text-navy">{team.name}</h3>
                 <span className="text-[10px] text-accent font-bold uppercase tracking-widest font-sans block">{team.role}</span>
-                <p className="text-xs text-navy/80 font-sans leading-relaxed">{team.desc}</p>
+                <p className="text-sm text-navy/80 font-sans leading-relaxed">{team.desc}</p>
               </div>
             ))}
           </div>
@@ -154,9 +155,9 @@ export default function AboutPage() {
         {/* Bottom CTA Block */}
         <div className="mt-12 bg-white p-8 md:p-12 rounded-2xl border border-border shadow-sm text-center max-w-3xl mx-auto space-y-6">
           <h2 className="text-2xl font-serif font-bold text-navy">
-            Ready to Speak with Priya?
+            Ready to Speak with {FOUNDER.shortName}?
           </h2>
-          <p className="text-xs sm:text-sm text-navy/85 max-w-xl mx-auto leading-relaxed">
+          <p className="text-sm md:text-base text-navy/85 max-w-xl mx-auto leading-relaxed">
             Schedule a brief video consultation to discuss your ties to India, review your current filing setup, and identify double-tax optimization points.
           </p>
           <div className="pt-2 flex justify-center">
@@ -164,7 +165,7 @@ export default function AboutPage() {
               href={BOOKING.calComUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-3.5 bg-accent hover:bg-accent-hover text-white font-bold text-xs uppercase tracking-wider rounded-full shadow transition-all"
+              className="btn btn-gold"
             >
               Book a Strategy Call
             </a>

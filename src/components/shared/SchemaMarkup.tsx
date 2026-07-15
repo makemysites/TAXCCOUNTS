@@ -22,14 +22,14 @@ interface SchemaMarkupProps {
 }
 
 function buildProfessionalServiceSchema() {
-  return {
+  const schema: any = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     name: FIRM.legalName,
     description: FIRM.description,
     url: FIRM.url,
     foundingDate: String(FIRM.foundedYear),
-    telephone: CONTACT.phoneRaw,
+    telephone: CONTACT.phoneRaw || undefined,
     email: CONTACT.email,
     areaServed: COUNTRIES.map((c) => ({
       "@type": "Country",
@@ -52,17 +52,23 @@ function buildProfessionalServiceSchema() {
       name: FOUNDER.shortName,
       jobTitle: FOUNDER.title,
     },
-    ...(CREDENTIALS.googleRating && {
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: CREDENTIALS.googleRating,
-        reviewCount: CREDENTIALS.googleReviewCount,
-        bestRating: 5,
-      },
-    }),
     priceRange: "$$",
-    sameAs: [CONTACT.whatsappUrl],
   };
+
+  if (CREDENTIALS.googleRating && CREDENTIALS.googleReviewCount) {
+    schema.aggregateRating = {
+      "@type": "AggregateRating",
+      ratingValue: CREDENTIALS.googleRating,
+      reviewCount: CREDENTIALS.googleReviewCount,
+      bestRating: 5,
+    };
+  }
+
+  if (CONTACT.whatsappUrl) {
+    schema.sameAs = [CONTACT.whatsappUrl];
+  }
+
+  return schema;
 }
 
 function buildArticleSchema(data: SchemaMarkupProps["data"]) {

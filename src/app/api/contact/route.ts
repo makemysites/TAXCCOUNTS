@@ -28,8 +28,8 @@ export async function POST(request: Request) {
     // E.g., Resend:
     // const resend = new Resend(process.env.RESEND_API_KEY);
     // await resend.emails.send({
-    //   from: 'Anand Associates Web <hello@anandassociates.com>',
-    //   to: 'hello@anandassociates.example.com',
+    //   from: 'TAXCCOUNTS PRO Web <hello@taxccounts.com>',
+    //   to: 'info@taxccounts.com',
     //   subject: `New Lead: ${name} (${country})`,
     //   text: `Name: ${name}\nEmail: ${email}\nCountry: ${country}\nService: ${service}\nMessage:\n${message}`
     // });

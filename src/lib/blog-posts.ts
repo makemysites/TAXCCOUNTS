@@ -23,7 +23,7 @@ export const BLOG_POSTS: BlogPost[] = [
     metaDescription: "Stay updated with the latest GST rate changes, compliance requirements, GSTR filing updates, and input tax credit rules in India.",
     excerpt: "Understand the newest GST notifications, rate adjustments, and compliance changes in India for businesses and service providers.",
     date: "2026-06-18",
-    author: "CA Priya Anand",
+    author: "Dinesh Singathi",
     category: "GST",
     readTime: "5 min read",
     content: `
@@ -51,7 +51,7 @@ export const BLOG_POSTS: BlogPost[] = [
     metaDescription: "Get a clear guide to the latest Indian income tax slabs, comparing the New Tax Regime vs Old Tax Regime and outlining rebates.",
     excerpt: "A detailed breakdown of the new tax regime versus the old tax regime, income tax slab updates, and rebate eligibility rules.",
     date: "2026-06-05",
-    author: "CA Priya Anand",
+    author: "Dinesh Singathi",
     category: "Income Tax",
     readTime: "6 min read",
     content: `
@@ -84,7 +84,7 @@ export const BLOG_POSTS: BlogPost[] = [
     metaDescription: "Essential tax guide for non-US residents owning US LLCs. Learn about Form 5472, Form 1120, and how to stay compliant with the IRS.",
     excerpt: "Essential tax filing requirements for non-US residents owning US LLCs or C-Corps. Learn about Form 5472, Form 1120, and withholding rules.",
     date: "2026-05-22",
-    author: "CA Priya Anand",
+    author: "Dinesh Singathi",
     category: "USA Tax",
     readTime: "7 min read",
     content: `
@@ -110,7 +110,7 @@ export const BLOG_POSTS: BlogPost[] = [
     metaDescription: "A comprehensive guide to incorporating a Private Limited Company in India, covering DSC, DIN, SPICe+ form, and post-incorporation rules.",
     excerpt: "A complete walkthrough of registering a Private Limited Company in India. Covers DSC, DIN, SPICe+ form, and post-incorporation compliance.",
     date: "2026-04-30",
-    author: "CA Priya Anand",
+    author: "Dinesh Singathi",
     category: "Business",
     readTime: "8 min read",
     content: `
@@ -143,7 +143,7 @@ export const BLOG_POSTS: BlogPost[] = [
     metaDescription: "Learn key financial planning tips for early-stage startups, including runway management, unit economics, and tax incentives.",
     excerpt: "Key financial strategies for early-stage startups. How to manage runway, plan cash flows, handle tax compliance, and structure investments.",
     date: "2026-05-12",
-    author: "CA Priya Anand",
+    author: "Dinesh Singathi",
     category: "Startup",
     readTime: "6 min read",
     content: `
@@ -169,7 +169,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt:
       "If you're an NRI with income in India — rental, interest, capital gains, or salary arrears — you probably need to file an ITR. Here's exactly how it works, what you need, and the mistakes that cost most NRIs money.",
     date: "2026-06-25",
-    author: "CA Priya Anand",
+    author: "Dinesh Singathi",
     category: "NRI Taxation",
     readTime: "8 min read",
     content: `
@@ -225,7 +225,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt:
       "The India–US Double Tax Avoidance Agreement means you shouldn't pay tax on the same income in both countries. But 'shouldn't' and 'don't' are two different things. Here's how to make sure it actually works in your favor.",
     date: "2026-04-15",
-    author: "CA Priya Anand",
+    author: "Dinesh Singathi",
     category: "Cross-Border Tax",
     readTime: "6 min read",
     content: `
@@ -273,7 +273,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt:
       "Every year, NRI clients ask us the same question: 'What documents do I need to send?' Here's the complete checklist — save it, and you'll never scramble at filing time again.",
     date: "2026-05-02",
-    author: "CA Priya Anand",
+    author: "Dinesh Singathi",
     category: "NRI Taxation",
     readTime: "4 min read",
     content: `

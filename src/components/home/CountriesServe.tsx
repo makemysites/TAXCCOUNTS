@@ -1,22 +1,23 @@
 import React from "react";
 import Link from "next/link";
+import Reveal from "@/components/shared/Reveal";
 
 const SERVED_COUNTRIES = [
-  { 
-    name: "India", 
+  {
+    name: "India",
     flag: (
-      <svg className="w-8 h-5 border border-border/80 rounded shadow-xs shrink-0" viewBox="0 0 3 2">
+      <svg className="w-8 h-5 rounded shadow-xs shrink-0" viewBox="0 0 3 2">
         <rect width="3" height="2" fill="#FF9933" />
         <rect y="0.67" width="3" height="1.33" fill="#FFFFFF" />
         <rect y="1.33" width="3" height="0.67" fill="#128807" />
         <circle cx="1.5" cy="1" r="0.2" fill="#000080" />
       </svg>
-    ) 
+    )
   },
-  { 
-    name: "USA", 
+  {
+    name: "USA",
     flag: (
-      <svg className="w-8 h-5 border border-border/80 rounded shadow-xs shrink-0" viewBox="0 0 74 39">
+      <svg className="w-8 h-5 rounded shadow-xs shrink-0" viewBox="0 0 74 39">
         <rect width="74" height="39" fill="#FFFFFF" />
         <rect y="0" width="74" height="3" fill="#B22234" />
         <rect y="6" width="74" height="3" fill="#B22234" />
@@ -27,22 +28,22 @@ const SERVED_COUNTRIES = [
         <rect y="36" width="74" height="3" fill="#B22234" />
         <rect width="30" height="21" fill="#3C3B6E" />
       </svg>
-    ) 
+    )
   },
-  { 
-    name: "Canada", 
+  {
+    name: "Canada",
     flag: (
-      <svg className="w-8 h-5 border border-border/80 rounded shadow-xs shrink-0" viewBox="0 0 2 1">
+      <svg className="w-8 h-5 rounded shadow-xs shrink-0" viewBox="0 0 2 1">
         <rect width="2" height="1" fill="#FF0000" />
         <rect x="0.5" width="1" height="1" fill="#FFFFFF" />
         <path d="M 1 0.25 L 1.04 0.38 L 1.16 0.38 L 1.07 0.46 L 1.11 0.59 L 1 0.51 L 0.89 0.59 L 0.93 0.46 L 0.84 0.38 L 0.96 0.38 Z" fill="#FF0000" />
       </svg>
-    ) 
+    )
   },
-  { 
-    name: "UK", 
+  {
+    name: "UK",
     flag: (
-      <svg className="w-8 h-5 border border-border/80 rounded shadow-xs shrink-0" viewBox="0 0 60 30">
+      <svg className="w-8 h-5 rounded shadow-xs shrink-0" viewBox="0 0 60 30">
         <clipPath id="t">
           <rect width="60" height="30" />
         </clipPath>
@@ -54,12 +55,12 @@ const SERVED_COUNTRIES = [
           <path d="M30 0 V30 M0 15 H60" stroke="#C8102E" strokeWidth="6" />
         </g>
       </svg>
-    ) 
+    )
   },
-  { 
-    name: "Australia", 
+  {
+    name: "Australia",
     flag: (
-      <svg className="w-8 h-5 border border-border/80 rounded shadow-xs shrink-0" viewBox="0 0 60 30">
+      <svg className="w-8 h-5 rounded shadow-xs shrink-0" viewBox="0 0 60 30">
         <rect width="60" height="30" fill="#012169" />
         <g transform="scale(0.5)">
           <rect width="60" height="30" fill="#012169" />
@@ -74,12 +75,12 @@ const SERVED_COUNTRIES = [
         <circle cx="42" cy="22" r="1.5" fill="#fff" />
         <circle cx="15" cy="22" r="2.5" fill="#fff" />
       </svg>
-    ) 
+    )
   },
-  { 
-    name: "New Zealand", 
+  {
+    name: "New Zealand",
     flag: (
-      <svg className="w-8 h-5 border border-border/80 rounded shadow-xs shrink-0" viewBox="0 0 60 30">
+      <svg className="w-8 h-5 rounded shadow-xs shrink-0" viewBox="0 0 60 30">
         <rect width="60" height="30" fill="#012169" />
         <g transform="scale(0.5)">
           <rect width="60" height="30" fill="#012169" />
@@ -97,90 +98,95 @@ const SERVED_COUNTRIES = [
         <circle cx="42" cy="22" r="2" fill="#fff" />
         <circle cx="42" cy="22" r="1.2" fill="#C8102E" />
       </svg>
-    ) 
+    )
   },
-  { 
-    name: "UAE (Dubai)", 
+  {
+    name: "UAE (Dubai)",
     flag: (
-      <svg className="w-8 h-5 border border-border/80 rounded shadow-xs shrink-0" viewBox="0 0 4 3">
+      <svg className="w-8 h-5 rounded shadow-xs shrink-0" viewBox="0 0 4 3">
         <rect width="4" height="3" fill="#FFFFFF" />
         <rect width="1" height="3" fill="#FF0000" />
         <rect x="1" width="3" height="1" fill="#00732F" />
         <rect x="1" y="2" width="3" height="1" fill="#000000" />
       </svg>
-    ) 
+    )
   },
-  { 
-    name: "Singapore", 
+  {
+    name: "Singapore",
     flag: (
-      <svg className="w-8 h-5 border border-border/80 rounded shadow-xs shrink-0" viewBox="0 0 3 2">
+      <svg className="w-8 h-5 rounded shadow-xs shrink-0" viewBox="0 0 3 2">
         <rect width="3" height="1" fill="#FF0000" />
         <rect y="1" width="3" height="1" fill="#FFFFFF" />
         <circle cx="0.5" cy="0.5" r="0.25" fill="#FFFFFF" />
         <circle cx="0.6" cy="0.5" r="0.25" fill="#FF0000" />
       </svg>
-    ) 
+    )
   }
 ];
 
 export default function CountriesServe() {
   return (
-    <section className="py-20 lg:py-24 bg-cream-dark/20 border-b border-border animate-fade-in">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8">
-        
+    <section className="py-24 lg:py-32 bg-navy text-white relative overflow-hidden">
+      {/* Atmosphere — echoes the hero */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(11,91,160,0.3),transparent_55%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(197,165,90,0.1),transparent_60%)] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
+
         {/* Section Header */}
-        <div className="mb-10 space-y-4">
-          <h2 className="font-serif text-3xl md:text-4xl font-semibold text-navy leading-tight">
+        <Reveal className="mb-14">
+          <span className="eyebrow eyebrow-light">Global Reach</span>
+          <h2 className="mt-5 font-serif text-[2rem] sm:text-4xl lg:text-[2.75rem] font-semibold tracking-tight text-white leading-tight">
             Countries We Serve
           </h2>
-          <div className="w-12 h-1 bg-gold rounded-full" />
-        </div>
+          <p className="mt-5 text-base text-white/60 leading-relaxed max-w-xl">
+            Wherever your income, entities, or investments sit, we already know
+            the filing rules on both sides.
+          </p>
+        </Reveal>
 
-        {/* Columns lockup with 75% map and 25% countries list */}
+        {/* Map + country list lockup */}
         <div className="flex flex-col lg:flex-row gap-8 items-stretch">
-          
-          {/* Left Column: World Map Image (75% width, 440px locked height on desktop) */}
-          <div className="w-full lg:w-[75%] flex flex-col justify-between">
-            <div className="relative bg-white rounded-2xl border border-border/80 shadow-md p-4 overflow-hidden w-full h-[380px] lg:h-[440px] flex items-center justify-center">
+
+          {/* Left: World Map card */}
+          <Reveal className="w-full lg:w-[72%]">
+            <div className="relative bg-cream rounded-2xl p-4 overflow-hidden w-full h-[380px] lg:h-[460px] flex items-center justify-center shadow-[0_32px_80px_-32px_rgba(0,0,0,0.5)] ring-1 ring-white/15">
               <img
                 src="/images/world_map_served.png"
                 alt="World map showing highlighted countries we serve"
                 className="w-full h-full object-contain rounded-lg"
               />
             </div>
-          </div>
+          </Reveal>
 
-          {/* Right Column: Country Grid List (25% width, responsive layout) */}
-          <div className="w-full lg:w-[25%] flex flex-col justify-between">
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:flex lg:flex-col lg:justify-between lg:h-full w-full h-auto gap-4 lg:gap-0">
-              {SERVED_COUNTRIES.map((c, idx) => (
+          {/* Right: Country list as glass rows */}
+          <Reveal delay={120} className="w-full lg:w-[28%]">
+            <div className="grid grid-cols-2 lg:grid-cols-1 gap-3 lg:h-full lg:content-between">
+              {SERVED_COUNTRIES.map((c) => (
                 <div
-                  key={idx}
-                  className="flex items-center gap-3.5 transition-all duration-300 group h-fit cursor-default py-2"
+                  key={c.name}
+                  className="flex items-center gap-3.5 rounded-xl bg-white/5 border border-white/10 px-4 py-3 transition-all duration-300 hover:border-gold/40 hover:bg-white/10 group cursor-default"
                 >
                   <span className="shrink-0 select-none group-hover:scale-110 transition-transform duration-300">
                     {c.flag}
                   </span>
-                  <span className="text-navy font-semibold text-xs tracking-wider uppercase group-hover:text-gold transition-colors duration-300">
+                  <span className="text-white/85 font-bold text-[13px] tracking-[0.08em] uppercase group-hover:text-gold-light transition-colors duration-300">
                     {c.name}
                   </span>
                 </div>
               ))}
             </div>
-          </div>
-          
+          </Reveal>
+
         </div>
 
-        {/* Global CTA button below the grid block */}
-        <div className="mt-10 text-center lg:text-left">
-          <Link
-            href="/services"
-            className="inline-flex items-center gap-2 rounded-full border border-navy/35 bg-white px-8 py-3.5 text-xs font-bold uppercase tracking-wider text-navy shadow-sm hover:bg-cream-dark hover:border-navy transition-all"
-          >
+        {/* CTA */}
+        <Reveal className="mt-12 text-center lg:text-left">
+          <Link href="/services" className="btn btn-outline-light">
             <span>Explore Global Services</span>
-            <span className="text-sm font-semibold">&rarr;</span>
+            <span aria-hidden="true">&rarr;</span>
           </Link>
-        </div>
+        </Reveal>
 
       </div>
     </section>

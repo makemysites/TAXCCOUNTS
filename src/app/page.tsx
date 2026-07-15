@@ -9,7 +9,8 @@ import CountriesServe from "@/components/home/CountriesServe";
 import ClientProcess from "@/components/home/ClientProcess";
 import Testimonials from "@/components/home/Testimonials";
 import LatestInsights from "@/components/home/LatestInsights";
-import { SEO, FIRM } from "@/lib/firm-content";
+import Reveal from "@/components/shared/Reveal";
+import { SEO, FIRM, FOUNDER } from "@/lib/firm-content";
 
 export const metadata: Metadata = {
   title: SEO.defaultTitle,
@@ -20,67 +21,68 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      
-      {/* ── About Section (Right: Image, Left: Info) ──────────────── */}
-      <section className="py-20 lg:py-24 bg-cream-dark/20 border-b border-border animate-fade-in">
+
+      {/* ── About Section ─────────────────────────────────────────── */}
+      <section className="py-24 lg:py-32 bg-cream">
         <div className="max-w-7xl mx-auto px-6 sm:px-8">
-          <div className="flex flex-col lg:flex-row gap-16 items-center">
-            
+          <div className="flex flex-col lg:flex-row gap-16 lg:gap-20 items-center">
             {/* Left: Copy */}
-            <div className="w-full lg:w-1/2 space-y-6 text-center lg:text-left">
-              <span className="font-serif italic text-accent text-base block">
-                About The Company
+            <Reveal className="w-full lg:w-1/2 text-center lg:text-left">
+              <span className="eyebrow justify-center lg:justify-start">
+                About the Firm
               </span>
-              <h2 className="font-serif text-3xl md:text-4xl font-semibold leading-tight text-navy">
+              <h2 className="mt-6 font-serif text-[2rem] sm:text-4xl lg:text-[2.75rem] font-semibold leading-[1.15] tracking-tight text-navy">
                 Structured accounting systems for cross-border taxpayers.
               </h2>
-              <div className="w-12 h-1 bg-gold rounded-full mx-auto lg:mx-0" />
-              <p className="text-xs md:text-sm text-navy/80 leading-relaxed font-sans">
-                {FIRM.name} was founded by CA Priya Anand, a Chartered Accountant with over 12 years of experience in global taxation. Over that time, the firm has helped hundreds of NRIs and cross-border businesses organize their finances, identify tax optimization points, and navigate regulatory rules.
-              </p>
-              <p className="text-xs md:text-sm text-navy/80 leading-relaxed font-sans">
-                We integrate bookkeeping, tax strategy, payroll, and regulatory compliance (FEMA, RBI, DTAA credits) into a single, cohesive system so your cross-border finances work together seamlessly.
-              </p>
-              <div className="pt-2">
-                <Link
-                  href="/about"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-accent border-b border-accent/20 pb-0.5 hover:text-accent-hover hover:border-accent transition-colors"
-                >
-                  <span>About Our Firm</span>
-                  <span>&rarr;</span>
+              <div className="mt-8 space-y-5 text-[15px] md:text-base text-muted leading-relaxed">
+                <p>
+                  {FIRM.name} was founded by {FOUNDER.name}, a {FOUNDER.qualifications[2]} specializing in accounting and compliance. Our practice supports businesses, startups, and NRIs in organizing their finances, optimizing tax strategies, and navigating cross-border regulatory compliance.
+                </p>
+                <p>
+                  We integrate bookkeeping, tax strategy, payroll, and
+                  regulatory compliance (FEMA, RBI, DTAA credits) into a
+                  single, cohesive system so your cross-border finances work
+                  together seamlessly.
+                </p>
+              </div>
+              <div className="mt-9">
+                <Link href="/about" className="btn btn-navy">
+                  About Our Firm
+                  <span aria-hidden="true">&rarr;</span>
                 </Link>
               </div>
-            </div>
+            </Reveal>
 
-            {/* Right: Representative Image */}
-            <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
-              <div className="relative p-2 bg-white rounded-[140px_0px_140px_0px] border border-border shadow-md w-full max-w-[420px] overflow-hidden">
-                <div className="rounded-[130px_0px_130px_0px] overflow-hidden w-full h-[440px]">
+            {/* Right: Portrait with offset gold frame */}
+            <Reveal delay={120} className="w-full lg:w-1/2 flex justify-center lg:justify-end">
+              <div className="relative w-full max-w-[440px]">
+                <div className="absolute -top-4 -right-4 w-full h-full rounded-2xl border border-gold/50" aria-hidden="true" />
+                <div className="absolute -bottom-5 -left-5 w-36 h-36 rounded-2xl bg-gold/10" aria-hidden="true" />
+                <div className="relative rounded-2xl overflow-hidden shadow-[0_24px_60px_-20px_rgba(6,47,82,0.35)]">
                   <img
                     src="/images/about_company.png"
-                    alt="CA Priya Anand, founder of TAXCCOUNTS, in a professional modern office setting"
-                    className="object-cover w-full h-full"
+                    alt={`${FOUNDER.name}, founder of ${FIRM.name}, in a professional modern office setting`}
+                    className="object-cover w-full h-[460px]"
                   />
                 </div>
               </div>
-            </div>
-
+            </Reveal>
           </div>
         </div>
       </section>
 
       <ServicesPreview />
-      
+
       <WhyChooseUs />
-      
-      <PlatformsWork />
-      
+
       <CountriesServe />
-      
+
       <ClientProcess />
-      
+
       <Testimonials />
-      
+
+      <PlatformsWork />
+
       <LatestInsights />
     </>
   );

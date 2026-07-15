@@ -1,6 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
-import { FIRM, BOOKING } from "@/lib/firm-content";
+import { FIRM, BOOKING, FOUNDER } from "@/lib/firm-content";
 
 export const metadata: Metadata = {
   title: "Simple, Transparent Pricing",
@@ -14,7 +14,7 @@ export default function PricingPage() {
         
         {/* Header Section */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <span className="font-serif italic text-accent text-base block">
+          <span className="eyebrow eyebrow-center justify-center">
             Pricing
           </span>
           <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-semibold text-navy leading-tight">
@@ -42,12 +42,12 @@ export default function PricingPage() {
                 <span className="text-3xl sm:text-4xl font-semibold font-serif text-navy">$300</span>
                 <span className="text-xs text-muted font-sans font-semibold uppercase tracking-wider">/ month</span>
               </div>
-              <p className="text-xs md:text-sm text-navy/85 leading-relaxed font-sans">
+              <p className="text-sm md:text-base text-navy/85 leading-relaxed font-sans">
                 A structured accounting package designed specifically for solo professionals, consultants, and micro-businesses (typically 1–5 employees) with cross-border compliance needs.
               </p>
               <div className="space-y-3">
                 <h3 className="text-xs font-bold text-navy uppercase tracking-wider font-sans">What's Included:</h3>
-                <ul className="space-y-2.5 text-xs text-navy/80 font-sans">
+                <ul className="space-y-2.5 text-sm text-navy/80 font-sans">
                   <li className="flex items-start gap-2">
                     <span className="text-emerald-500 font-bold shrink-0">&#10003;</span>
                     <span>Monthly bookkeeping & bank reconciliations</span>
@@ -80,7 +80,7 @@ export default function PricingPage() {
                 href={BOOKING.calComUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block w-full py-3 bg-accent hover:bg-accent-hover text-white text-center font-bold text-xs uppercase tracking-wider rounded-full shadow transition-all"
+                className="btn btn-navy w-full"
               >
                 Get Started
               </a>
@@ -105,12 +105,12 @@ export default function PricingPage() {
                 <span className="text-3xl sm:text-4xl font-semibold font-serif text-navy">$800</span>
                 <span className="text-xs text-muted font-sans font-semibold uppercase tracking-wider">/ month</span>
               </div>
-              <p className="text-xs md:text-sm text-navy/85 leading-relaxed font-sans">
+              <p className="text-sm md:text-base text-navy/85 leading-relaxed font-sans">
                 For businesses requiring deeper financial oversight and strategic guidance. This includes the full bookkeeping foundation, plus active cash flow forecasting and KPI dashboards.
               </p>
               <div className="space-y-3">
                 <h3 className="text-xs font-bold text-navy uppercase tracking-wider font-sans">What's Included:</h3>
-                <ul className="space-y-2.5 text-xs text-navy/80 font-sans">
+                <ul className="space-y-2.5 text-sm text-navy/80 font-sans">
                   <li className="flex items-start gap-2">
                     <span className="text-emerald-500 font-bold shrink-0">&#10003;</span>
                     <span className="font-semibold text-navy">Everything in Core Accounting System</span>
@@ -133,7 +133,7 @@ export default function PricingPage() {
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-emerald-500 font-bold shrink-0">&#10003;</span>
-                    <span>Priority Slack/WhatsApp support line with CA Priya Anand</span>
+                    <span>Priority Slack/WhatsApp support line with {FOUNDER.shortName}</span>
                   </li>
                 </ul>
               </div>
@@ -156,12 +156,12 @@ export default function PricingPage() {
           <h3 className="font-serif text-2xl font-semibold text-navy mb-4 text-center">
             Compare the Two Plans
           </h3>
-          <p className="text-xs sm:text-sm text-muted text-center max-w-xl mx-auto mb-10 font-sans leading-relaxed">
+          <p className="text-sm md:text-base text-muted text-center max-w-xl mx-auto mb-10 font-sans leading-relaxed">
             Both plans include the full bookkeeping foundation. The CFO Advisory Package adds forward-looking strategy on top of it.
           </p>
           <div className="bg-white rounded-2xl border border-border shadow-sm overflow-hidden">
             <div className="overflow-x-auto">
-              <table className="w-full min-w-[560px] text-left border-collapse font-sans text-xs sm:text-sm">
+              <table className="w-full min-w-[560px] text-left border-collapse font-sans text-sm md:text-base">
                 <thead>
                   <tr className="bg-navy text-white">
                     <th className="px-6 py-4 font-bold uppercase tracking-wider text-xs w-1/2">
@@ -189,7 +189,7 @@ export default function PricingPage() {
                     { feature: "Performance dashboards & monthly strategy calls", core: false, cfo: true },
                     { feature: "Entity structuring & transfer pricing advice", core: false, cfo: true },
                     { feature: "Board-ready reports & fundraising prep", core: false, cfo: true },
-                    { feature: "Priority WhatsApp line with CA Priya Anand", core: false, cfo: true },
+                    { feature: `Priority WhatsApp line with ${FOUNDER.shortName}`, core: false, cfo: true },
                   ].map((row) => (
                     <tr key={row.feature} className="hover:bg-cream/30 transition-colors">
                       <td className="px-6 py-3.5 font-medium">{row.feature}</td>
@@ -229,7 +229,7 @@ export default function PricingPage() {
           <h3 className="font-serif text-2xl font-semibold text-navy mb-4 text-center">
             Specialized One-Time Compliance Services
           </h3>
-          <p className="text-xs sm:text-sm text-muted text-center max-w-xl mx-auto mb-12 font-sans leading-relaxed">
+          <p className="text-sm md:text-base text-muted text-center max-w-xl mx-auto mb-12 font-sans leading-relaxed">
             Need support with specific cross-border tasks rather than monthly books? We offer fixed-price filings and custom consulting engagements.
           </p>
           
@@ -351,7 +351,7 @@ export default function PricingPage() {
           {/* Cleanup Note */}
           <div className="bg-cream-dark/60 rounded-2xl border border-border p-8 text-center space-y-3 max-w-2xl mx-auto">
             <h3 className="font-serif text-lg font-bold text-navy">One-Time Setup & Historical Cleanup Work</h3>
-            <p className="text-xs md:text-sm text-navy/80 font-sans leading-relaxed">
+            <p className="text-sm md:text-base text-navy/80 font-sans leading-relaxed">
               If your books are behind by several months or require significant historical cleanup, we handle this as a separate, one-time project before the monthly service cycle begins. We will quote a fixed project fee after reviewing your records.
             </p>
           </div>

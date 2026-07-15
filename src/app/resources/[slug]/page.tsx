@@ -71,7 +71,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-navy leading-tight">
               {post.title}
             </h1>
-            <div className="flex items-center gap-3 text-xs sm:text-sm text-muted pt-2">
+            <div className="flex items-center gap-3 text-sm md:text-base text-muted pt-2">
               <span className="font-semibold text-navy/90">{post.author}</span>
               <span className="text-gray-300">&bull;</span>
               <span>{formatDate(post.date)}</span>
@@ -97,7 +97,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                     <h3 className="text-xs font-bold text-navy uppercase tracking-wider mb-3">
                       Table of Contents
                     </h3>
-                    <ul className="space-y-2 text-xs sm:text-sm">
+                    <ul className="space-y-2 text-sm md:text-base">
                       {headings.map((h) => (
                         <li key={h.id}>
                           <a
@@ -133,19 +133,19 @@ export default async function BlogPostPage({ params }: PageProps) {
           <div className="mt-12 pt-8 border-t border-border flex flex-col sm:flex-row items-start gap-6 bg-cream p-6 rounded-xl border border-border/60">
             <div className="shrink-0 w-12 h-12 rounded-full border border-border overflow-hidden bg-white flex items-center justify-center shadow-xs">
               <img
-                src="/images/team_priya.png"
+                src={FOUNDER.photoUrl}
                 alt={FOUNDER.name}
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="space-y-2 text-xs sm:text-sm font-sans">
+            <div className="space-y-2 text-sm md:text-base font-sans">
               <div className="font-bold text-navy text-base">{FOUNDER.name}</div>
               <div className="text-xs text-muted font-medium">{FOUNDER.title}</div>
               <p className="text-muted leading-relaxed">
-                Priya Anand is the principal advisor at TAXCCOUNTS, chartered accountants. She specializes in US–India cross-border taxation, helping NRIs and companies structure their assets and compliance correctly.
+                {FOUNDER.name} is the founder of {FIRM.name}. He specializes in cross-border taxation, helping NRIs, startups and global companies structure their compliance and assets correctly.
               </p>
               <Link href="/about" className="text-xs font-bold text-accent hover:underline block pt-1">
-                Read Principal Bio &rarr;
+                Read Founder Bio &rarr;
               </Link>
             </div>
           </div>
